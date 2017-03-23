@@ -20,8 +20,8 @@ class Index_page extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('header');
-		$this->load->view('navbar');
-		$this->load->view('index_page');
+			$this->load->view('header');
+			$this->load->view('navbar');
+			$this->load->view('index_page');
 	}
 }
