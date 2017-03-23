@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Regis extends CI_Controller {
+class Directory_page extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -22,6 +22,6 @@ class Regis extends CI_Controller {
 	{
 		$this->load->view('header');
 		$this->load->view('navbar');
-		$this->load->view('info_regis');
+		$this->load->view('directory');
 	}
 }
