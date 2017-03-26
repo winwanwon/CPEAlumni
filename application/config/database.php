@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'winwanwon.in.th',
-	'username' => 'winwanwoni_alum',
-	'password' => 'Cpecpe28',
-	'database' => 'winwanwoni_alum',
+	'hostname' => 'localhost',
+	'username' => '',
+	'password' => '',
+	'database' => 'cpe_alumni',
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
