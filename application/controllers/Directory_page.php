@@ -30,7 +30,8 @@ class Directory_page extends CI_Controller {
 	public function index()
 	{
 
-		$data['wow'] = $this->directory_model->getData();
+		$array = $this->directory_model->getData();
+		$data["wow"] = $array;
 
 		$this->load->view('header');
 		$this->load->view('navbar');
