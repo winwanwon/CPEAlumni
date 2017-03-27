@@ -1,0 +1,55 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin:0 !important;
+  padding:0 !important;
+  font-family: 'Prompt', sans-serif;
+  color: #FFF;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: 200;
+}
+
+body {
+  background: url('http://www.winwanwon.in.th/3decades_profile/images/bg.png') center center no-repeat;
+  background-size: cover;
+}
+
+body:before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(#3d4c5a 0%, #5cc1b2 100%);
+  opacity: .8;
+}
+
+.navbar-brand-bold{
+  font-size: 22pt;
+  font-weight:400;
+  letter-spacing: 2px;
+}
+
+.navbar-brand-light{
+  font-size: 24pt;
+  font-weight:100;
+  letter-spacing: 2px;
+}
+
+.navbar-trans {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 0;
+  border-bottom: 1px solid #FFF;
+  padding: 15px 0 3px 0;
+  margin: 0 auto;
+}
+
+@media screen and (max-width:768px){
+  .navbar-trans {
+    padding: 15px 0 8px 0;
+  }
+}

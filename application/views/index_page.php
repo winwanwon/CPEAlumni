@@ -3,12 +3,14 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
 <div class="container">
   <div class="row">
-    <div class="col-md-6 text-center">
+    <div class="col-md-6">
+      <h1>Events</h1>
+      <br>
       <img src="http://placehold.it/1600x900" class="img-responsive">
     </div>
     <div class="col-md-6">
-      <h2>Current Student / Alumni Registration</h2>
-      <hr>
+      <h1>Registration</h1>
+      <br>
       <?php
       $attr = array("class" => "form-inline");
       echo validation_errors();
@@ -73,7 +75,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
     </div>
   </div>
-
+</div>
 </div>
 </div>
 </div>
