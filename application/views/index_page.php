@@ -15,6 +15,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         echo "<div class='alert alert-trans'>".$error."</div>";
       }
       echo form_open('register', $attr);
+
+      //<form action="register" class="form-inline">
+
       ?>
       <div class="form-group">
         <div class="form-inline">
