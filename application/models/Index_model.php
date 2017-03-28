@@ -12,13 +12,15 @@ class Index_model extends CI_Model {
           $this->db->from('student');
           $query = $this->db->get();
 
+          foreach($query->result_array() AS $row) {
+              $password = $row['password'];
+          }
 
-
-          if (strcasecmp(sha1($this->input->post('password')), $query["password"]->result_array()) == 0){
-            return true;
+          if (sha1($this->input->post('password')) == $password){
+            return TRUE;
           }
           else {
-            return false;
+            return FALSE;
           }
 				}
 }
