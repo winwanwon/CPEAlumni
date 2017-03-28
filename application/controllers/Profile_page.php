@@ -28,6 +28,9 @@ class Profile_page extends CI_Controller {
 		$this->load->view('profile');
 		$this->load->view('footer');
 	}
+<<<<<<< HEAD
+	public function addContent()
+=======
 
 	public function edit($slug = ''){
 		$this->load->library('session');
@@ -67,6 +70,7 @@ class Profile_page extends CI_Controller {
 	}
 
 	public function addcontent()
+>>>>>>> origin/master
 	{
 		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
