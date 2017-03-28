@@ -32,7 +32,10 @@ class Directory_page extends CI_Controller {
 
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->library('session');
+		$data["industry"] = $this->filter_model->loadIndustry();
+		$data["business"] = $this->filter_model->loadBusiness();
 		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('directory', $data);

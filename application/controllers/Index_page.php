@@ -63,17 +63,25 @@ class Index_page extends CI_Controller {
 		}
 		else
 		{
-			//$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
-			$this->profile_model->loginUser();
-			// $firstname =
-			// $lastname =
+			$login_success = $this->index_model->login();
+			$firstname = "Warat";
+			$lastname = "Kaweepornpoj";
 			$userdata = array(
-					"username" => $this->input->post("username"),
-					"firstname" => $firstname,
-					"lastname" => $lastname
+				"username" => $this->input->post("username"),
+				"firstname" => $firstname,
+				"lastname" => $lastname
 			);
-			$this->session->set_userdata($userdata);
-			$this->load->view('directory');
+
+			if($login_success == TRUE){
+				$this->session->set_userdata($userdata);
+				redirect('directory');
+			} else {
+				$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
+				$this->load->view('header');
+				$this->load->view('navbar', $data);
+				$this->load->view('login', $data);
+				$this->load->view('footer');
+			}
 		}
 	}
 
@@ -107,9 +115,9 @@ class Index_page extends CI_Controller {
 		else
 		{
 			$userdata = array(
-					"username" => $this->input->post("username"),
-					"firstname" => $this->input->post("firstname"),
-					"lastname" => $this->input->post("lastname")
+				"username" => $this->input->post("username"),
+				"firstname" => $this->input->post("firstname"),
+				"lastname" => $this->input->post("lastname")
 			);
 			$this->session->set_userdata($userdata);
 			$this->profile_model->createUser();
@@ -119,7 +127,7 @@ class Index_page extends CI_Controller {
 	}
 
 	public function logout(){
-	$this->load->library('session');
+		$this->load->library('session');
 		$this->session->sess_destroy();
 		redirect('/');
 	}

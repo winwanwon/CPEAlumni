@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="form-group">
         <div class="form-inline">
           <select name="prefix" class="form-control">
-            <option value="1">Mr.</option>
-            <option value="2">Ms.</option>
-            <option value="3">Mrs.</option>
+            <option value="Mr">Mr.</option>
+            <option value="Ms">Ms.</option>
+            <option value="Mrs">Mrs.</option>
           </select>
           <input type="text" name="firstname" class="form-control" placeholder="First Name">
           <input type="text" name="lastname" class="form-control" placeholder="Last Name">
