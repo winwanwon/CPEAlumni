@@ -44,6 +44,10 @@ public function updateUser(){
       'picture' => $this->input->post('picture') ,
       'permission' => $this->input->post('permission') ,
       'phone' => $this->input->post('phone') ,
+      'programme' => $this->input->post('programme') ,
+      'generation' => $this->input->post('generation') ,
+      'master' => $this->input->post('master') ,
+      'doctoral' => $this->input->post('doctoral') ,
     );
     $this->db->where('username', $student);
     $this->db->update('student', $data);
