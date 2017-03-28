@@ -9,7 +9,7 @@ class Profile_model extends CI_Model {
   public function createUser(){
 
     $data = array(
-      'nameTitle' => $this->input->post('username'),
+      'nameTitle' => $this->input->post('prefix'),
       'fName' => $this->input->post('firstname'),
       'lName' => $this->input->post('lastname'),
       'username' => $this->input->post('username'),

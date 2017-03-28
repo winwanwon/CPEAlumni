@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="email" name="email" class="form-control" placeholder="Email">
       </div>
 
-      <button id="register" class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="YourOnSubmitFn">
+      <button id="register" class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="register">
         Register
       </button>
 

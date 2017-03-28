@@ -9,7 +9,7 @@ echo form_open('login', $attr);
         <h2>เข้าสู่ระบบ CPE Alumni</h2>
       </div>
       <?php
-      $attr = array("class" => "form-horizontal");
+      $attr = array("class" => "form-horizontal", "id" => "loginForm");
       echo form_open('login', $attr);
       ?>
       <?php
@@ -24,7 +24,9 @@ echo form_open('login', $attr);
         <input type="password" name="password" class="form-control" placeholder="Password">
       </div>
       <div class="form-group">
-        <input type="submit" class="btn btn-block btn-trans" value="Login">
+        <button id="register" class="g-recaptcha btn btn-block btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="login">
+          Register
+        </button>
       </div>
       <div class="form-group">
         <a href="/register">สมัครใช้งาน CPE Alumni</a>

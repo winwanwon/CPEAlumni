@@ -4,9 +4,15 @@ $(window).on('load', function() {
   $("body").removeClass("preload");
 });
 
-$("#register").click( function(){
-  $( "#registerForm" ).submit();
-})
+function register(){
+  $("#registerForm").submit();
+};
+
+function login(){
+  $("#loginForm").submit();
+};
 </script>
+
+
 </body>
 </html>
