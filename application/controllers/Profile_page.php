@@ -24,5 +24,6 @@ class Profile_page extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('profile');
+		$this->load->view('footer');
 	}
 }

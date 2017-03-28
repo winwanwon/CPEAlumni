@@ -37,9 +37,11 @@ class Index_page extends CI_Controller {
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('index_page', $data);
+		$this->load->view('footer');
 	}
 
 	public function login(){
+		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -47,19 +49,21 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		if ($this->form_validation->run() === FALSE)
 		{
-			$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
 			$this->load->view('header');
 			$this->load->view('navbar', $data);
 			$this->load->view('login', $data);
+			$this->load->view('footer');
 		}
 		else
 		{
+			//$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
 			$this->profile_model->loginUser();
 			$this->load->view('directory');
 		}
 	}
 
 	public function register(){
+		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
@@ -78,6 +82,7 @@ class Index_page extends CI_Controller {
 			$this->load->view('header');
 			$this->load->view('navbar', $data);
 			$this->load->view('index_page', $data);
+			$this->load->view('footer');
 		}
 		else
 		{
