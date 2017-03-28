@@ -98,6 +98,7 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('lastname', 'Last name', 'required');
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('password_confirm', 'Comfirm Password', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 
 		if($this->input->post('undergraduate') == "true"){
@@ -107,6 +108,13 @@ class Index_page extends CI_Controller {
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data["error"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('index_page', $data);
+			$this->load->view('footer');
+		}
+		else if ($this->input->post('password') != $this->input->post('password_confirm')){
+			$data["error"] = "รหัสผ่านไม่ตรงกัน";
 			$this->load->view('header');
 			$this->load->view('navbar', $data);
 			$this->load->view('index_page', $data);

@@ -19,6 +19,15 @@ public function createUser(){
       $doctoral = 1;
     }
 
+    if($this->input->post('undergraduate') == NULL){
+      $generation = "";
+      $programme = "";
+    } else {
+      $generation = $this->input->post('generation');
+      $programme = $this->input->post('program');
+    }
+
+
     $data = array(
       'nameTitle' => $this->input->post('prefix'),
       'fName' => $this->input->post('firstname'),
@@ -26,8 +35,8 @@ public function createUser(){
       'username' => $this->input->post('username'),
       'password' => sha1($this->input->post('password')),
       'email' => $this->input->post('email'),
-      'generation' => $this->input->post('generation'),
-      'programme' => $this->input->post('program'),
+      'generation' => $generation,
+      'programme' => $programme,
       'master' => $master,
       'doctoral' => $doctoral
     );
