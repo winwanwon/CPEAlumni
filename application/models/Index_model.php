@@ -7,6 +7,16 @@ class Index_model extends CI_Model {
         }
 
 				public function login(){
-	        
+          $this->db->where('username', $this->input->post('username'));
+          $this->db->select('password');
+          $this->db->from('student');
+          $query = $this->db->get();
+
+          if ( sha1($this->input->post('password')) == $query->result_array() ) {
+            return true;
+          }
+          else {
+            return false;
+          }
 				}
 }

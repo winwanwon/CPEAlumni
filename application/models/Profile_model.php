@@ -21,7 +21,7 @@ public function createUser(){
   }
 
 public function getUser(){
-    $query = $this->db->get_where('student', array('username' => post('username')));
+    $query = $this->db->get_where('student', array('username' => sha1($this->input->post('password'))));
     return $query->result();
 }
 
