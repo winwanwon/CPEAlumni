@@ -18,6 +18,7 @@ class Index_model extends CI_Model {
 
           if (sha1($this->input->post('password')) == $password){
             return TRUE;
+            
           }
           else {
             return FALSE;
