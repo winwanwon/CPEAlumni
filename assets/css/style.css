@@ -12,6 +12,16 @@ h1,h2,h3,h4,h5,h6{
   margin-bottom: 0.5em;
 }
 
+a, a:focus, a:active {
+  color: #ECECEC !important;
+  text-decoration:none;
+}
+
+a:hover {
+  color: #FFF !important;
+  text-decoration: none;
+}
+
 body {
   background: url('http://www.winwanwon.in.th/3decades_profile/images/bg.png') center center;
   background-size: cover;
@@ -41,12 +51,14 @@ body:before {
   font-size: 22pt;
   font-weight:400;
   letter-spacing: 2px;
+  line-height: 49px;
 }
 
 .navbar-brand-light{
   font-size: 24pt;
   font-weight:100;
   letter-spacing: 2px;
+  line-height: 49px;
 }
 
 .navbar-trans {
@@ -72,6 +84,12 @@ body:before {
   margin-bottom: -4px;
 }
 
+.alert-trans {
+  background: rgba(0,0,0,0.4) !important;
+  margin: 15px 0;
+  line-height: 8px;
+  font-size: 10pt;
+}
 
 .btn-trans, .btn-trans:focus, .btn-trans:active {
   background: rgba(0,0,0,0);

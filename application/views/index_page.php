@@ -10,8 +10,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
     <div class="col-md-6">
       <h1>Registration</h1>
       <?php
-      $attr = array("class" => "");
-      echo validation_errors();
+      $attr = array("id" => "registerForm");
+      if($error){
+        echo "<div class='alert alert-trans'>".$error."</div>";
+      }
       echo form_open('register', $attr);
       ?>
       <div class="form-group">
@@ -38,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="email" name="email" class="form-control" placeholder="Email">
       </div>
 
-      <button class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="YourOnSubmitFn">
+      <button id="register" class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="YourOnSubmitFn">
         Register
       </button>
 
@@ -79,6 +81,10 @@ Graduate Degree
 $(window).on('load', function() {
   $("body").removeClass("preload");
 });
+
+$("#register").click( function(){
+  $( "#registerForm" ).submit();
+})
 </script>
 </body>
 </html>

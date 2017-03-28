@@ -7,7 +7,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<nav class="navbar navbar-trans">
 				<!-- Brand and toggle get grouped for better mobile display -->
 				<div class="navbar-header">
-					<span class="navbar-brand-bold">CPE</span> <span class="navbar-brand-light">Alumni</span>
+					<a href="<?php echo base_url(); ?>"><span class="navbar-brand-bold">CPE</span> <span class="navbar-brand-light">Alumni</span></a>
 				</div>
 
 				<!-- Collect the nav links, forms, and other content for toggling -->
@@ -16,12 +16,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 					</form>
 					<ul class="nav navbar-nav navbar-right">
-						<?php if ($current_page == ""):?>
+						<?php if ($current_page == "" || $current_page == "register"):?>
 							<!-- Index_page -->
 							<?php
 							$attr = array("class" => "");
-							echo validation_errors();
-							echo form_open('register', $attr);
+							echo form_open('login', $attr);
 							?>
 							<div class="form-group">
 								<div class="form-inline form-login">
@@ -31,16 +30,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								</div>
 							</div>
 						</form>
-						<?php else: ?>
+					<?php elseif($current_page == "login"): ?>
+					<?php else: ?>
 							<li class="dropdown">
 								 <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 									 KARIS MATCHAPARN <span class="caret"></span>
 								 </a>
 								 <ul class="dropdown-menu">
-									 <li><a href="#">Account Setting</a></li>
-									 <li><a href="#">Edit Profile</a></li>
+									 <li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Account Setting</a></li>
+									 <li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit Profile</a></li>
 									 <li role="separator" class="divider"></li>
-									 <li><a href="#">Log out</a></li>
+									 <li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a></li>
 								 </ul>
 							 </li>
 						<?php endif; ?>

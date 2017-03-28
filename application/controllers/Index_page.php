@@ -29,19 +29,40 @@ class Index_page extends CI_Controller {
 
 	public function index()
 	{
-		$data["current_page"] = $this->uri->segment(1); 
+		$data["error"] = "";
+		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
-		$this->load->view('index_page');
+		$this->load->view('index_page', $data);
+	}
+
+	public function login(){
+		$data["current_page"] = $this->uri->segment(1);
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		if ($this->form_validation->run() === FALSE)
+		{
+			$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('login', $data);
+		}
+		else
+		{
+			$this->profile_model->loginUser();
+			$this->load->view('directory');
+		}
 	}
 
 	public function register(){
+		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-
 		//	Format คือ
 		// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
 		$this->form_validation->set_rules('prefix', 'Name prefix', 'required');
@@ -53,7 +74,10 @@ class Index_page extends CI_Controller {
 
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('profile');
+			$data["error"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('index_page', $data);
 		}
 		else
 		{
