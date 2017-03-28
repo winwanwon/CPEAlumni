@@ -77,11 +77,12 @@ class Index_page extends CI_Controller {
 				redirect('directory');
 			} else {
 				$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
-				$this->load->view('header');
-				$this->load->view('navbar', $data);
-				$this->load->view('login', $data);
-				$this->load->view('footer');
+				redirect('login');
 			}
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('login', $data);
+			$this->load->view('footer');
 		}
 	}
 

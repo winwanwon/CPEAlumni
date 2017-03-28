@@ -9,6 +9,7 @@ function register(){
 };
 
 function login(){
+  console.log("Logging In..")
   $("#loginForm").submit();
 };
 
