@@ -1,8 +1,7 @@
 <div class="container">
-
   <?php
-    foreach ($wow as $item){
-      echo $item["interest"];
-    }
+  foreach($test as $item){
+    echo $item["industry"]."<br>";
+  }
   ?>
 </div>

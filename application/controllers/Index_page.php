@@ -24,22 +24,60 @@ class Index_page extends CI_Controller {
 		parent::__construct();
 		$this->load->model('profile_model');
 		$this->load->helper('url_helper');
+		$this->load->helper('html');
 	}
 
 	public function index()
 	{
+		$this->load->library('session');
+		$data["error"] = "";
+		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
 		$this->load->view('header');
-		$this->load->view('navbar');
-		$this->load->view('index_page');
+		$this->load->view('navbar', $data);
+		$this->load->view('index_page', $data);
+		$this->load->view('footer');
+	}
+
+	public function login(){
+		$data["error"] = "";
+		$data["current_page"] = $this->uri->segment(1);
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$this->load->library('session');
+		$this->form_validation->set_rules('username', 'Username', 'required');
+		$this->form_validation->set_rules('password', 'Password', 'required');
+		if ($this->form_validation->run() === FALSE)
+		{
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('login', $data);
+			$this->load->view('footer');
+		}
+		else
+		{
+			//$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
+			$this->profile_model->loginUser();
+			// $firstname =
+			// $lastname =
+			$userdata = array(
+					"username" => $this->input->post("username"),
+					"firstname" => $firstname,
+					"lastname" => $lastname
+			);
+			$this->session->set_userdata($userdata);
+			$this->load->view('directory');
+		}
 	}
 
 	public function register(){
+		$data["error"] = "";
+		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-
+		$this->load->library('session');
 		//	Format คือ
 		// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
 		$this->form_validation->set_rules('prefix', 'Name prefix', 'required');
@@ -48,15 +86,24 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
-
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->load->view('profile');
+			$data["error"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('index_page', $data);
+			$this->load->view('footer');
 		}
 		else
 		{
+			$userdata = array(
+					"username" => $this->input->post("username"),
+					"firstname" => $this->input->post("firstname"),
+					"lastname" => $this->input->post("lastname")
+			);
+			$this->session->set_userdata($userdata);
 			$this->profile_model->createUser();
-			$this->load->view('profile');
+			redirect('profile/edit/new');
 		}
 
 	}

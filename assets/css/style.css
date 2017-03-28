@@ -1,0 +1,123 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  margin:0 !important;
+  padding:0 !important;
+  font-family: 'Prompt', sans-serif;
+  color: #FFF;
+}
+
+h1,h2,h3,h4,h5,h6{
+  font-weight: 200;
+  margin-bottom: 0.5em;
+}
+
+a, a:focus, a:active {
+  color: #ECECEC !important;
+  text-decoration:none;
+}
+
+a:hover {
+  color: #FFF !important;
+  text-decoration: none;
+}
+
+body {
+  background: url('http://www.winwanwon.in.th/3decades_profile/images/bg.png') center center;
+  background-size: cover;
+}
+
+body:before {
+  content: " ";
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  background: -webkit-linear-gradient(#3d4c5a 0%, #5cc1b2 100%);
+  background-attachment: fixed;
+  opacity: .8;
+}
+
+.preload * {
+  -webkit-transition: none !important;
+  -moz-transition: none !important;
+  -ms-transition: none !important;
+  -o-transition: none !important;
+}
+
+.navbar-brand-bold{
+  font-size: 22pt;
+  font-weight:400;
+  letter-spacing: 2px;
+  line-height: 49px;
+}
+
+.navbar-brand-light{
+  font-size: 24pt;
+  font-weight:100;
+  letter-spacing: 2px;
+  line-height: 49px;
+}
+
+.navbar-trans {
+  background: rgba(0, 0, 0, 0);
+  border-radius: 0;
+  border-bottom: 1px solid #FFF;
+  padding: 15px 0 3px 0;
+  margin: 0 auto;
+}
+
+.form-control {
+  border: 0;
+  background: rgba(0,0,0,0.4);
+  color: #FFF;
+}
+
+.form-control:focus {
+  box-shadow: none;
+}
+
+.form-login {
+  margin-top: 5px;
+  margin-bottom: -4px;
+}
+
+.alert-trans {
+  background: rgba(0,0,0,0.4) !important;
+  margin: 15px 0;
+  line-height: 8px;
+  font-size: 10pt;
+}
+
+.btn-trans, .btn-trans:focus, .btn-trans:active {
+  background: rgba(0,0,0,0);
+  color: #FFF;
+  border-radius: 15px;
+  padding-left: 40px;
+  padding-right: 40px;
+  border: 1px solid #FFF;
+  transition: 0.2s all ease-in-out;
+}
+
+.btn-trans:hover {
+  color: #FFF;
+  background: rgba(0,0,0,0.4);
+}
+
+.nav > li > a {
+  color: #EEE;
+  text-decoration: none;
+  background-color: rgba(0,0,0,0) !important;
+}
+
+.nav > li > a:hover {
+  color: #FFF;
+}
+
+@media screen and (max-width:768px){
+  .navbar-trans {
+    padding: 15px 0 8px 0;
+  }
+}

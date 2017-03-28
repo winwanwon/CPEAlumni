@@ -51,7 +51,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $route['default_controller'] = 'index_page';
 $route['register'] = 'index_page/register';
+$route['login'] = 'index_page/login';
 $route['profile'] = 'profile_page';
+$route['profile/edit'] = 'profile_page/edit';
+$route['profile/edit/new'] = 'profile_page/edit/new';
+$route['profile/work'] = 'profile_page/work';
+$route['profile/work/new'] = 'profile_page/work/new';
 $route['directory'] = 'directory_page';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['filterbus'] = 'directory_page/filter_bus';
