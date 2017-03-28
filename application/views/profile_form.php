@@ -20,7 +20,6 @@
           </div>
         </div>
 
-        <?php if(!$new_regis): ?>
         <div class="form-group">
           <label class="col-sm-3 control-label">First name</label>
           <div class="col-sm-9">
@@ -33,7 +32,6 @@
             <input name="lastname" type="text" class="form-control">
           </div>
         </div>
-      <?php endif; ?>
         <div class="form-group">
           <label class="col-sm-3 control-label">Profile Picture</label>
           <div class="col-sm-9">
