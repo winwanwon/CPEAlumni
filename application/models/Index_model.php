@@ -12,6 +12,8 @@ class Index_model extends CI_Model {
           $this->db->from('student');
           $query = $this->db->get();
 
+
+
           if (strcasecmp(sha1($this->input->post('password')), $query["password"]->result_array()) == 0){
             return true;
           }
