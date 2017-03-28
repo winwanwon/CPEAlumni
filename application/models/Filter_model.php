@@ -6,7 +6,8 @@ class Filter_model extends CI_Model {
     $this->load->database();
   }
   public function loadBusiness(){
-      $query = $this->db->get('business_type');
+    $this->db->group_by('industry');
+    $query = $this->db->get('business_type');
       return $query->result_array();
   }
   public function loadCareer(){
