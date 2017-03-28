@@ -23,6 +23,7 @@ class Index_page extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('profile_model');
+		$this->load->model('index_model');
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
 	}
