@@ -1,7 +1,11 @@
 <div class="container">
   <?php
-  foreach($test as $item){
+  foreach($industry as $item){
     echo $item["industry"]."<br>";
+  }
+  echo "<br><br>";
+  foreach($business as $item){
+    echo $item["businessType"]."<br>";
   }
   ?>
 </div>
