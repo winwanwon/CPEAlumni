@@ -29,10 +29,10 @@ class Directory_page extends CI_Controller {
 
 	public function index()
 	{
-		$data["current_page"] = $this->uri->segment(1);
-		$array = $this->directory_model->getData();
-		$data["wow"] = $array;
 
+		$data["current_page"] = $this->uri->segment(1);
+		$this->load->library('session');
+		$data["name"] = $this->session->firstname." ".$this->session->lastname;
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('directory', $data);

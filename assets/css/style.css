@@ -24,11 +24,13 @@ a:hover {
 
 body {
   background: url('http://www.winwanwon.in.th/3decades_profile/images/bg.png') center center;
+  background-attachment: fixed;
   background-size: cover;
 }
 
 body:before {
   content: " ";
+  display: block;
   width: 100%;
   height: 100%;
   position: absolute;

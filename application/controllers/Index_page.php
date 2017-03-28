@@ -30,6 +30,10 @@ class Index_page extends CI_Controller {
 	public function index()
 	{
 		$this->load->library('session');
+		$username = $this->session->username;
+		if($username){
+			redirect('directory');
+		}
 		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
@@ -86,6 +90,11 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
+
+		if($this->input->post('undergraduate') == "true"){
+			$this->form_validation->set_rules('generation', 'Generation', 'required');
+		}
+
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data["error"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
@@ -106,5 +115,11 @@ class Index_page extends CI_Controller {
 			redirect('profile/edit/new');
 		}
 
+	}
+
+	public function logout(){
+	$this->load->library('session');
+		$this->session->sess_destroy();
+		redirect('/');
 	}
 }

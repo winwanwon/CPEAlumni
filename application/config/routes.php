@@ -52,6 +52,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $route['default_controller'] = 'index_page';
 $route['register'] = 'index_page/register';
 $route['login'] = 'index_page/login';
+$route['logout'] = 'index_page/logout';
 $route['profile'] = 'profile_page';
 $route['profile/edit'] = 'profile_page/edit';
 $route['profile/edit/new'] = 'profile_page/edit/new';
