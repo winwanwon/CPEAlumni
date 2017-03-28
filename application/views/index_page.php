@@ -46,19 +46,19 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         Currently enrolled / Degree from CPE KMUTT
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="undergraduate" id="undergraduate" value="true">
+              <input type="checkbox" name="undergraduate" id="undergraduate" value="1">
               Undergraduate Degree
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="master" id="master" value="true">
+              <input type="checkbox" name="master" id="master" value="1">
               Master Degree
             </label>
           </div>
           <div class="checkbox">
             <label>
-              <input type="checkbox" name="doctoral" id="doctoral" value="true">
+              <input type="checkbox" name="doctoral" id="doctoral" value="1">
               Doctoral Degree
             </label>
           </div>

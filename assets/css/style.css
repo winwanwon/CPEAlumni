@@ -23,12 +23,12 @@ a:hover {
 }
 
 body {
-  background: url('http://www.winwanwon.in.th/3decades_profile/images/bg.png') center center;
+  background: url('http://www.winwanwon.in.th/BGwOverlay.jpg') center center;
   background-attachment: fixed;
   background-size: cover;
 }
 
-body:before {
+/*body:before {
   content: " ";
   display: block;
   width: 100%;
@@ -40,7 +40,7 @@ body:before {
   background: -webkit-linear-gradient(#3d4c5a 0%, #5cc1b2 100%);
   background-attachment: fixed;
   opacity: .8;
-}
+}*/
 
 .preload * {
   -webkit-transition: none !important;
