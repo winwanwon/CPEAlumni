@@ -1,12 +1,11 @@
 <?php
-class Profile_model extends CI_Model {
+class Filter_model extends CI_Model {
 
   public function __construct()
   {
     $this->load->database();
   }
   public function loadBusiness(){
-      $this->db->distinct();
       $query = $this->db->get('business_type');
       return $query->result_array();
   }
