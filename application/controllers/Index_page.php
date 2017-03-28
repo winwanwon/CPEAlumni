@@ -29,11 +29,12 @@ class Index_page extends CI_Controller {
 
 	public function index()
 	{
+		$data["current_page"] = $this->uri->segment(1); 
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 
 		$this->load->view('header');
-		$this->load->view('navbar');
+		$this->load->view('navbar', $data);
 		$this->load->view('index_page');
 	}
 

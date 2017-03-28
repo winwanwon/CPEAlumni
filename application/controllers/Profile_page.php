@@ -20,8 +20,9 @@ class Profile_page extends CI_Controller {
 	 */
 	public function index()
 	{
+		$data["current_page"] = $this->uri->segment(1);
 		$this->load->view('header');
-		$this->load->view('navbar');
+		$this->load->view('navbar', $data);
 		$this->load->view('profile');
 	}
 }
