@@ -20,13 +20,41 @@ class Profile_page extends CI_Controller {
 	 */
 	public function index()
 	{
+		$this->load->library('session');
+		$data["name"] = $this->session->firstname." ".$this->session->lastname;
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('profile');
 		$this->load->view('footer');
 	}
+<<<<<<< HEAD
 	public function addContent()
+=======
+
+	public function edit($slug = ''){
+		$this->load->library('session');
+		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		// ข้อมูลส่วนตัว ชื่อ ที่อยู่
+		$data["current_page"] = $this->uri->segment(1);
+		if($slug == "new"){
+			$data["new_regis"] = true;
+		} else {
+			$data["new_regis"] = false;
+		}
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('profile_form', $data);
+			$this->load->view('footer');
+	}
+
+	public function setting(){
+		// รหัสผ่าน อีเมล privacy ฯลฯ
+
+	}
+
+	public function addcontent()
+>>>>>>> origin/master
 	{
 		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
