@@ -39,14 +39,14 @@ public function updateUser(){
       'address' => $this->input->post('address'),
       'province' => $this->input->post('province'),
       'country' => $this->input->post('country'),
-      'facebook' => ($this->input->post('facebook')),
+      'facebook' => $this->input->post('facebook'),
       'linkedin' => $this->input->post('linkedin') ,
       'picture' => $this->input->post('picture') ,
       'permission' => $this->input->post('permission') ,
+      'phone' => $this->input->post('phone') ,
     );
     $this->db->where('username', $student);
     $this->db->update('student', $data);
    //return $this->db->insert('student', $data);
   }
 }
-
