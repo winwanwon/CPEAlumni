@@ -36,6 +36,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						<ul class="dropdown-menu">
 							<li><a href="#"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Account Setting</a></li>
 							<li><a href="#"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit Profile</a></li>
+							<li><a href="#"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Edit Work</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a></li>
 						</ul>

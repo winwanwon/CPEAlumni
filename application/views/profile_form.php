@@ -3,7 +3,7 @@
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
         <div class="col-xs-6">
-          <h2>Additional Information</h2>
+          <h2>Profile Information</h2>
         </div>
         <div class="col-xs-6 text-right">
         <?php if($new_regis == true): ?>
