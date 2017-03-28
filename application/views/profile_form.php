@@ -2,14 +2,16 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <div class="col-xs-10">
-          <h3>Additional Information</h3>
+        <div class="col-xs-6">
+          <h2>Additional Information</h2>
         </div>
-        <div class="col-xs-2">
-          <a href="dashboard.php"><h3>Skip >></h3></a>
+        <div class="col-xs-6 text-right">
+        <?php if($new_regis == true): ?>
+          <h5><a href="#" style="line-height: 50px;">กรอกข้อมูลภายหลัง ></a></h5>
+        <?php endif;?>
         </div>
+
       </div>
-      <hr>
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
       <div class="form-horizontal">
         <div class="form-group">
@@ -20,37 +22,37 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Profile Picture</label>
           <div class="col-sm-9">
-            <input type="file" class="form-control">
+            <input name="profile_image" type="file" class="form-control">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Nickname</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control">
+            <input name="nickname" type="text" class="form-control">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Mobile Phone</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control">
+            <input name="mobile" type="text" class="form-control">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Facebook URL</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/">
+            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/">
           </div>
         </div>
-        <div class="form-group">
+        <!-- div class="form-group">
           <label class="col-sm-3 control-label">Preferred contact method</label>
           <div class="col-sm-9">
             <input type="text" class="form-control" placeholder="eg. Don't call me, just use Facebook Messenger">
           </div>
-        </div>
+        </div -->
         <div class="form-group">
           <label class="col-sm-3 control-label">Program</label>
           <div class="col-sm-9">
-            <select class="form-control">
+            <select name="program" class="form-control">
               <option value="REG">Regular Program</option>
               <option value="INT">International Program</option>
             </select>
@@ -76,7 +78,7 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Country</label>
           <div class="col-sm-9">
-            <select class="form-control">
+            <select name="country" class="form-control">
               <option value="AFG">Afghanistan</option>
               <option value="ALA">Åland Islands</option>
               <option value="ALB">Albania</option>
@@ -333,44 +335,40 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Province/State</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" name="" value="">
+            <input type="text" name="province" class="form-control">
           </div>
         </div>
 
         <div class="form-group">
           <label class="col-sm-3 control-label">Street Address</label>
           <div class="col-sm-9">
-            <textarea class="form-control" placeholder="Address"></textarea>
+            <textarea name="address" class="form-control" placeholder="Address"></textarea>
           </div>
         </div>
         <hr>
         <div id="work-form">
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
-            <h4>Work</h4>
+            <h4>Current Work</h4>
           </div>
         </div>
-        <div id="work-info">
-          <div class="panel panel-info">
-            <div class="panel-heading">Currently Working</div>
-            <div class="panel-body">
               <div class="form-group">
                 <label class="col-sm-3 control-label">Position</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="" value="">
+                  <input type="text" class="form-control" name="position" >
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-3 control-label">Company</label>
                 <div class="col-sm-9">
-                  <input type="text" class="form-control" name="" value="">
+                  <input type="text" class="form-control" name="company">
                 </div>
               </div>
               <div class="form-group">
                 <label class="col-sm-3 control-label">Industry</label>
                 <div class="col-sm-9">
-                  <div class = "ui-widget" id="interest">
-                    <select class="form-control" name="">
+                  <div class="ui-widget" id="interest">
+                    <select class="form-control" name="industry">
                       <option value="">Education</option>
                       <option value="">Banking</option>
                       <option value="">Entertainment</option>
@@ -383,19 +381,11 @@
                 <label class="col-sm-3 control-label">Business Type</label>
                 <div class="col-sm-9">
                   <div class = "ui-widget" id="interest">
-                    <input id = "automplete-1" class="form-control" placeholder="Business Type">
+                    <input id = "automplete-1" class="form-control" placeholder="Business Type" name="business_type">
                   </div>
                 </div>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <button type="button" id="add_work" class="btn btn-link"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>  Add a workplace</button>
-          </div>
-        </div>
-          <hr>
+        <hr>
       </div>
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
@@ -405,15 +395,13 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Interests</label>
           <div class="col-sm-9">
-            <select multiple data-role="tagsinput" class="form-control">
-            </select>
-            <h5>eg. Web Development, Music, Football, Hiking, Surfing, et cetera.</h5>
+            <textarea name="interests" class="form-control"></textarea>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Privacy</label>
           <div class="col-sm-6">
-            <select class="form-control">
+            <select name="privacy" class="form-control">
               <option value="all">Show all</option>
               <option value="no_contact">Hide contact info and street address</option>
               <option value="only_staff">Don't show anything</option>
@@ -423,7 +411,7 @@
         <hr>
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
-            <a href="dashboard.php" class="btn btn-lg btn-info">Save</a> <a href="dashboard.php" type="button" class="btn btn-link">Skip >></a>
+            <a href="dashboard.php" class="btn btn-lg btn-trans">Save</a>
           </div>
         </div>
       </div>

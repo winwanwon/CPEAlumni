@@ -24,12 +24,12 @@ echo form_open('login', $attr);
         <input type="password" name="password" class="form-control" placeholder="Password">
       </div>
       <div class="form-group">
-        <button id="register" class="g-recaptcha btn btn-block btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="login">
-          Register
+        <button class="g-recaptcha btn btn-block btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="login">
+          Login
         </button>
       </div>
       <div class="form-group">
-        <a href="/register">สมัครใช้งาน CPE Alumni</a>
+        <a href="<?php echo base_url(); ?>register">สมัครใช้งาน CPE Alumni</a>
       </div>
     </form>
   </div>
