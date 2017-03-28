@@ -20,6 +20,24 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="col-sm-3 control-label">First name</label>
+          <div class="col-sm-9">
+            <input name="firstname" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Last name</label>
+          <div class="col-sm-9">
+            <input name="lastname" type="text" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Generation</label>
+          <div class="col-sm-9">
+            <input name="generation" type="number" class="form-control">
+          </div>
+        </div>
+        <div class="form-group">
           <label class="col-sm-3 control-label">Profile Picture</label>
           <div class="col-sm-9">
             <input name="profile_image" type="file" class="form-control">
@@ -59,7 +77,7 @@
           </div>
         </div>
 
-        <div class="form-group">
+        <!--div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
             <div class="checkbox">
               <label>
@@ -68,7 +86,7 @@
               </label>
             </div>
           </div>
-        </div>
+        </div -->
         <hr>
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
@@ -346,47 +364,6 @@
           </div>
         </div>
         <hr>
-        <div id="work-form">
-        <div class="form-group">
-          <div class="col-sm-9 col-sm-offset-3">
-            <h4>Current Work</h4>
-          </div>
-        </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Position</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" name="position" >
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Company</label>
-                <div class="col-sm-9">
-                  <input type="text" class="form-control" name="company">
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Industry</label>
-                <div class="col-sm-9">
-                  <div class="ui-widget" id="interest">
-                    <select class="form-control" name="industry">
-                      <option value="">Education</option>
-                      <option value="">Banking</option>
-                      <option value="">Entertainment</option>
-                      <option value="">Others</option>
-                    </select>
-                  </div>
-                </div>
-              </div>
-              <div class="form-group">
-                <label class="col-sm-3 control-label">Business Type</label>
-                <div class="col-sm-9">
-                  <div class = "ui-widget" id="interest">
-                    <input id = "automplete-1" class="form-control" placeholder="Business Type" name="business_type">
-                  </div>
-                </div>
-              </div>
-        <hr>
-      </div>
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
             <h4>Others</h4>
@@ -398,7 +375,7 @@
             <textarea name="interests" class="form-control"></textarea>
           </div>
         </div>
-        <div class="form-group">
+        <!-- div class="form-group">
           <label class="col-sm-3 control-label">Privacy</label>
           <div class="col-sm-6">
             <select name="privacy" class="form-control">
@@ -407,11 +384,11 @@
               <option value="only_staff">Don't show anything</option>
             </select>
           </div>
-        </div>
+        </div -->
         <hr>
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
-            <a href="dashboard.php" class="btn btn-lg btn-trans">Save</a>
+            <a href="<?php echo base_url(); ?>profile/addcontent" class="btn btn-lg btn-trans">Save</a>
           </div>
         </div>
       </div>
@@ -420,41 +397,6 @@
 </div>
 
 <script>
-$(function() {
-  var availableTutorials  =  [
-    "Big Data Experience",
-    "Parallel",
-    "Embedded",
-    "SAP",
-    "Java",
-    "Web Developer",
-    "Liverpool",
-    ""
-  ];
-  $( "#automplete-1" ).autocomplete({
-    source: availableTutorials
-  });
-});
-
-$(function() {
-  var availableTutorials  =  [
-    "Big Data Experience",
-    "Parallel",
-    "Embedded",
-    "SAP",
-    "Java",
-    "Web Developer",
-    "Banking",
-  ];
-  $( "#automplete-2" ).autocomplete({
-    source: availableTutorials
-  });
-});
-
-$("#add_work").click( function(){
-  var work_info_form = $("#work-info .panel-body").html()
-  $("#work-info").append(work_info_form)
-})
 
 $("#current_student").click( function(){
   if($(this).is(":checked")){

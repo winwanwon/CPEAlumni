@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <option value="3">Mrs.</option>
           </select>
           <input type="text" name="firstname" class="form-control" placeholder="First Name">
-          <input type="text" name="lastname" class="form-control" placeholder="Surname">
+          <input type="text" name="lastname" class="form-control" placeholder="Last Name">
         </div>
       </div>
       <div class="form-group">

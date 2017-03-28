@@ -69,6 +69,14 @@ body:before {
   margin: 0 auto;
 }
 
+.dropdown-menu {
+  background: rgba(0,0,0,0.5);
+}
+
+.dropdown-menu > li > a:hover {
+  background: rgba(0,0,0,0.8) !important;
+}
+
 .form-control {
   border: 0;
   background: rgba(0,0,0,0.4);
