@@ -60,3 +60,4 @@ $route['profile/work/new'] = 'profile_page/work/new';
 $route['directory'] = 'directory_page';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
+$route['filterbus'] = 'directory_page/filter_bus';

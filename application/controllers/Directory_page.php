@@ -22,7 +22,7 @@ class Directory_page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('directory_model');
+		$this->load->model('filter_model');
 		$this->load->helper('url_helper');
 	}
 
@@ -38,4 +38,14 @@ class Directory_page extends CI_Controller {
 		$this->load->view('directory', $data);
 		$this->load->view('footer');
 	}
+
+	public function filter_bus()
+	{
+		$data["current_page"] = $this->uri->segment(1);
+		$data["test"] = $this->filter_model->loadBusiness();
+		$this->load->view('header');
+		$this->load->view('directory', $data);
+		$this->load->view('footer');
+	}
+
 }
