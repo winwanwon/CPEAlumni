@@ -26,20 +26,15 @@ class Profile_page extends CI_Controller {
 		$this->load->view('profile');
 		$this->load->view('footer');
 	}
-	public function addcontent()
+	public function addContent()
 	{
+		$data["error"] = "";
+		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		if ($this->form_validation->run() === FALSE)
-		{
-			$this->load->view('nextprofile');
-		}
-		else
-		{
-			$this->profile_model->showContent();
-			$this->profile_model->moreContent();
-			$this->load->view('nextprofile');
-		}
-
+		$this->profile_model->showContent();
+		$this->profile_model->moreContent();
+		//$this->load->view('nextprofile');
 	}
+
 }
