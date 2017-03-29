@@ -18,6 +18,14 @@ class Profile_page extends CI_Controller {
 	* map to /index.php/welcome/<method_name>
 	* @see https://codeigniter.com/user_guide/general/urls.html
 	*/
+	public function __construct()
+	{
+		parent::__construct();
+		$this->load->model('profile_model');
+		$this->load->model('index_model');
+		$this->load->helper('url_helper');
+		$this->load->helper('html');
+	}
 	public function index()
 	{
 		$this->load->library('session');
@@ -39,6 +47,7 @@ class Profile_page extends CI_Controller {
 		} else {
 			$data["new_regis"] = false;
 		}
+		$data['content'] = $this->profile_model->showContent($this->session->username);
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('profile_form', $data);
@@ -65,16 +74,4 @@ class Profile_page extends CI_Controller {
 		// รหัสผ่าน อีเมล privacy ฯลฯ
 
 	}
-
-	public function addcontent()
-	{
-		$data["error"] = "";
-		$data["current_page"] = $this->uri->segment(1);
-		$this->load->helper('form');
-		$this->load->library('form_validation');
-		$this->profile_model->showContent();
-		$this->profile_model->moreContent();
-		//$this->load->view('nextprofile');
-	}
-
 }

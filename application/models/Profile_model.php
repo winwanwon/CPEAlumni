@@ -53,12 +53,14 @@ public function updateUser(){
     return $this->db->insert('student', $data);
   }
 
-  public function showContent(){
-      $query = $this->db->get('student');
+  public function showContent($student = NULL){
+      $query = $this->db->get_where('student',array('username' => $student));
       return $query->result_array();
   }
   public function moreContent($student = NULL){
     $data = array(
+      'fName' => $this->input->post('firstname'),
+      'lName' => $this->input->post('lastname'),
       'nickname' => $this->input->post('nickname'),
       'address' => $this->input->post('address'),
       'province' => $this->input->post('province'),

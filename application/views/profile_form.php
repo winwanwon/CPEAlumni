@@ -23,13 +23,13 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">First name</label>
           <div class="col-sm-9">
-            <input name="firstname" type="text" class="form-control">
+            <input name="firstname" type="text" class="form-control" value = "<?php echo $content[0]["fname"]; ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Last name</label>
           <div class="col-sm-9">
-            <input name="lastname" type="text" class="form-control">
+            <input name="lastname" type="text" class="form-control" value = "<?php echo $content[0]["lname"]; ?>">
           </div>
         </div>
         <div class="form-group">
