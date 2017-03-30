@@ -18,7 +18,22 @@ class Filter_model extends CI_Model {
       $query = $this->db->get('interest');
       return $query->result_array();
   }
-  public function findPeople($student = NULL){
+  public function getStudent(){
+      $temp = array(
+        'fname' => 'Yanisa',
+        'nickname' => 'Ai',
+        'lname' => ''
+      );
+      $array = array();
+      foreach(array_keys ($temp) as $t) {
+        if($temp[$t] != '') {
+          $array[$t] = $temp[$t];
+        };
+      }
 
+
+      $query = $this->db->get_where('student',$array);
+      return $query->result_array();
   }
+
 }

@@ -1,7 +1,12 @@
 <div class="container">
   <?php
-  foreach($test as $item){
-    echo $item["industry"]."<br>";
+
+  // var_dump($test2);
+  foreach($test2 as $item){
+    echo $item["username"]." ";
+    echo $item["fname"]." ";
+    echo $item["lname"]." ";
+    echo $item["nickname"]."<br>";
   }
   ?>
 </div>
