@@ -23,6 +23,7 @@ class Index_page extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('profile_model');
+		$this->load->model('index_model');
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
 	}
@@ -30,6 +31,10 @@ class Index_page extends CI_Controller {
 	public function index()
 	{
 		$this->load->library('session');
+		$username = $this->session->username;
+		if($username){
+			redirect('directory');
+		}
 		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
@@ -58,17 +63,26 @@ class Index_page extends CI_Controller {
 		}
 		else
 		{
-			//$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
-			$this->profile_model->loginUser();
-			// $firstname =
-			// $lastname =
+			$login_success = $this->index_model->login();
+			$firstname = "Warat";
+			$lastname = "Kaweepornpoj";
 			$userdata = array(
-					"username" => $this->input->post("username"),
-					"firstname" => $firstname,
-					"lastname" => $lastname
+				"username" => $this->input->post("username"),
+				"firstname" => $firstname,
+				"lastname" => $lastname
 			);
-			$this->session->set_userdata($userdata);
-			$this->load->view('directory');
+
+			if($login_success == TRUE){
+				$this->session->set_userdata($userdata);
+				redirect('directory');
+			} else {
+				$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
+				redirect('login');
+			}
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('login', $data);
+			$this->load->view('footer');
 		}
 	}
 
@@ -85,7 +99,13 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('lastname', 'Last name', 'required');
 		$this->form_validation->set_rules('username', 'Username', 'required');
 		$this->form_validation->set_rules('password', 'Password', 'required');
+		$this->form_validation->set_rules('password_confirm', 'Comfirm Password', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
+
+		if($this->input->post('undergraduate') == "true"){
+			$this->form_validation->set_rules('generation', 'Generation', 'required');
+		}
+
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data["error"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
@@ -94,17 +114,30 @@ class Index_page extends CI_Controller {
 			$this->load->view('index_page', $data);
 			$this->load->view('footer');
 		}
+		else if ($this->input->post('password') != $this->input->post('password_confirm')){
+			$data["error"] = "รหัสผ่านไม่ตรงกัน";
+			$this->load->view('header');
+			$this->load->view('navbar', $data);
+			$this->load->view('index_page', $data);
+			$this->load->view('footer');
+		}
 		else
 		{
 			$userdata = array(
-					"username" => $this->input->post("username"),
-					"firstname" => $this->input->post("firstname"),
-					"lastname" => $this->input->post("lastname")
+				"username" => $this->input->post("username"),
+				"firstname" => $this->input->post("firstname"),
+				"lastname" => $this->input->post("lastname")
 			);
 			$this->session->set_userdata($userdata);
 			$this->profile_model->createUser();
 			redirect('profile/edit/new');
 		}
 
+	}
+
+	public function logout(){
+		$this->load->library('session');
+		$this->session->sess_destroy();
+		redirect('/');
 	}
 }

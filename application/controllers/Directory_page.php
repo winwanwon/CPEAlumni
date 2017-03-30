@@ -29,9 +29,12 @@ class Directory_page extends CI_Controller {
 
 	public function index()
 	{
+
 		$data["current_page"] = $this->uri->segment(1);
-		$array = $this->directory_model->getData();
-		$data["wow"] = $array;
+		$this->load->library('session');
+		$data["industry"] = $this->filter_model->loadIndustry();
+		$data["business"] = $this->filter_model->loadBusiness();
+		$data["name"] = $this->session->firstname." ".$this->session->lastname;
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
@@ -42,8 +45,13 @@ class Directory_page extends CI_Controller {
 	public function filter_bus()
 	{
 		$data["current_page"] = $this->uri->segment(1);
+<<<<<<< HEAD
 		$data["test"] = $this->filter_model->loadBusiness();
 		$data["test2"] = $this->filter_model->getStudent();
+=======
+		$data["industry"] = $this->filter_model->loadIndustry();
+		$data["business"] = $this->filter_model->loadBusiness();
+>>>>>>> origin/master
 		$this->load->view('header');
 		$this->load->view('directory', $data);
 		$this->load->view('footer');

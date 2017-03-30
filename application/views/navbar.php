@@ -38,7 +38,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<li><a href="<?php echo base_url();?>profile/work"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Edit Work</a></li>
 							<li><a href="<?php echo base_url();?>profile/setting"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Account Setting</a></li>
 							<li role="separator" class="divider"></li>
-							<li><a href="#"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a></li>
+							<li><a href="<?php echo base_url();?>logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a></li>
 						</ul>
 					</li>
 				<?php endif; ?>

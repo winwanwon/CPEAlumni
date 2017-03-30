@@ -22,9 +22,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div class="form-group">
         <div class="form-inline">
           <select name="prefix" class="form-control">
-            <option value="1">Mr.</option>
-            <option value="2">Ms.</option>
-            <option value="3">Mrs.</option>
+            <option value="Mr">Mr.</option>
+            <option value="Ms">Ms.</option>
+            <option value="Mrs">Mrs.</option>
           </select>
           <input type="text" name="firstname" class="form-control" placeholder="First Name">
           <input type="text" name="lastname" class="form-control" placeholder="Last Name">
@@ -37,10 +37,42 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="password" name="password" class="form-control" placeholder="Password">
       </div>
       <div class="form-group">
-        <input type="password_confirm" class="form-control" placeholder="Confirm Password">
+        <input type="password" name="password_confirm" class="form-control" placeholder="Confirm Password">
       </div>
       <div class="form-group">
         <input type="email" name="email" class="form-control" placeholder="Email">
+      </div>
+      <div class="form-group">
+        Currently enrolled / Degree from CPE KMUTT
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="undergraduate" id="undergraduate" value="1">
+              Undergraduate Degree
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="master" id="master" value="1">
+              Master Degree
+            </label>
+          </div>
+          <div class="checkbox">
+            <label>
+              <input type="checkbox" name="doctoral" id="doctoral" value="1">
+              Doctoral Degree
+            </label>
+          </div>
+      </div>
+      <div id="undergraduate_form" style="display:none;">
+        <div class="form-group">
+            <div class="form-inline">
+            <input name="generation" type="number" class="form-control" placeholder="Generation">
+            <select name="program" class="form-control">
+              <option value="REG">Regular Program</option>
+              <option value="INT">International Program</option>
+            </select>
+          </div>
+        </div>
       </div>
 
       <button id="register" class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="register">
