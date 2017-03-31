@@ -44,6 +44,9 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Profile Picture</label>
           <div class="col-sm-9">
+            <?php if($content[0]["picture"]): ?>
+              <img height="100" style="margin: 0 auto 15px auto;" src="<?php echo base_url()."/uploads/".$content[0]["picture"]; ?>" class="img-rounded">
+            <?php endif; ?>
             <input name="profile_image" type="file" class="form-control">
           </div>
         </div>
@@ -107,7 +110,7 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Generation</label>
         <div class="col-sm-9">
-          <input name="generation" type="number" class="form-control" value="<?php echo $content[0]['generation']; ?>">
+          <input name="generation" type="number" class="form-control" value="<?php if($content[0]['generation']!=0) echo $content[0]['generation']; ?>">
         </div>
       </div>
       <div class="form-group">
@@ -124,7 +127,7 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Master degree's year of enrollment</label>
         <div class="col-sm-9">
-          <input name="yoe_master" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php echo $content[0]['master']; ?>">
+          <input name="yoe_master" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php if($content[0]['master']!=0)  echo $content[0]['master']; ?>">
         </div>
       </div>
     </div>
@@ -133,7 +136,7 @@
       <div class="form-group" >
         <label class="col-sm-3 control-label">Doctoral degree's year of enrollment</label>
         <div class="col-sm-9">
-          <input name="yoe_doctoral" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php echo $content[0]['doctoral']; ?>">
+          <input name="yoe_doctoral" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php if($content[0]['doctoral']!=0)  echo $content[0]['doctoral']; ?>">
         </div>
       </div>
     </div>

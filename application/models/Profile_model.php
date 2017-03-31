@@ -87,7 +87,7 @@ class Profile_model extends CI_Model {
       'country' => $this->input->post('country'),
       'facebook' => $this->input->post('facebook'),
       'linkedin' => $this->input->post('linkedin') ,
-      'picture' => $this->input->post('picture') ,
+      'picture' => $picture,
       'permission' => $this->input->post('permission') ,
       'phone' => $this->input->post('phone') ,
       'generation' => $generation,

@@ -66,9 +66,9 @@ class Profile_page extends CI_Controller {
 		else
 		{
 			// with upload
-			$file_data = $this->upload->data('profile_image');
+			$file_data = $this->upload->data();
 			if ($this->input->server('REQUEST_METHOD') == 'POST') {
-				$this->profile_model->moreContent($username, $file_data);
+				$this->profile_model->moreContent($username, $file_data["file_name"]);
 			}
 		}
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
