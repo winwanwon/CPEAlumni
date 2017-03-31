@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
+        <?php if($status): ?>
+        <div class="alert alert-trans">
+          <?php echo $status; ?>
+        </div>
+      <?php endif; ?>
         <div class="col-xs-6">
           <h2>Profile Information</h2>
         </div>
@@ -13,6 +18,10 @@
 
       </div>
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
+      <?php
+        $attr = array("class" => "form-horizontal");
+        echo form_open_multipart('profile/edit/update', $attr);
+      ?>
       <div class="form-horizontal">
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
@@ -41,19 +50,19 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Nickname</label>
           <div class="col-sm-9">
-            <input name="nickname" type="text" class="form-control">
+            <input name="nickname" type="text" class="form-control" value = "<?php echo $content[0]["nickname"]; ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Mobile Phone</label>
           <div class="col-sm-9">
-            <input name="mobile" type="text" class="form-control">
+            <input name="phone" type="text" class="form-control" value = "<?php echo $content[0]["phone"]; ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Facebook URL</label>
           <div class="col-sm-9">
-            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/">
+            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
           </div>
         </div>
         <!-- div class="form-group">
@@ -97,13 +106,13 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Generation</label>
         <div class="col-sm-9">
-          <input name="generation" type="number" class="form-control">
+          <input name="generation" type="number" class="form-control" value="<?php echo $content[0]['generation']; ?>">
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-3 control-label">Program</label>
         <div class="col-sm-9">
-          <select name="program" class="form-control">
+          <select name="programme" class="form-control" value="<?php echo $content[0]['programme']; ?>">
             <option value="REG">Regular Program</option>
             <option value="INT">International Program</option>
           </select>
@@ -130,7 +139,7 @@
 <div class="form-group">
   <label class="col-sm-3 control-label">Country</label>
   <div class="col-sm-9">
-    <select name="country" class="form-control">
+    <select name="country" class="form-control" value="<?php echo $content[0]['country']; ?>">
       <option value="AFG">Afghanistan</option>
       <option value="ALA">Åland Islands</option>
       <option value="ALB">Albania</option>
@@ -387,14 +396,14 @@
 <div class="form-group">
   <label class="col-sm-3 control-label">Province/State</label>
   <div class="col-sm-9">
-    <input type="text" name="province" class="form-control">
+    <input type="text" name="province" class="form-control" value="<?php echo $content[0]['province']; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-sm-3 control-label">Street Address</label>
   <div class="col-sm-9">
-    <textarea name="address" class="form-control" placeholder="Address"></textarea>
+    <textarea name="address" class="form-control" placeholder="Address"><?php echo $content[0]['address']; ?></textarea>
   </div>
 </div>
 <hr>
@@ -422,11 +431,11 @@
 <hr>
 <div class="form-group">
   <div class="col-sm-offset-3 col-sm-9">
-    <a href="<?php echo base_url(); ?>profile/addcontent" class="btn btn-lg btn-trans">Save</a>
+    <input type="submit" value="Save" class="btn btn-lg btn-trans">
   </div>
 </div>
 </div>
-</div>
+</form>
 </div>
 </div>
 

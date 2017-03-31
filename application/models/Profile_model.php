@@ -57,7 +57,7 @@ public function updateUser(){
       $query = $this->db->get_where('student',array('username' => $student));
       return $query->result_array();
   }
-  public function moreContent($student = NULL){
+  public function moreContent($student = NULL, $picture = NULL){
     $data = array(
       'fName' => $this->input->post('firstname'),
       'lName' => $this->input->post('lastname'),
