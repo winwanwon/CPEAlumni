@@ -1,22 +1,22 @@
 <?php
 class Profile_model extends CI_Model {
 
-public function __construct()
-{
-   $this->load->database();
-}
+  public function __construct()
+  {
+    $this->load->database();
+  }
 
-public function createUser(){
+  public function createUser(){
 
     if($this->input->post('master') == NULL){
       $master = 0;
     } else {
-      $master = 1;
+      $master = $this->input->post('yoe_master');
     }
     if($this->input->post('doctoral') == NULL){
       $doctoral = 0;
     } else {
-      $doctoral = 1;
+      $dcotoral = $this->input->post('yoe_doctoral');
     }
 
     if($this->input->post('undergraduate') == NULL){
@@ -44,20 +44,40 @@ public function createUser(){
     return $this->db->insert('student', $data);
   }
 
-public function getUser(){
+  public function getUser(){
     $query = $this->db->get_where('student', array('username' => sha1($this->input->post('password'))));
     return $query->result();
-}
+  }
 
-public function updateUser(){
+  public function updateUser(){
     return $this->db->insert('student', $data);
   }
 
   public function showContent($student = NULL){
-      $query = $this->db->get_where('student',array('username' => $student));
-      return $query->result_array();
+    $query = $this->db->get_where('student',array('username' => $student));
+    return $query->result_array();
   }
   public function moreContent($student = NULL, $picture = NULL){
+
+    if($this->input->post('master') == NULL){
+      $master = 0;
+    } else {
+      $master = $this->input->post('yoe_master');
+    }
+    if($this->input->post('doctoral') == NULL){
+      $doctoral = 0;
+    } else {
+      $dcotoral = $this->input->post('yoe_doctoral');
+    }
+
+    if($this->input->post('undergraduate') == NULL){
+      $generation = "";
+      $programme = "";
+    } else {
+      $generation = $this->input->post('generation');
+      $programme = $this->input->post('program');
+    }
+
     $data = array(
       'fName' => $this->input->post('firstname'),
       'lName' => $this->input->post('lastname'),
@@ -70,13 +90,13 @@ public function updateUser(){
       'picture' => $this->input->post('picture') ,
       'permission' => $this->input->post('permission') ,
       'phone' => $this->input->post('phone') ,
-      'programme' => $this->input->post('programme') ,
-      'generation' => $this->input->post('generation') ,
-      'master' => $this->input->post('master') ,
-      'doctoral' => $this->input->post('doctoral') ,
+      'generation' => $generation,
+      'programme' => $programme,
+      'master' => $master,
+      'doctoral' => $doctoral
     );
     $this->db->where('username', $student);
     $this->db->update('student', $data);
-   //return $this->db->insert('student', $data);
+    //return $this->db->insert('student', $data);
   }
 }

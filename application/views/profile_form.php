@@ -20,7 +20,7 @@
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
       <?php
         $attr = array("class" => "form-horizontal");
-        echo form_open_multipart('profile/edit/update', $attr);
+        echo form_open_multipart('profile/edit', $attr);
       ?>
       <div class="form-horizontal">
         <div class="form-group">
@@ -83,24 +83,25 @@
       <div class="col-sm-9">
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="undergraduate" value="true">
+            <input type="checkbox" name="undergraduate" id="undergraduate" value="true" <?php echo ($content[0]['generation'] ? 'checked' : '');?>>
             Undergraduate Degree
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="master" value="true">
+            <input type="checkbox" name="master" id="master" value="true" <?php echo ($content[0]['master'] ? 'checked' : '');?>>
             Master Degree
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="doctoral" value="true">
+            <input type="checkbox" name="doctoral" id="doctoral" value="true" <?php echo ($content[0]['doctoral'] ? 'checked' : '');?>>
             Doctoral Degree
           </label>
         </div>
       </div>
     </div>
+
 
     <div id="undergraduate_form" style="display:none;">
       <div class="form-group">
@@ -112,24 +113,31 @@
       <div class="form-group">
         <label class="col-sm-3 control-label">Program</label>
         <div class="col-sm-9">
-          <select name="programme" class="form-control" value="<?php echo $content[0]['programme']; ?>">
-            <option value="REG">Regular Program</option>
-            <option value="INT">International Program</option>
+          <select name="program" class="form-control">
+            <option value="REG" <?php echo ($content[0]["programme"]=="REG" ? 'selected="selected"' : '');?> >Regular Program</option>
+            <option value="INT" <?php echo ($content[0]["programme"]=="INT" ? 'selected="selected"' : '');?> >International Program</option>
           </select>
         </div>
       </div>
     </div>
+    <div id="master_form" style="display:none;">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Master degree's year of enrollment</label>
+        <div class="col-sm-9">
+          <input name="yoe_master" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php echo $content[0]['master']; ?>">
+        </div>
+      </div>
+    </div>
+
+    <div id="doctoral_form" style="display:none;">
+      <div class="form-group" >
+        <label class="col-sm-3 control-label">Doctoral degree's year of enrollment</label>
+        <div class="col-sm-9">
+          <input name="yoe_doctoral" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php echo $content[0]['doctoral']; ?>">
+        </div>
+      </div>
+    </div>
   <?php endif; ?>
-    <!--div class="form-group">
-    <div class="col-sm-9 col-sm-offset-3">
-    <div class="checkbox">
-    <label>
-    <input type="checkbox" id="current_student" value="">
-    I'm a currently enrolled, full-time undergraduate or graduate student in CPE KMUTT
-  </label>
-</div>
-</div>
-</div -->
 <hr>
 <div class="form-group">
   <div class="col-sm-9 col-sm-offset-3">

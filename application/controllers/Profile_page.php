@@ -47,22 +47,8 @@ class Profile_page extends CI_Controller {
 		} else {
 			$data["new_regis"] = false;
 		}
-		$data['content'] = $this->profile_model->showContent($this->session->username);
-		$data['status'] = "";
-		$this->load->view('header');
-		$this->load->view('navbar', $data);
-		$this->load->view('profile_form', $data);
-		$this->load->view('footer');
-	}
-
-	public function edit_update(){
-		$this->load->library('session');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
-		$data["current_page"] = $this->uri->segment(1);
-		$data["new_regis"] = false;
-
 		$username = $this->session->username;
-		$config['upload_path']          = './uploads/';
+		$config['upload_path']          = '././uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 3000;
 		$config['max_width']            = 3000;
@@ -72,24 +58,37 @@ class Profile_page extends CI_Controller {
 		if ( ! $this->upload->do_upload('profile_image'))
 		{
 			// without upload
-			$success = $this->profile_model->moreContent($username);
+
+			if ($this->input->server('REQUEST_METHOD') == 'POST') {
+				$this->profile_model->moreContent($username);
+			}
 		}
 		else
 		{
 			// with upload
 			$file_data = $this->upload->data('profile_image');
-			$success = $this->profile_model->moreContent($username, $file_data);
+			if ($this->input->server('REQUEST_METHOD') == 'POST') {
+				$this->profile_model->moreContent($username, $file_data);
+			}
 		}
-		$data['content'] = $this->profile_model->showContent($this->session->username);
-		if($success == TRUE){
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
 		} else {
-			$data['status'] = "เกิดข้อผิดพลาดในการอัพเดตข้อมูล กรุณาลองใหม่อีกครั้ง";
+			$data['status'] = "";
 		}
+
+		$data['content'] = $this->profile_model->showContent($this->session->username);
+
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('profile_form', $data);
 		$this->load->view('footer');
+		/*$data['content'] = $this->profile_model->showContent($this->session->username);
+		$data['status'] = "";
+		$this->load->view('header');
+		$this->load->view('navbar', $data);
+		$this->load->view('profile_form', $data);
+		$this->load->view('footer');*/
 	}
 
 	public function work($slug = ''){

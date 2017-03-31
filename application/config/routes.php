@@ -55,7 +55,6 @@ $route['login'] = 'index_page/login';
 $route['logout'] = 'index_page/logout';
 $route['profile'] = 'profile_page';
 $route['profile/edit'] = 'profile_page/edit';
-$route['profile/edit/update'] = 'profile_page/edit_update';
 $route['profile/edit/new'] = 'profile_page/edit/new';
 $route['profile/work'] = 'profile_page/work';
 $route['profile/work/new'] = 'profile_page/work/new';
