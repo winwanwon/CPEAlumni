@@ -47,11 +47,48 @@ class Profile_page extends CI_Controller {
 		} else {
 			$data["new_regis"] = false;
 		}
+		$username = $this->session->username;
+		$config['upload_path']          = '././uploads/';
+		$config['allowed_types']        = 'gif|jpg|png';
+		$config['max_size']             = 3000;
+		$config['max_width']            = 3000;
+		$config['max_height']           = 3000;
+		$this->load->library('upload', $config);
+    $this->upload->initialize($config);
+		if ( ! $this->upload->do_upload('profile_image'))
+		{
+			// without upload
+
+			if ($this->input->server('REQUEST_METHOD') == 'POST') {
+				$this->profile_model->moreContent($username);
+			}
+		}
+		else
+		{
+			// with upload
+			$file_data = $this->upload->data();
+			if ($this->input->server('REQUEST_METHOD') == 'POST') {
+				$this->profile_model->moreContent($username, $file_data["file_name"]);
+			}
+		}
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
+		} else {
+			$data['status'] = "";
+		}
+
 		$data['content'] = $this->profile_model->showContent($this->session->username);
+
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('profile_form', $data);
 		$this->load->view('footer');
+		/*$data['content'] = $this->profile_model->showContent($this->session->username);
+		$data['status'] = "";
+		$this->load->view('header');
+		$this->load->view('navbar', $data);
+		$this->load->view('profile_form', $data);
+		$this->load->view('footer');*/
 	}
 
 	public function work($slug = ''){

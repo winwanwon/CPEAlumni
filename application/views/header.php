@@ -9,11 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 	<title>CPE Alumni</title>
 	<link href="https://fonts.googleapis.com/css?family=Prompt:100,200,300,400,600" rel="stylesheet">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap.min.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-tagsinput.css">
+	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/bootstrap-tagsinput-typeahead.css">
 	<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/style.css">
-
 	<script src='https://www.google.com/recaptcha/api.js'></script>
 	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/jquery-3.2.0.min.js"></script>
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/typeahead.bundle.js"></script>
+	<script type="text/javascript" src="<?php echo base_url(); ?>assets/js/bootstrap-tagsinput.js"></script>
 </head>
 <body class="preload">

@@ -2,6 +2,11 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
+        <?php if($status): ?>
+        <div class="alert alert-trans">
+          <?php echo $status; ?>
+        </div>
+      <?php endif; ?>
         <div class="col-xs-6">
           <h2>Profile Information</h2>
         </div>
@@ -13,6 +18,10 @@
 
       </div>
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
+      <?php
+        $attr = array("class" => "form-horizontal");
+        echo form_open_multipart('profile/edit', $attr);
+      ?>
       <div class="form-horizontal">
         <div class="form-group">
           <div class="col-sm-9 col-sm-offset-3">
@@ -35,25 +44,28 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Profile Picture</label>
           <div class="col-sm-9">
+            <?php if($content[0]["picture"]): ?>
+              <img height="100" style="margin: 0 auto 15px auto;" src="<?php echo base_url()."/uploads/".$content[0]["picture"]; ?>" class="img-rounded">
+            <?php endif; ?>
             <input name="profile_image" type="file" class="form-control">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Nickname</label>
           <div class="col-sm-9">
-            <input name="nickname" type="text" class="form-control">
+            <input name="nickname" type="text" class="form-control" value = "<?php echo $content[0]["nickname"]; ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Mobile Phone</label>
           <div class="col-sm-9">
-            <input name="mobile" type="text" class="form-control">
+            <input name="phone" type="text" class="form-control" value = "<?php echo $content[0]["phone"]; ?>">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Facebook URL</label>
           <div class="col-sm-9">
-            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/">
+            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
           </div>
         </div>
         <!-- div class="form-group">
@@ -74,53 +86,61 @@
       <div class="col-sm-9">
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="undergraduate" value="true">
+            <input type="checkbox" name="undergraduate" id="undergraduate" value="true" <?php echo ($content[0]['generation'] ? 'checked' : '');?>>
             Undergraduate Degree
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="master" value="true">
+            <input type="checkbox" name="master" id="master" value="true" <?php echo ($content[0]['master'] ? 'checked' : '');?>>
             Master Degree
           </label>
         </div>
         <div class="checkbox">
           <label>
-            <input type="checkbox" id="doctoral" value="true">
+            <input type="checkbox" name="doctoral" id="doctoral" value="true" <?php echo ($content[0]['doctoral'] ? 'checked' : '');?>>
             Doctoral Degree
           </label>
         </div>
       </div>
     </div>
 
+
     <div id="undergraduate_form" style="display:none;">
       <div class="form-group">
         <label class="col-sm-3 control-label">Generation</label>
         <div class="col-sm-9">
-          <input name="generation" type="number" class="form-control">
+          <input name="generation" type="number" class="form-control" value="<?php if($content[0]['generation']!=0) echo $content[0]['generation']; ?>">
         </div>
       </div>
       <div class="form-group">
         <label class="col-sm-3 control-label">Program</label>
         <div class="col-sm-9">
           <select name="program" class="form-control">
-            <option value="REG">Regular Program</option>
-            <option value="INT">International Program</option>
+            <option value="REG" <?php echo ($content[0]["programme"]=="REG" ? 'selected="selected"' : '');?> >Regular Program</option>
+            <option value="INT" <?php echo ($content[0]["programme"]=="INT" ? 'selected="selected"' : '');?> >International Program</option>
           </select>
         </div>
       </div>
     </div>
+    <div id="master_form" style="display:none;">
+      <div class="form-group">
+        <label class="col-sm-3 control-label">Master degree's year of enrollment</label>
+        <div class="col-sm-9">
+          <input name="yoe_master" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php if($content[0]['master']!=0)  echo $content[0]['master']; ?>">
+        </div>
+      </div>
+    </div>
+
+    <div id="doctoral_form" style="display:none;">
+      <div class="form-group" >
+        <label class="col-sm-3 control-label">Doctoral degree's year of enrollment</label>
+        <div class="col-sm-9">
+          <input name="yoe_doctoral" type="number" class="form-control" placeholder="e.g. 2016" size="4" maxlength="4" value="<?php if($content[0]['doctoral']!=0)  echo $content[0]['doctoral']; ?>">
+        </div>
+      </div>
+    </div>
   <?php endif; ?>
-    <!--div class="form-group">
-    <div class="col-sm-9 col-sm-offset-3">
-    <div class="checkbox">
-    <label>
-    <input type="checkbox" id="current_student" value="">
-    I'm a currently enrolled, full-time undergraduate or graduate student in CPE KMUTT
-  </label>
-</div>
-</div>
-</div -->
 <hr>
 <div class="form-group">
   <div class="col-sm-9 col-sm-offset-3">
@@ -130,7 +150,7 @@
 <div class="form-group">
   <label class="col-sm-3 control-label">Country</label>
   <div class="col-sm-9">
-    <select name="country" class="form-control">
+    <select name="country" class="form-control" value="<?php echo $content[0]['country']; ?>">
       <option value="AFG">Afghanistan</option>
       <option value="ALA">Åland Islands</option>
       <option value="ALB">Albania</option>
@@ -387,14 +407,14 @@
 <div class="form-group">
   <label class="col-sm-3 control-label">Province/State</label>
   <div class="col-sm-9">
-    <input type="text" name="province" class="form-control">
+    <input type="text" name="province" class="form-control" value="<?php echo $content[0]['province']; ?>">
   </div>
 </div>
 
 <div class="form-group">
   <label class="col-sm-3 control-label">Street Address</label>
   <div class="col-sm-9">
-    <textarea name="address" class="form-control" placeholder="Address"></textarea>
+    <textarea name="address" class="form-control" placeholder="Address"><?php echo $content[0]['address']; ?></textarea>
   </div>
 </div>
 <hr>
@@ -422,11 +442,11 @@
 <hr>
 <div class="form-group">
   <div class="col-sm-offset-3 col-sm-9">
-    <a href="<?php echo base_url(); ?>profile/addcontent" class="btn btn-lg btn-trans">Save</a>
+    <input type="submit" value="Save" class="btn btn-lg btn-trans">
   </div>
 </div>
 </div>
-</div>
+</form>
 </div>
 </div>
 

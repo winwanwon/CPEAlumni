@@ -13,13 +13,31 @@ function login(){
   $("#loginForm").submit();
 };
 
-
-$("input[type='checkbox']").click(function(){
+function checkboxCheck(){
   if($("#undergraduate").is(":checked")){
     $("#undergraduate_form").show();
   } else {
     $("#undergraduate_form").hide();
   }
+  if($("#master").is(":checked")){
+    $("#master_form").show();
+  } else {
+    $("#master_form").hide();
+  }
+  if($("#doctoral").is(":checked")){
+    $("#doctoral_form").show();
+  } else {
+    $("#doctoral_form").hide();
+  }
+}
+
+
+$("input[type='checkbox']").click(function(){
+  checkboxCheck();
+})
+
+$(document).ready(function(){
+  checkboxCheck();
 })
 </script>
 

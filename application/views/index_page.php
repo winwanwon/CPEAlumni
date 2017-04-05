@@ -43,7 +43,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <input type="email" name="email" class="form-control" placeholder="Email">
       </div>
       <div class="form-group">
-        Currently enrolled / Degree from CPE KMUTT
+        I currently enrolled / I have following degree from CPE KMUTT
           <div class="checkbox">
             <label>
               <input type="checkbox" name="undergraduate" id="undergraduate" value="1">
@@ -64,7 +64,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
       </div>
       <div id="undergraduate_form" style="display:none;">
-        <div class="form-group">
+        <div class="form-group" style="margin: 5px auto;">
             <div class="form-inline">
             <input name="generation" type="number" class="form-control" placeholder="Generation">
             <select name="program" class="form-control">
@@ -74,10 +74,29 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           </div>
         </div>
       </div>
+      <div id="master_form" style="display:none;">
+        <div class="form-group" style="margin: 5px auto;">
+          <div class="form-inline">
+            <label>Master degree's year of enrollment</label>
+            <input name="yoe_master" type="number" class="form-control" placeholder="e.g. 2016"  size="4" maxlength="4">
+          </div>
+        </div>
+      </div>
 
-      <button id="register" class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="register">
-        Register
-      </button>
+      <div id="doctoral_form" style="display:none;">
+        <div class="form-group" style="margin: 5px auto;">
+          <div class="form-inline">
+            <label>Doctoral degree's year of enrollment</label>
+            <input name="yoe_doctoral" type="number" class="form-control" placeholder="e.g. 2016"  size="4" maxlength="4">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group" style="margin-top: 15px;">
+        <button id="register" class="g-recaptcha btn btn-lg btn-trans" data-sitekey="6LeklhoUAAAAAG7wghQfvhNofV032mGA5eIYCXLa" data-callback="register">
+          Register
+        </button>
+      </div>
 
     </form>
 
