@@ -57,6 +57,7 @@ class Profile_model extends CI_Model {
     $query = $this->db->get_where('student',array('username' => $student));
     return $query->result_array();
   }
+
   public function moreContent($student = NULL, $picture = NULL){
 
     if($this->input->post('master') == NULL){
@@ -118,5 +119,24 @@ class Profile_model extends CI_Model {
     $this->db->where('username', $student);
     $this->db->update('student', $data);
     //return $this->db->insert('student', $data);
+  }
+
+  public function getInterest($username = NULL){
+    $this->db->select('interest')->where('username',$username)->from('interest');
+    $query = $this->db->get();
+    return $query->result_array();
+  }
+
+  public function setInterest($username = NULL, $interest = NULL){
+    if($username && $interest){
+      $query = $this->db->get_where('interest', array('username' => $username, 'interest' => $interest));
+      if(!$query->result_array()){
+        $data = array(
+          'username' => $username,
+          'interest' => $interest
+        );
+        $this->db->insert('interest', $data);
+      }
+    }
   }
 }

@@ -48,17 +48,19 @@ class Profile_page extends CI_Controller {
 			$data["new_regis"] = false;
 		}
 		$username = $this->session->username;
+
+
+
 		$config['upload_path']          = '././uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
 		$config['max_size']             = 3000;
 		$config['max_width']            = 3000;
 		$config['max_height']           = 3000;
 		$this->load->library('upload', $config);
-    $this->upload->initialize($config);
+		$this->upload->initialize($config);
 		if ( ! $this->upload->do_upload('profile_image'))
 		{
 			// without upload
-
 			if ($this->input->server('REQUEST_METHOD') == 'POST') {
 				$this->profile_model->moreContent($username);
 			}
@@ -77,18 +79,29 @@ class Profile_page extends CI_Controller {
 			$data['status'] = "";
 		}
 
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			$interests = $this->input->post('interests');
+			$interests_list = explode(",", $interests);
+			foreach($interests_list as $interest){
+				$this->profile_model->setInterest($this->session->username, $interest);
+			}
+		}
+
 		$data['content'] = $this->profile_model->showContent($this->session->username);
+
+		//get interest
+		$arr = $this->profile_model->getInterest($this->session->username);
+		$interests_result = array();
+		foreach($arr as $row){
+			array_push($interests_result, $row["interest"]);
+		}
+		$data['interests'] = implode(",",$interests_result);
+
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('profile_form', $data);
 		$this->load->view('footer');
-		/*$data['content'] = $this->profile_model->showContent($this->session->username);
-		$data['status'] = "";
-		$this->load->view('header');
-		$this->load->view('navbar', $data);
-		$this->load->view('profile_form', $data);
-		$this->load->view('footer');*/
 	}
 
 	public function work($slug = ''){

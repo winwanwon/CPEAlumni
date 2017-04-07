@@ -68,12 +68,6 @@
             <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
           </div>
         </div>
-        <!-- div class="form-group">
-        <label class="col-sm-3 control-label">Preferred contact method</label>
-        <div class="col-sm-9">
-        <input type="text" class="form-control" placeholder="eg. Don't call me, just use Facebook Messenger">
-      </div>
-    </div -->
     <?php if(!$new_regis): ?>
     <hr>
     <div class="form-group">
@@ -426,7 +420,7 @@
 <div class="form-group">
   <label class="col-sm-3 control-label">Interests</label>
   <div class="col-sm-9">
-    <textarea name="interests" class="form-control"></textarea>
+    <input type="text" id="interests" name="interests" class="form-control" data-role="tagsinput" value="<?php echo $interests; ?>">
   </div>
 </div>
 <!-- div class="form-group">
