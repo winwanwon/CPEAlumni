@@ -78,23 +78,43 @@ class Profile_model extends CI_Model {
       $programme = $this->input->post('program');
     }
 
-    $data = array(
-      'fName' => $this->input->post('firstname'),
-      'lName' => $this->input->post('lastname'),
-      'nickname' => $this->input->post('nickname'),
-      'address' => $this->input->post('address'),
-      'province' => $this->input->post('province'),
-      'country' => $this->input->post('country'),
-      'facebook' => $this->input->post('facebook'),
-      'linkedin' => $this->input->post('linkedin') ,
-      'picture' => $picture,
-      'permission' => $this->input->post('permission') ,
-      'phone' => $this->input->post('phone') ,
-      'generation' => $generation,
-      'programme' => $programme,
-      'master' => $master,
-      'doctoral' => $doctoral
-    );
+    if($picture==""){
+      $data = array(
+        'fName' => $this->input->post('firstname'),
+        'lName' => $this->input->post('lastname'),
+        'nickname' => $this->input->post('nickname'),
+        'address' => $this->input->post('address'),
+        'province' => $this->input->post('province'),
+        'country' => $this->input->post('country'),
+        'facebook' => $this->input->post('facebook'),
+        'linkedin' => $this->input->post('linkedin') ,
+        'permission' => $this->input->post('permission') ,
+        'phone' => $this->input->post('phone') ,
+        'generation' => $generation,
+        'programme' => $programme,
+        'master' => $master,
+        'doctoral' => $doctoral
+      );
+    } else {
+      $data = array(
+        'fName' => $this->input->post('firstname'),
+        'lName' => $this->input->post('lastname'),
+        'nickname' => $this->input->post('nickname'),
+        'address' => $this->input->post('address'),
+        'province' => $this->input->post('province'),
+        'country' => $this->input->post('country'),
+        'facebook' => $this->input->post('facebook'),
+        'linkedin' => $this->input->post('linkedin') ,
+        'picture' => $picture,
+        'permission' => $this->input->post('permission') ,
+        'phone' => $this->input->post('phone') ,
+        'generation' => $generation,
+        'programme' => $programme,
+        'master' => $master,
+        'doctoral' => $doctoral
+      );
+    }
+
     $this->db->where('username', $student);
     $this->db->update('student', $data);
     //return $this->db->insert('student', $data);
