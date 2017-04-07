@@ -1,11 +1,11 @@
 <!--
 <div class="container">
   <?php
-<<<<<<< HEAD
+
   /*
   foreach($industry as $item){
     echo $item["industry"]."<br>";
-=======
+
 
 
   // var_dump($test2);
@@ -15,7 +15,7 @@
     echo $item["lname"]." ";
     echo $item["nickname"]."<br>";
 
->>>>>>> origin/master
+
   }
   echo "<br><br>";
   foreach($business as $item){
@@ -25,24 +25,6 @@
   ?>
 </div>
 -->
-<!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-  <title>CPE Alumni</title>
-
-  <link href="https://fonts.googleapis.com/css?family=Kanit:100,200,300,400,500,600,700,800|Open+Sans:300,400,600,700" rel="stylesheet">
-
-  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-  <link rel="stylesheet" href="css/font-awesome.min.css">
-  <link rel="stylesheet" href="css/bootstrap-tagsinput.css">
-  <script src='https://www.google.com/recaptcha/api.js'></script>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
-  <script src="bootstrap/js/bootstrap.min.js"></script>
-  <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
-  <script src="js/bootstrap-tagsinput.js"></script>
 <!--
   <style>
   body {
