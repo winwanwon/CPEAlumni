@@ -139,4 +139,17 @@ class Profile_model extends CI_Model {
       }
     }
   }
+
+  public function deleteInterest($username = NULL, $interest = NULL){
+    if($username && $interest){
+      $query = $this->db->get_where('interest', array('username' => $username, 'interest' => $interest));
+      if($query->result_array()){
+        $data = array(
+          'username' => $username,
+          'interest' => $interest
+        );
+        $this->db->delete('interest', $data);
+      }
+    }
+  }
 }

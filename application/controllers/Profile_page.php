@@ -79,23 +79,38 @@ class Profile_page extends CI_Controller {
 			$data['status'] = "";
 		}
 
+
+
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			//get interest (to check diff)
+			$arr = $this->profile_model->getInterest($this->session->username);
+			$interests_result = array();
+			foreach($arr as $row){
+				array_push($interests_result, $row["interest"]);
+			}
+
 			$interests = $this->input->post('interests');
 			$interests_list = explode(",", $interests);
+			$interests_deleted = array_diff($interests_result, $interests_list);
 			foreach($interests_list as $interest){
 				$this->profile_model->setInterest($this->session->username, $interest);
 			}
+			foreach($interests_deleted as $interest){
+				$this->profile_model->deleteInterest($this->session->username, $interest);
+			}
 		}
 
-		$data['content'] = $this->profile_model->showContent($this->session->username);
-
-		//get interest
+		//get interest agian (may have changes)
 		$arr = $this->profile_model->getInterest($this->session->username);
 		$interests_result = array();
 		foreach($arr as $row){
 			array_push($interests_result, $row["interest"]);
 		}
 		$data['interests'] = implode(",",$interests_result);
+
+		$data['content'] = $this->profile_model->showContent($this->session->username);
+
+
 
 
 		$this->load->view('header');

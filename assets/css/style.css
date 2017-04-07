@@ -126,6 +126,17 @@ body {
   color: #FFF;
 }
 
+.bootstrap-tagsinput {
+    border: 0;
+    background: rgba(0,0,0,0.4) !important;
+    color: #FFF;
+    width: 100% !important;
+}
+
+.tag {
+  font-size: 8pt;
+}
+
 @media screen and (max-width:768px){
   .navbar-trans {
     padding: 15px 0 8px 0;
