@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group" style="margin: 5px auto;">
           <div class="form-inline">
             <label>Master degree's year of enrollment</label>
-            <input name="yoe_master" type="number" class="form-control" placeholder="e.g. 2016"  size="4" maxlength="4">
+            <input name="yoe_master" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4">
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group" style="margin: 5px auto;">
           <div class="form-inline">
             <label>Doctoral degree's year of enrollment</label>
-            <input name="yoe_doctoral" type="number" class="form-control" placeholder="e.g. 2016"  size="4" maxlength="4">
+            <input name="yoe_doctoral" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4">
           </div>
         </div>
       </div>
@@ -99,34 +99,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
 
     </form>
-
-    <!--- form class="form-inline" id="undergrad_form"  style="display:none; margin: 8px auto;" >
-    <div class="form-group">
-    <label>Generation</label>
-    <input type="number" id="gen" class="form-control input-sm" style="width: 100px;"placeholder="eg. 30">
-    <label>or Year of Enrollment</label>
-    <input type="number" id="year" class="form-control input-sm" style="width: 100px;"placeholder="BE eg. 2559">
-  </div>
-</form>
-<div class="form-inline">
-<div class="form-group">
-I currently enrolled / I have following degree from CPE KMUTT
-<br>
-<div class="checkbox">
-<label>
-<input type="checkbox" id="undergraduate" value="">
-Undergraduate Degree
-</label>
-</div>
-<br>
-<div class="checkbox">
-<label>
-<input type="checkbox" id="graduate" value="">
-Graduate Degree
-</label>
-</div>
-</div>
-</div --->
 </div>
 </div>
 </div>
