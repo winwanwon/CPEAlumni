@@ -11,6 +11,30 @@
           <h2>Works Information</h2>
         </div>
       </div>
+
+      
+ <div class="row">
+    
+    <?php
+      $count=1;
+      foreach($career_list as $row){
+        echo "<div class='col-md-6 '>
+                <div class='panel panel-default'>
+                  <div class='panel-heading'>".$count."</div>
+                  <div class='panel-body' style='color: black;'>
+                    <b>Position:</b> ".$row["position"]."<br>
+                    <b>Company:</b> ".$row["company"]."<br></div></div></div>";
+                    if($row["position"]==1){
+                      echo "<div class='checkbox'>
+                              <label><input type='checkbox' checked='checked'>currently work </label>
+                            </div>";
+                     }
+        $count++;
+      }
+    ?>
+  
+  </div>
+
       <div class="row">
         <?php
         $attr = array("class" => "form-horizontal");
@@ -64,12 +88,6 @@
     </div>
   </form>
 </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-    <?php
-      foreach($career_list as $row){
-        echo $row["position"]." ".$row["company"]." ".$row["present"]."<br>";
-      }
-    ?>
-  </div>
-  </div>
+
+
+ 
