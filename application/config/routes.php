@@ -58,6 +58,8 @@ $route['profile/edit'] = 'profile_page/edit';
 $route['profile/edit/new'] = 'profile_page/edit/new';
 $route['work'] = 'work_page';
 $route['work/edit'] = 'work_page/edit';
+$route['setting'] = 'setting_page';
+
 $route['directory'] = 'directory_page';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
