@@ -16,7 +16,7 @@ class Work_page extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		$data["name"] = $this->session->name;
 		$data["current_page"] = $this->uri->segment(1);
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {

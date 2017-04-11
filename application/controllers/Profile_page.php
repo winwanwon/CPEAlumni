@@ -16,7 +16,7 @@ class Profile_page extends CI_Controller {
 		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		$data["name"] = $this->session->name;
 		// ข้อมูลส่วนตัว ชื่อ ที่อยู่
 		$data["current_page"] = $this->uri->segment(1);
 		if($slug == "new"){
@@ -60,9 +60,8 @@ class Profile_page extends CI_Controller {
 				}
 
 				$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
-				$this->session->firstname = $this->input->post('firstname');
-				$this->session->lastname = $this->input->post('lastname');
-				$data["name"] = $this->session->firstname." ".$this->session->lastname;
+				$this->session->name = $this->input->post('firstname')." ".$this->input->post('lastname');
+				$data["name"] = $this->session->name;
 			}
 
 		} else {

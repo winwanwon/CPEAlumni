@@ -48,12 +48,9 @@ class Index_page extends CI_Controller {
 		else
 		{
 			$login_success = $this->index_model->login();
-			$firstname = "Warat";
-			$lastname = "Kaweepornpoj";
 			$userdata = array(
 				"username" => $this->input->post("username"),
-				"firstname" => $firstname,
-				"lastname" => $lastname
+				"name" => $login_success
 			);
 
 			if($login_success == TRUE){
@@ -61,7 +58,7 @@ class Index_page extends CI_Controller {
 				redirect('directory');
 			} else {
 				$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
-				redirect('login');
+
 			}
 			$this->load->view('header');
 			$this->load->view('navbar', $data);
@@ -89,24 +86,24 @@ class Index_page extends CI_Controller {
 		if($this->input->post('undergraduate') == "true"){
 			$this->form_validation->set_rules('generation', 'Generation', 'required');
 		}
+		if($this->input->post('master') == "true"){
+			$this->form_validation->set_rules('yoe_master', 'Year of Enrollment (Master\'s)', 'required');
+		}
+		if($this->input->post('doctoral') == "true"){
+			$this->form_validation->set_rules('yoe_doctoral', 'Year of Enrollment (Doctoral\'s)', 'required');
+		}
 
 		if ($this->form_validation->run() === FALSE)
 		{
 			$data["error"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
-			$this->load->view('header');
-			$this->load->view('navbar', $data);
-			$this->load->view('index_page', $data);
-			$this->load->view('footer');
 		}
 		else if ($this->input->post('password') != $this->input->post('password_confirm')){
 			$data["error"] = "รหัสผ่านไม่ตรงกัน";
-			$this->load->view('header');
-			$this->load->view('navbar', $data);
-			$this->load->view('index_page', $data);
-			$this->load->view('footer');
 		}
-		else
+		else if(!$this->input->post('undergraduate') && !$this->input->post('master') && !$this->input->post('doctoral'))
 		{
+			$data["error"] = "กรุณากรอกข้อมูลระดับการศึกษา";
+		} else {
 			$userdata = array(
 				"username" => $this->input->post("username"),
 				"firstname" => $this->input->post("firstname"),
@@ -116,6 +113,11 @@ class Index_page extends CI_Controller {
 			$this->profile_model->createUser();
 			redirect('profile');
 		}
+
+		$this->load->view('header');
+		$this->load->view('navbar', $data);
+		$this->load->view('index_page', $data);
+		$this->load->view('footer');
 
 	}
 

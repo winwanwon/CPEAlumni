@@ -16,7 +16,26 @@ class Setting_page extends CI_Controller {
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		$data["current_page"] = $this->uri->segment(1);
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		$data["name"] = $this->session->name;
+
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			//	Format คือ
+			// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
+			/*
+			$this->form_validation->set_rules('position', 'Position', 'required');
+			$this->form_validation->set_rules('company', 'Company', 'required');
+			$this->form_validation->set_rules('industry', 'Industry', 'required');
+			$this->form_validation->set_rules('business_type', 'Bussiness Type', 'required');
+			if ($this->form_validation->run() === FALSE) {
+				$data["status"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
+			} else {
+				$this->work_model->setCareer($this->session->username);
+				$data["status"] = "เพิ่มข้อมูลเรียบร้อยแล้ว";
+			}
+			*/
+		} else {
+			$data["status"] = "";
+		}
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
