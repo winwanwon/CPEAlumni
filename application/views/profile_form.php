@@ -2,19 +2,19 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <?php if($status): ?>
-          <div class="alert alert-trans">
-            <?php echo $status; ?>
-          </div>
-        <?php endif; ?>
-        <div class="col-xs-6">
+        <div class="col-xs-12">
+          <?php if($status): ?>
+            <div class="alert alert-trans">
+              <?php echo $status; ?>
+            </div>
+          <?php endif; ?>
           <h2>Profile Information</h2>
         </div>
-        <div class="col-xs-6 text-right">
+        <!-- div class="col-xs-6 text-right">
           <?php if($new_regis == true): ?>
             <h5><a href="#" style="line-height: 50px;">กรอกข้อมูลภายหลัง ></a></h5>
           <?php endif;?>
-        </div>
+        </div -->
 
       </div>
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
@@ -450,7 +450,7 @@
 <hr>
 <div class="form-group">
   <div class="col-sm-offset-3 col-sm-9">
-    <input type="submit" value="Save" class="btn btn-lg btn-trans">
+    <input type="submit" value="Save Changes" class="btn btn-lg btn-trans">
   </div>
 </div>
 </div>

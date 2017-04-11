@@ -44,11 +44,6 @@ class Profile_model extends CI_Model {
     return $this->db->insert('student', $data);
   }
 
-  public function getUser(){
-    $query = $this->db->get_where('student', array('username' => sha1($this->input->post('password'))));
-    return $query->result();
-  }
-
   public function updateUser(){
     return $this->db->insert('student', $data);
   }

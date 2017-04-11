@@ -12,6 +12,10 @@ h1,h2,h3,h4,h5,h6{
   margin-bottom: 0.5em;
 }
 
+h5, h6 {
+  line-height: 130%;
+}
+
 a, a:focus, a:active {
   color: #ECECEC !important;
   text-decoration:none;
@@ -135,6 +139,10 @@ body {
 
 .tag {
   font-size: 8pt;
+}
+
+.text-red {
+  color: red !important;
 }
 
 @media screen and (max-width:768px){

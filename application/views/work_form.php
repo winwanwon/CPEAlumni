@@ -2,12 +2,12 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <?php if($status): ?>
-          <div class="alert alert-trans">
-            <?php echo $status; ?>
-          </div>
-        <?php endif; ?>
         <div class="col-xs-12">
+          <?php if($status): ?>
+            <div class="alert alert-trans">
+              <?php echo $status; ?>
+            </div>
+          <?php endif; ?>
           <h2>Works Information</h2>
         </div>
       </div>
@@ -66,7 +66,7 @@
           <hr>
         </div>
       </div>
-      
+
       <div class="row">
         <?php
         $count = 1;

@@ -48,12 +48,12 @@ class Index_page extends CI_Controller {
 		else
 		{
 			$login_success = $this->index_model->login();
-			$userdata = array(
-				"username" => $this->input->post("username"),
-				"name" => $login_success
-			);
-
+			
 			if($login_success == TRUE){
+				$userdata = array(
+					"username" => $this->input->post("username"),
+					"name" => $login_success
+				);
 				$this->session->set_userdata($userdata);
 				redirect('directory');
 			} else {
