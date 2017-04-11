@@ -42,6 +42,9 @@ class Profile_page extends CI_Controller {
 			$this->form_validation->set_rules('email', 'Email', 'required');
 			if ($this->form_validation->run() === FALSE) {
 				$data["status"] = "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน";
+			} else if(!$this->input->post('undergraduate') && !$this->input->post('master') && !$this->input->post('doctoral'))
+			{
+				$data["status"] = "กรุณากรอกข้อมูลระดับการศึกษา";
 			} else {
 
 				// Input Validated
