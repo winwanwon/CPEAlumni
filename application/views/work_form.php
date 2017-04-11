@@ -14,7 +14,7 @@
       <div class="row">
         <?php
         $attr = array("class" => "form-horizontal");
-        echo form_open('work/edit', $attr);
+        echo form_open('work', $attr);
         ?>
         <div class="form-group">
           <label class="col-sm-3 control-label">Position</label>

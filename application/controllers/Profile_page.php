@@ -11,18 +11,8 @@ class Profile_page extends CI_Controller {
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
 	}
-	public function index()
+	public function index($slug = '')
 	{
-		$this->load->library('session');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
-		$data["current_page"] = $this->uri->segment(1);
-		$this->load->view('header');
-		$this->load->view('navbar', $data);
-		$this->load->view('profile');
-		$this->load->view('footer');
-	}
-
-	public function edit($slug = ''){
 		$this->load->library('session');
 		$data["name"] = $this->session->firstname." ".$this->session->lastname;
 		// ข้อมูลส่วนตัว ชื่อ ที่อยู่
@@ -60,6 +50,9 @@ class Profile_page extends CI_Controller {
 		}
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
+			$this->session->firstname = $this->input->post('firstname');
+			$this->session->lastname = $this->input->post('lastname');
+			$data["name"] = $this->session->firstname." ".$this->session->lastname;
 		} else {
 			$data['status'] = "";
 		}

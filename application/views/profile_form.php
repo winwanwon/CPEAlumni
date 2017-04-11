@@ -20,7 +20,7 @@
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
       <?php
       $attr = array("class" => "form-horizontal");
-      echo form_open_multipart('profile/edit', $attr);
+      echo form_open_multipart('profile', $attr);
       ?>
       <div class="form-horizontal">
         <div class="form-group">
@@ -65,7 +65,13 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Facebook URL</label>
           <div class="col-sm-9">
-            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
+            <input name="facebook" type="text" class="form-control" placeholder="e.g. www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Linkedin URL</label>
+          <div class="col-sm-9">
+            <input name="linkedin" type="text" class="form-control" placeholder="e.g. linkedin.com/in/username"  value = "<?php echo $content[0]["linkedin"]; ?>">
           </div>
         </div>
         <?php if(!$new_regis): ?>

@@ -54,10 +54,7 @@ $route['register'] = 'index_page/register';
 $route['login'] = 'index_page/login';
 $route['logout'] = 'index_page/logout';
 $route['profile'] = 'profile_page';
-$route['profile/edit'] = 'profile_page/edit';
-$route['profile/edit/new'] = 'profile_page/edit/new';
 $route['work'] = 'work_page';
-$route['work/edit'] = 'work_page/edit';
 $route['setting'] = 'setting_page';
 
 $route['directory'] = 'directory_page';

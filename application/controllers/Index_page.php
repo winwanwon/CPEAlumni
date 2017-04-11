@@ -114,7 +114,7 @@ class Index_page extends CI_Controller {
 			);
 			$this->session->set_userdata($userdata);
 			$this->profile_model->createUser();
-			redirect('profile/edit/new');
+			redirect('profile');
 		}
 
 	}

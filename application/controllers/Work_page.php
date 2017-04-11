@@ -12,12 +12,7 @@ class Work_page extends CI_Controller {
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
 	}
-	public function index()
-	{
-
-	}
-
-	public function edit($slug = ''){
+	public function index($slug = ''){
 		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
