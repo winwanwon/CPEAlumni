@@ -21,7 +21,7 @@
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count."</div>
-                  <div class='panel-body' style='color: black;'>
+                  <div class='panel-body'>
                     <b>Position:</b> ".$row["position"]."<br>
                     <b>Company:</b> ".$row["company"]."<br></div></div></div>";
                     if($row["position"]==1){

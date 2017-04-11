@@ -142,3 +142,17 @@ body {
     padding: 15px 0 8px 0;
   }
 }
+
+.panel-default{
+ background: rgba(0,0,0,0.4) !important; 
+ border-color: rgba(0,0,0,0.4) !important; 
+}
+
+.panel-heading{
+  background: rgba(0,0,0,0.5) !important; 
+  color: white !important;
+}
+
+.panel-default>.panel-heading {
+  border-color: rgba(0,0,0,0.4) !important; 
+}
