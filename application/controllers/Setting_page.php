@@ -6,6 +6,7 @@ class Setting_page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('profile_model');
 		$this->load->model('setting_model');
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
@@ -17,25 +18,38 @@ class Setting_page extends CI_Controller {
 		$this->load->library('form_validation');
 		$data["current_page"] = $this->uri->segment(1);
 		$data["name"] = $this->session->name;
+		$data["status"] = "";
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
-			//	Format คือ
-			// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
-			/*
-			$this->form_validation->set_rules('position', 'Position', 'required');
-			$this->form_validation->set_rules('company', 'Company', 'required');
-			$this->form_validation->set_rules('industry', 'Industry', 'required');
-			$this->form_validation->set_rules('business_type', 'Bussiness Type', 'required');
-			if ($this->form_validation->run() === FALSE) {
-				$data["status"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
-			} else {
-				$this->work_model->setCareer($this->session->username);
-				$data["status"] = "เพิ่มข้อมูลเรียบร้อยแล้ว";
+			$old_password = $this->input->post('old_password');
+	    $new_password = $this->input->post('new_password');
+	    $new_password_conf = $this->input->post('new_password_conf');
+
+			//Password Update
+	    if($old_password && $new_password && $new_password_conf){
+	      $validated = $this->setting_model->passwordCheck();
+				if($validated){
+					$success = $this->setting_model->passwordUpdate();
+					if($success){
+						$data["status"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
+					} else {
+						$data["status"] = "รหัสผ่านใหม่ไม่ตรงกัน";
+					}
+				} else {
+					$data["status"] = "รหัสผ่านเก่าไม่ถูกต้อง";
+				}
+	    } else if ($old_password || $new_password || $new_password_conf){
+				$data["status"] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 			}
-			*/
-		} else {
-			$data["status"] = "";
+
+			//Privacy update
+			$success = $this->setting_model->privacyUpdate();
+			if($success){
+				$data["status"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
+			}
 		}
+
+		$data["content"] = $this->profile_model->showContent($this->session->username);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);

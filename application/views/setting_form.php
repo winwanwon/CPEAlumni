@@ -2,74 +2,72 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <?php if($status): ?>
-          <div class="alert alert-trans">
-            <?php echo $status; ?>
-          </div>
-        <?php endif; ?>
         <div class="col-xs-12">
+          <?php if($status): ?>
+            <div class="alert alert-trans">
+              <?php echo $status; ?>
+            </div>
+          <?php endif; ?>
           <h2>Account Setting</h2>
         </div>
       </div>
       <div class="row">
+        <div class="col-xs-12">
         <?php
         $attr = array("class" => "form-horizontal");
         echo form_open('setting', $attr);
         ?>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Position</label>
-          <div class="col-sm-9">
-            <input type="text" class="form-control" name="position">
+          <div class="col-sm-9 col-sm-offset-3">
+            <h4>Change Password</h4>
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Company</label>
+          <label class="col-sm-3 control-label">Old Password</label>
           <div class="col-sm-9">
-            <input type="text" class="form-control" name="company">
+            <input type="password" class="form-control" name="old_password">
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Industry</label>
+          <label class="col-sm-3 control-label">New Password</label>
           <div class="col-sm-9">
-            <div class="ui-widget" id="interest">
-              <select class="form-control" name="industry">
-                <?php
-                  foreach($business_type as $row){
-                    echo "<option value='".$row["businessID"]."'>".$row["businessType"]."</option>";
-                  }
-                ?>
-              </select>
-            </div>
+            <input type="password" class="form-control" name="new_password">
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Business Type</label>
+          <label class="col-sm-3 control-label">Confirm New Password</label>
           <div class="col-sm-9">
-            <div class = "ui-widget" id="interest">
-              <input id="automplete-1" class="form-control" placeholder="Business Type" name="business_type">
-            </div>
+            <input type="password" class="form-control" name="new_password_conf">
           </div>
         </div>
+        <hr>
+        <div class="form-group">
+          <div class="col-sm-9 col-sm-offset-3">
+            <h4>Privacy</h4>
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Privacy</label>
+          <div class="col-sm-9">
+            <select class="form-control" name="privacy">
+              <option value="PA" <?php if($content[0]["privacy"] == "PA") echo "selected"; ?>>Public (Show all information)</option>
+              <option value="PH" <?php if($content[0]["privacy"] == "PH") echo "selected"; ?>>Public (Hide contact information)</option>
+              <option value="UL" <?php if($content[0]["privacy"] == "UL") echo "selected"; ?>>Unlisted</option>
+            </select>
+            <h5>
+              หมายเหตุ: คุณสามารถปกปิดข้อมูลบางส่วนแก่ผู้ใช้งานท่านอื่นได้ แต่ข้อมูลจะยังสามารถเข้าถึงได้โดยเจ้าหน้าที่ภาควิชาวิศวกรรมคอมพิวเตอร์
+            </h5>
+          </div>
+        </div>
+
+        <hr>
         <div class="form-group">
           <div class="col-sm-offset-3 col-sm-9">
-            <input type="checkbox" name="present" value="1"> I currently work here
+            <input type="submit" value="Save Changes" class="btn btn-lg btn-trans">
           </div>
         </div>
-        <div class="form-group">
-          <div class="col-sm-offset-3 col-sm-9">
-            <input type="submit" class="btn btn-lg btn-trans" value="Add Workplace">
-          </div>
-        </div>
+      </div>
       </div>
     </div>
   </form>
 </div>
-  <div class="row">
-    <div class="col-md-8 col-md-offset-2">
-    <?php
-      foreach($career_list as $row){
-        echo $row["position"]." ".$row["company"]." ".$row["present"]."<br>";
-      }
-    ?>
-  </div>
-  </div>
