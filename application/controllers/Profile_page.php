@@ -14,6 +14,8 @@ class Profile_page extends CI_Controller {
 	public function index($slug = '')
 	{
 		$this->load->library('session');
+		$this->load->helper('form');
+		$this->load->library('form_validation');
 		$data["name"] = $this->session->firstname." ".$this->session->lastname;
 		// ข้อมูลส่วนตัว ชื่อ ที่อยู่
 		$data["current_page"] = $this->uri->segment(1);
@@ -33,26 +35,36 @@ class Profile_page extends CI_Controller {
 		$config['max_height']           = 3000;
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		if ( ! $this->upload->do_upload('profile_image'))
-		{
-			// without upload
-			if ($this->input->server('REQUEST_METHOD') == 'POST') {
-				$this->profile_model->moreContent($username);
-			}
-		}
-		else
-		{
-			// with upload
-			$file_data = $this->upload->data();
-			if ($this->input->server('REQUEST_METHOD') == 'POST') {
-				$this->profile_model->moreContent($username, $file_data["file_name"]);
-			}
-		}
+
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
-			$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
-			$this->session->firstname = $this->input->post('firstname');
-			$this->session->lastname = $this->input->post('lastname');
-			$data["name"] = $this->session->firstname." ".$this->session->lastname;
+			$this->form_validation->set_rules('firstname', 'Firstname', 'required');
+			$this->form_validation->set_rules('lastname', 'Lastname', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required');
+			if ($this->form_validation->run() === FALSE) {
+				$data["status"] = "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน";
+			} else {
+
+				// Input Validated
+
+				if ( ! $this->upload->do_upload('profile_image'))
+				{
+					// without upload
+					$this->profile_model->moreContent($username);
+				}
+				else
+				{
+					// with upload
+					$file_data = $this->upload->data();
+					$this->profile_model->moreContent($username, $file_data["file_name"]);
+
+				}
+
+				$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
+				$this->session->firstname = $this->input->post('firstname');
+				$this->session->lastname = $this->input->post('lastname');
+				$data["name"] = $this->session->firstname." ".$this->session->lastname;
+			}
+
 		} else {
 			$data['status'] = "";
 		}

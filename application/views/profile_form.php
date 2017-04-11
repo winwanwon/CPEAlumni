@@ -30,13 +30,13 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-3 control-label">First name</label>
+          <label class="col-sm-3 control-label">First name <span class="text-red">*</span></label>
           <div class="col-sm-9">
             <input name="firstname" type="text" class="form-control" value = "<?php echo $content[0]["fname"]; ?>">
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Last name</label>
+          <label class="col-sm-3 control-label">Last name <span class="text-red">*</span></label>
           <div class="col-sm-9">
             <input name="lastname" type="text" class="form-control" value = "<?php echo $content[0]["lname"]; ?>">
           </div>
@@ -54,6 +54,12 @@
           <label class="col-sm-3 control-label">Nickname</label>
           <div class="col-sm-9">
             <input name="nickname" type="text" class="form-control" value = "<?php echo $content[0]["nickname"]; ?>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">E-mail <span class="text-red">*</span></label>
+          <div class="col-sm-9">
+            <input name="email" type="text" class="form-control" value = "<?php echo $content[0]["email"]; ?>">
           </div>
         </div>
         <div class="form-group">
