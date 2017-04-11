@@ -19,12 +19,6 @@ class Work_page extends CI_Controller {
 		$data["name"] = $this->session->firstname." ".$this->session->lastname;
 		$data["current_page"] = $this->uri->segment(1);
 
-		// GET business_type
-		$data["business_type"] = $this->work_model->getBusinessType();
-
-		// GET career
-		$data["career_list"] = $this->work_model->getCareer($this->session->username);
-
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			//	Format คือ
 			// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
@@ -41,6 +35,12 @@ class Work_page extends CI_Controller {
 		} else {
 			$data["status"] = "";
 		}
+
+		// GET business_type
+		$data["business_type"] = $this->work_model->getBusinessType();
+
+		// GET career
+		$data["career_list"] = $this->work_model->getCareer($this->session->username);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
