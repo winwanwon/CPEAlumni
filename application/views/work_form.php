@@ -20,15 +20,17 @@
       foreach($career_list as $row){
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
-                  <div class='panel-heading'>".$count."</div>
-                  <div class='panel-body'>
+                  <div class='panel-heading'>".$count;
+                  if($row["present"]==1){
+                      echo "<span class='pull-right'>Currently work</span>   </div>";
+                     }
+                     else{
+                       echo "</div>";
+                     }
+                  echo "<div class='panel-body'>
                     <b>Position:</b> ".$row["position"]."<br>
                     <b>Company:</b> ".$row["company"]."<br></div></div></div>";
-                    if($row["position"]==1){
-                      echo "<div class='checkbox'>
-                              <label><input type='checkbox' checked='checked'>currently work </label>
-                            </div>";
-                     }
+                                    
         $count++;
       }
     ?>
