@@ -11,20 +11,12 @@ class Profile_page extends CI_Controller {
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
 	}
-	public function index()
+	public function index($slug = '')
 	{
 		$this->load->library('session');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
-		$data["current_page"] = $this->uri->segment(1);
-		$this->load->view('header');
-		$this->load->view('navbar', $data);
-		$this->load->view('profile');
-		$this->load->view('footer');
-	}
-
-	public function edit($slug = ''){
-		$this->load->library('session');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		$this->load->helper('form');
+		$this->load->library('form_validation');
+		$data["name"] = $this->session->name;
 		// ข้อมูลส่วนตัว ชื่อ ที่อยู่
 		$data["current_page"] = $this->uri->segment(1);
 		if($slug == "new"){
@@ -43,23 +35,38 @@ class Profile_page extends CI_Controller {
 		$config['max_height']           = 3000;
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
-		if ( ! $this->upload->do_upload('profile_image'))
-		{
-			// without upload
-			if ($this->input->server('REQUEST_METHOD') == 'POST') {
-				$this->profile_model->moreContent($username);
-			}
-		}
-		else
-		{
-			// with upload
-			$file_data = $this->upload->data();
-			if ($this->input->server('REQUEST_METHOD') == 'POST') {
-				$this->profile_model->moreContent($username, $file_data["file_name"]);
-			}
-		}
+
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
-			$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
+			$this->form_validation->set_rules('firstname', 'Firstname', 'required');
+			$this->form_validation->set_rules('lastname', 'Lastname', 'required');
+			$this->form_validation->set_rules('email', 'Email', 'required');
+			if ($this->form_validation->run() === FALSE) {
+				$data["status"] = "กรุณากรอกข้อมูลที่จำเป็นให้ครบถ้วน";
+			} else if(!$this->input->post('undergraduate') && !$this->input->post('master') && !$this->input->post('doctoral'))
+			{
+				$data["status"] = "กรุณากรอกข้อมูลระดับการศึกษา";
+			} else {
+
+				// Input Validated
+
+				if ( ! $this->upload->do_upload('profile_image'))
+				{
+					// without upload
+					$this->profile_model->moreContent($username);
+				}
+				else
+				{
+					// with upload
+					$file_data = $this->upload->data();
+					$this->profile_model->moreContent($username, $file_data["file_name"]);
+
+				}
+
+				$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
+				$this->session->name = $this->input->post('firstname')." ".$this->input->post('lastname');
+				$data["name"] = $this->session->name;
+			}
+
 		} else {
 			$data['status'] = "";
 		}

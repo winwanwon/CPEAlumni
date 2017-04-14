@@ -12,23 +12,12 @@ class Work_page extends CI_Controller {
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
 	}
-	public function index()
-	{
-
-	}
-
-	public function edit($slug = ''){
+	public function index($slug = ''){
 		$this->load->library('session');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		$data["name"] = $this->session->name;
 		$data["current_page"] = $this->uri->segment(1);
-
-		// GET business_type
-		$data["business_type"] = $this->work_model->getBusinessType();
-
-		// GET career
-		$data["career_list"] = $this->work_model->getCareer($this->session->username);
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			//	Format คือ
@@ -46,6 +35,12 @@ class Work_page extends CI_Controller {
 		} else {
 			$data["status"] = "";
 		}
+
+		// GET business_type
+		$data["business_type"] = $this->work_model->getBusinessType();
+
+		// GET career
+		$data["career_list"] = $this->work_model->getCareer($this->session->username);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);

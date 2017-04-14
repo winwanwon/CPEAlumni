@@ -44,11 +44,6 @@ class Profile_model extends CI_Model {
     return $this->db->insert('student', $data);
   }
 
-  public function getUser(){
-    $query = $this->db->get_where('student', array('username' => sha1($this->input->post('password'))));
-    return $query->result();
-  }
-
   public function updateUser(){
     return $this->db->insert('student', $data);
   }
@@ -84,12 +79,12 @@ class Profile_model extends CI_Model {
         'fName' => $this->input->post('firstname'),
         'lName' => $this->input->post('lastname'),
         'nickname' => $this->input->post('nickname'),
+        'email' => $this->input->post('email'),
         'address' => $this->input->post('address'),
         'province' => $this->input->post('province'),
         'country' => $this->input->post('country'),
         'facebook' => $this->input->post('facebook'),
         'linkedin' => $this->input->post('linkedin') ,
-        'permission' => $this->input->post('permission') ,
         'phone' => $this->input->post('phone') ,
         'generation' => $generation,
         'programme' => $programme,
@@ -101,13 +96,13 @@ class Profile_model extends CI_Model {
         'fName' => $this->input->post('firstname'),
         'lName' => $this->input->post('lastname'),
         'nickname' => $this->input->post('nickname'),
+        'email' => $this->input->post('email'),
         'address' => $this->input->post('address'),
         'province' => $this->input->post('province'),
         'country' => $this->input->post('country'),
         'facebook' => $this->input->post('facebook'),
         'linkedin' => $this->input->post('linkedin') ,
         'picture' => $picture,
-        'permission' => $this->input->post('permission') ,
         'phone' => $this->input->post('phone') ,
         'generation' => $generation,
         'programme' => $programme,

@@ -2,25 +2,25 @@
   <div class="row">
     <div class="col-md-8 col-md-offset-2">
       <div class="row">
-        <?php if($status): ?>
-          <div class="alert alert-trans">
-            <?php echo $status; ?>
-          </div>
-        <?php endif; ?>
-        <div class="col-xs-6">
+        <div class="col-xs-12">
+          <?php if($status): ?>
+            <div class="alert alert-trans">
+              <?php echo $status; ?>
+            </div>
+          <?php endif; ?>
           <h2>Profile Information</h2>
         </div>
-        <div class="col-xs-6 text-right">
+        <!-- div class="col-xs-6 text-right">
           <?php if($new_regis == true): ?>
             <h5><a href="#" style="line-height: 50px;">กรอกข้อมูลภายหลัง ></a></h5>
           <?php endif;?>
-        </div>
+        </div -->
 
       </div>
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
       <?php
       $attr = array("class" => "form-horizontal");
-      echo form_open_multipart('profile/edit', $attr);
+      echo form_open_multipart('profile', $attr);
       ?>
       <div class="form-horizontal">
         <div class="form-group">
@@ -30,13 +30,13 @@
         </div>
 
         <div class="form-group">
-          <label class="col-sm-3 control-label">First name</label>
+          <label class="col-sm-3 control-label">First name <span class="text-red">*</span></label>
           <div class="col-sm-9">
             <input name="firstname" type="text" class="form-control" value = "<?php echo $content[0]["fname"]; ?>">
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Last name</label>
+          <label class="col-sm-3 control-label">Last name <span class="text-red">*</span></label>
           <div class="col-sm-9">
             <input name="lastname" type="text" class="form-control" value = "<?php echo $content[0]["lname"]; ?>">
           </div>
@@ -57,6 +57,12 @@
           </div>
         </div>
         <div class="form-group">
+          <label class="col-sm-3 control-label">E-mail <span class="text-red">*</span></label>
+          <div class="col-sm-9">
+            <input name="email" type="text" class="form-control" value = "<?php echo $content[0]["email"]; ?>">
+          </div>
+        </div>
+        <div class="form-group">
           <label class="col-sm-3 control-label">Mobile Phone</label>
           <div class="col-sm-9">
             <input name="phone" type="text" class="form-control" value = "<?php echo $content[0]["phone"]; ?>">
@@ -65,7 +71,13 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Facebook URL</label>
           <div class="col-sm-9">
-            <input name="facebook" type="text" class="form-control" placeholder="eg. https://www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
+            <input name="facebook" type="text" class="form-control" placeholder="e.g. www.facebook.com/username/"  value = "<?php echo $content[0]["facebook"]; ?>">
+          </div>
+        </div>
+        <div class="form-group">
+          <label class="col-sm-3 control-label">Linkedin URL</label>
+          <div class="col-sm-9">
+            <input name="linkedin" type="text" class="form-control" placeholder="e.g. linkedin.com/in/username"  value = "<?php echo $content[0]["linkedin"]; ?>">
           </div>
         </div>
         <?php if(!$new_regis): ?>
@@ -438,7 +450,7 @@
 <hr>
 <div class="form-group">
   <div class="col-sm-offset-3 col-sm-9">
-    <input type="submit" value="Save" class="btn btn-lg btn-trans">
+    <input type="submit" value="Save Changes" class="btn btn-lg btn-trans">
   </div>
 </div>
 </div>

@@ -23,6 +23,8 @@ class Work_model extends CI_Model {
     if($username){
       if(!$this->input->post('present')){
         $present = 0;
+      } else {
+        $present = $this->input->post('present');
       }
       $data = array(
         'username' => $username,

@@ -18,7 +18,7 @@ class Directory_page extends CI_Controller {
 		$this->load->library('session');
 		$data["industry"] = $this->filter_model->loadIndustry();
 		$data["business"] = $this->filter_model->loadBusiness();
-		$data["name"] = $this->session->firstname." ".$this->session->lastname;
+		$data["name"] = $this->session->name;
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
