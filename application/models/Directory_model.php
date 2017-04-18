@@ -6,8 +6,12 @@ class Directory_model extends CI_Model {
           $this->load->database();
         }
 
-        public function getData(){
-          
+        public function getData($username = NULL){
+          $query = $this->db->get('student');
+          if($username){
+            $this->db->where('username', $username);
+          }
+	        return $query->result_array();
         }
 
         // เปลี่ยนชื่อ fn มาจาก getData นะ

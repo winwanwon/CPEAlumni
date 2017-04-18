@@ -231,30 +231,32 @@
 </div>
 <!-- Display part-->
 <div class="col-md-8 display">
-	<div>
-		<h2>Students</h2><hr>
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentData" style="margin: 5px" class="img-circle">
-
-	</div>
-	<br>
-	<div>
-		<h2>Alumnus</h2><hr>
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentPrivate" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentPrivate" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentPrivate" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentPrivate" style="margin: 5px" class="img-circle">
-		<img src="http://placekitten.com/g/130/130" data-toggle="modal" data-target="#studentPrivate" style="margin: 5px" class="img-circle">
-
-	</div>
+	<bR>
+		<?php 
+			foreach ($students as $student){
+				echo '<div class="col-xs-6 col-sm-4">';
+				echo '<div class="student text-center" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
+				//echo '<div class="panel-heading"><h3 class="panel-title text-center">';
+				//echo $student["fname"]." ".$student["lname"];
+				//echo '</h3></div>';
+				echo "<img src='";
+				echo base_url();
+				echo "/uploads/".$student["picture"]."'class='dir-avatar img-circle'>";
+				echo "<h4>".$student["fname"]." ".$student["lname"]."</h4>";
+				echo "<h5>";
+				if($student["generation"]!=0){
+					echo "CPE#".$student["generation"];	
+				} else if($student["doctoral"]!=0){
+					echo "Doctoral Degree";
+				} else if($student["master"]!=0){
+					echo "Master Degree";
+				} else if($student["generation"]!=0){
+					echo "Faculty Staff";
+				}
+				echo "</h5>";
+				echo '</div>';
+				}
+		?>
 </div>
 </div>
 
@@ -271,7 +273,7 @@
 				<h3>Piyaphon Trangjirasathian</h3>
 				<h4>Name (CPE#28)</h4>
       </div>
-			<div class="modal-body">
+			<div class="modal-body" id="user-content">
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>E-mail</label>
@@ -336,151 +338,9 @@
   </div>
 </div>
 
-<div class="modal fade" id="studentPrivate" tabindex="-1" role="dialog">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Information</h4>
-      </div>
-      <div class="modal-body text-center">
-				<img src="http://placekitten.com/g/130/130" class="img-circle">
-				<h3>Karis Matchaparn</h3>
-				<h4>Mon (CPE#10)</h4>
-      </div>
-			<div class="modal-body">
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Education</label>
-					</div>
-					<div class="col-xs-9">Undergraduate (Regular Program)</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Work</label>
-					</div>
-					<div class="col-xs-9">
-							<ul>
-								<li>JAVA Programmer at StockRadar</li>
-								<li>Data Engineer at G-ABLE</li>
-								<li>Project Coordinator at Panic Fox</li>
-							</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Lives in</label>
-					</div>
-					<div class="col-xs-9">Bangkok, Thailand</div>
-				</div>
-
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Interested in</label>
-					</div>
-					<div class="col-xs-9">
-						<ul>
-							<li>Film</li>
-							<li>Video Games</li>
-							<li>Music</li>
-							<li>Internet of Things</li>
-							<li>Android OS</li>
-						</ul>
-					</div>
-				</div>
-      </div>
-
-
-			<div class="modal-body text-center">
-				<i>This user does not show his/her contact method to public.</i>
-			</div>
-    </div>
-  </div>
-</div>
-
 </body>
-<script>
-$(function(){
-	$('.spinner .btn:first-of-type').on('click', function() {
-		var btn = $(this);
-		var input = btn.closest('.spinner').find('input');
-		if (input.attr('max') == undefined || parseInt(input.val()) < parseInt(input.attr('max'))) {
-			input.val(parseInt(input.val(), 10) + 1);
-		} else {
-			btn.next("disabled", true);
-		}
-	});
-	$('.spinner .btn:last-of-type').on('click', function() {
-		var btn = $(this);
-		var input = btn.closest('.spinner').find('input');
-		if (input.attr('min') == undefined || parseInt(input.val()) > parseInt(input.attr('min'))) {
-			input.val(parseInt(input.val(), 10) - 1);
-		} else {
-			btn.prev("disabled", true);
-		}
-	});
-})
-</script>
 
-<script>
-$(function() {
-	var availableTutorials  =  [
-		"Big Data Experience",
-		"Parallel",
-		"Embedded",
-		"SAP",
-		"Java",
-		"Web",
-		"Liverpool",
-	];
-	$( "#automplete-1" ).autocomplete({
-		source: availableTutorials
-	});
-});
-</script>
-<!--autocomplete career text box -->
-<script>
-$(function() {
-	var availableTutorials  =  [
-		"Gamer",
-		"Tourist",
-		"Programmer",
-		"Java Developer",
-		"Web Developer",
-		"Project Manager",
-		"System Analyst",
-		"Actor",
-		"Football Player",
-		"Chef",
 
-	];
-	$( "#automplete-2" ).autocomplete({
-		source: availableTutorials
-	});
-});
 
-$(".checkbox").click( function(){
-	randomHide();
-})
-
-$("input").keyup( function(){
-	randomHide();
-})
-
-function randomHide(){
-	$(".img-circle").each( function(){
-		var rand = Math.floor(Math.random()*3)
-		if(rand==0){
-			$(this).hide();
-		} else {
-			$(this).show();
-		}
-	})
-}
-
-$(function () {
-  $('[data-toggle="tooltip"]').tooltip()
-})
-</script>
 
 </html>

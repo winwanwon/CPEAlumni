@@ -145,10 +145,28 @@ body {
   color: red !important;
 }
 
+.dir-avatar {
+  width: 10vw; 
+  height: 10vw;
+}
+
+.student {
+  cursor: pointer !important;
+}
+
+.modal-content {
+  background: rgba(0,0,0,0.75) !important;
+}
+
 @media screen and (max-width:768px){
   .navbar-trans {
     padding: 15px 0 8px 0;
   }
+
+  .dir-avatar {
+     width: 20vw; 
+     height: 20vw;
+  } 
 }
 
 .panel-default{

@@ -40,6 +40,14 @@ $(document).ready(function(){
   checkboxCheck();
 })
 
+
+	$(".student").click( function(){
+		$.post("getuser/winwanwon", {username: $(this).attr('id')}, function(data){
+			$("#user-content").html(data);
+      console.log(data)
+		})
+	})
+
 /*var citynames = new Bloodhound({
   datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
   queryTokenizer: Bloodhound.tokenizers.whitespace,

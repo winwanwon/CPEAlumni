@@ -7,6 +7,7 @@ class Directory_page extends CI_Controller {
 	{
 		parent::__construct();
 		$this->load->model('filter_model');
+		$this->load->model('directory_model');
 		$this->load->helper('url_helper');
 	}
 
@@ -20,10 +21,21 @@ class Directory_page extends CI_Controller {
 		$data["business"] = $this->filter_model->loadBusiness();
 		$data["name"] = $this->session->name;
 
+		$data["students"] = $this->directory_model->getData();
+
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
 		$this->load->view('directory', $data);
 		$this->load->view('footer');
+	}
+
+	public function getuser($username){
+		$data["current_page"] = $this->uri->segment(1);
+		$this->load->library('session');
+		$data["name"] = $this->session->name;
+		$data["students"] = $this->directory_model->getData($username);
+
+		return var_dump($data["students"]);
 	}
 
 	public function filter_bus()
