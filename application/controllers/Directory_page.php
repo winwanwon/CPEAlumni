@@ -20,6 +20,8 @@ class Directory_page extends CI_Controller {
 		//$data["industry"] = $this->filter_model->loadIndustry();
 		$data["business"] = $this->filter_model->loadCareerType();
 		$data["name"] = $this->session->name;
+		// GET career to show in dropdown
+		$data["career"] = $this->directory_model->getCareerType();
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			// SEARCH FILTER
@@ -50,35 +52,32 @@ class Directory_page extends CI_Controller {
 
 			$filter = array();
 
-			if(isset($fname)){
-				$filter["fname"] = $fname;
-			} 
-			if(isset($lname)){
-				$filter["lname"] = $lname;
-			}
-			if(isset($generation)){
-				$filter["generation"] = $generation;
-			}
-			if(isset($interests)){
-				$filter["interests"] = $interests;
-			}
-			if(isset($career)){
-				$filter["career"] = $career;
-			}
-			if(isset($undergraduate)){
-				$filter["undergraduate"] = $undergraduate;
-			}
-			if(isset($master)){
-				$filter["master"] = $master;
-			}
-			if(isset($doctoral)){
-				$filter["doctoral"] = $doctoral;
-			}
-			$data["students"] = $this->directory_model->getStudentList($filter);
-		} else {
-			$data["students"] = $this->directory_model->getStudentList();
+		if(isset($fname)){
+			$filter["fname"] = $fname;
 		}
-		
+		if(isset($lname)){
+			$filter["lname"] = $lname;
+		}
+		if(isset($generation)){
+			$filter["generation"] = $generation;
+		}
+		if(isset($interests)){
+			$filter["interests"] = $interests;
+		}
+		if(isset($career)){
+			$filter["career"] = $career;
+		}
+		if(isset($undergraduate)){
+			$filter["undergraduate"] = $undergraduate;
+		}
+		if(isset($master)){
+			$filter["master"] = $master;
+		}
+		if(isset($doctoral)){
+			$filter["doctoral"] = $doctoral;
+		}
+
+		$data["students"] = $this->directory_model->getStudentList($filter);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);

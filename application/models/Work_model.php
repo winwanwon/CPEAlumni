@@ -11,11 +11,14 @@ class Work_model extends CI_Model {
     $query = $this->db->get();
     return $query->result_array();
   }
-  
+
 
 
   public function getCareer($username = NULL){
-    $this->db->select()->where('username',$username)->from('career');
+    $this->db->select("c.*,c_t.*");
+    $this->db->from("career c");
+    $this->db->join("career_type c_t", "c.careerID = c_t.careerID",'left');
+    $this->db->where('c.username',$username);
     $query = $this->db->get();
     return $query->result_array();
   }

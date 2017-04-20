@@ -30,9 +30,8 @@
                      }
                   echo "<div class='panel-body'>
                     <b>Position:</b> ".$row["position"]."<br>
-                    <b>Company:</b> ".$row["company"]."<br></div></div></div>";
-                    
-                    //<b>Career:</b> ".$row["career"]."<br>
+                    <b>Company:</b> ".$row["company"]."<br>
+                    <b>Career:</b> ".$row["careerType"]."<br></div></div></div>";
 
         $count++;
       }
@@ -63,7 +62,7 @@
             <div class="ui-widget" id="interest">
               <select class="form-control" name="career">
                 <?php
-                  foreach($career as $row){ //จริงมันชื่อ career
+                  foreach($career as $row){
                     echo "<option value='".$row["careerID"]."'>".$row["careerType"]."</option>";
                   }
                 ?>
