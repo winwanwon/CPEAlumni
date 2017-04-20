@@ -51,4 +51,26 @@ class Work_model extends CI_Model {
       }
     }
   }
+
+  public function toggleCurrent($username = NULL, $id = NULL, $present = NULL){
+    if($username && $id){
+      $query = $this->db->get_where('career', array('username' => $username, 'id' => $id));
+      if($present==0){
+        $present=1;
+      }
+      elseif($present==1){
+        $present=0;
+      }
+      if($query->result_array()){
+        $data = array(
+          'present' => $present,
+        );
+        $this->db->where('username', $this->session->username);
+        $this->db->where('id', $id);
+        $this->db->update('career', $data);
+      }
+    }
+  }
+
+
 }

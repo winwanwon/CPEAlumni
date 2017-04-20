@@ -19,26 +19,28 @@
 
       $count=1;
       foreach($career_show as $row){
-        $id = $row["id"];
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count.
-                    /*"<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn btn-danger'
-                         onclick='<?php echo base_url()?>Work_page/delCareer'>del</button></span>";*/
                    "<span class='pull-right'><form action='Work_page/index' method='POST'>
                       <input type='hidden' name='delbtn' value='".$row["id"]."'>
-                       <button type='submit' id='".$row['id']."'class='btn btn-danger'>del</button>
+                       <button type='submit' class='btn btn-danger'>X</button>
                    </form></span>";
                     if($row["present"]==1){
-                        echo "<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn btn-primary'
-                        onclick='<?php echo base_url()?>Work_page/toggleCurrent'>Currently work</button></span>
-
-                            </div>";
+                        echo "<span class='pull-right'><form action='Work_page/index' method='POST'>
+                          <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
+                          <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
+                          <button type='submit' class='btn btn-primary'>Currently work</button>
+                        </form></span>
+                        </div>";
                     }
                     elseif($row["present"]==0){
-                        echo "<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn'>Currently work</button></span>
-
-                            </div>";
+                        echo "<span class='pull-right'><form action='Work_page/index' method='POST'>
+                          <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
+                          <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
+                          <button type='submit' class='btn'>Currently work</button>
+                        </form></span>
+                        </div>";
                     }
                     else{
                         echo "</div>";

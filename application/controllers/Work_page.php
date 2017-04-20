@@ -23,7 +23,12 @@ class Work_page extends CI_Controller {
 
 			// delete career
 			$id=$this->input->post('delbtn');
-			$data["id"] = $this->work_model->deleteCareer($this->session->username,$id);
+			$this->work_model->deleteCareer($this->session->username,$id);
+
+			// toggle currently work
+			$id=$this->input->post('togglebtnId');
+			$present=$this->input->post('togglebtnPresent');
+			$this->work_model->toggleCurrent($this->session->username,$id,$present);
 
 			//	Format คือ
 			// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
@@ -55,14 +60,5 @@ class Work_page extends CI_Controller {
 		$this->load->view('work_form', $data);
 		$this->load->view('footer');
 	}
-
-	// public function toggleCurrent($slug = ''){
-	// 	$this->load->library('session');
-	// 	$this->load->helper('form');
-	// 	$data["name"] = $this->session->name;
-	// 	$data["current_page"] = $this->uri->segment(1);
-
-
-	// }
 
 }
