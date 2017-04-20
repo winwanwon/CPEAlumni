@@ -30,7 +30,7 @@
                         echo "<span class='pull-right'><form action='work' method='POST'>
                           <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
-                          <button type='submit' class='btn-work btn btn-current'>Currently work</button>
+                          <button type='submit' class='btn-work btn btn-primary btn-current'>Currently work</button>
                         </form></span>
                         </div>";
                     }
@@ -38,7 +38,7 @@
                         echo "<span class='pull-right'><form action='work' method='POST'>
                           <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
-                          <button type='submit' class='btn-work btn'>Currently work</button>
+                          <button type='submit' class='btn-work btn'>Previous job</button>
                         </form></span>
                         </div>";
                     }
