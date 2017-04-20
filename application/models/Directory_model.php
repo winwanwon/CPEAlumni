@@ -53,6 +53,12 @@ class Directory_model extends CI_Model {
 	        return $query->result_array();
         }
 
+        public function getStudentCareer($username){
+          $this->db->select('position, company, present');
+          $query = $this->db->get_where('career', array('username' => $username));
+	        return $query->result_array();
+        }
+
         // เปลี่ยนชื่อ fn มาจาก getData นะ
 				public function getInterest(){
 	        $query = $this->db->get('interest');

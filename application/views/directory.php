@@ -181,6 +181,18 @@
 					</div>
 				</div>
 				</span>
+				<span id="career_list">
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<label>Career</label>
+					</div>
+					<div class="col-xs-9">
+						<ul id="career">
+
+						</ul>
+					</div>
+				</div>
+				</span>
       </div>
     </div>
   </div>

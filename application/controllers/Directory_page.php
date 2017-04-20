@@ -108,14 +108,20 @@ class Directory_page extends CI_Controller {
 		$data["name"] = $this->session->name;
 
 		$result = $this->directory_model->getStudentData($username);
-
 		$interests = $this->directory_model->getStudentInterests($username);
 		$int_arr = array();
 		foreach($interests as $interest){
 			array_push($int_arr, $interest["interest"]);
 		}
 
+		$career_arr = array();
+		$career = $this->directory_model->getStudentCareer($username);
+		foreach($career as $car){
+			array_push($career_arr, $car);
+		}
+
 		$result[0]["interests"] = $int_arr;
+		$result[0]["career"] = $career_arr;
 
 		$data["students"] = $result;
 
