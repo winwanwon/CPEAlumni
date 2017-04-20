@@ -1,231 +1,53 @@
-<!--
-<div class="container">
-  <?php
 
-  /*
-  foreach($industry as $item){
-    echo $item["industry"]."<br>";
-
-
-
-  // var_dump($test2);
-  foreach($test2 as $item){
-    echo $item["username"]." ";
-    echo $item["fname"]." ";
-    echo $item["lname"]." ";
-    echo $item["nickname"]."<br>";
-
-
-  }
-  echo "<br><br>";
-  foreach($business as $item){
-    echo $item["businessType"]."<br>";
-  }
-  */
-  ?>
-</div>
--->
-<!--
-  <style>
-  body {
-    font-family: 'Open Sans', sans-serif;
-    padding-bottom: 30px;
-  }
-
-  #avatar {
-    width: 30px;
-    height: 30px;
-    border-radius: 15px;
-    margin: 0 8px;
-  }
-  </style>
-
-  <style>
-    @font-face {
-      font-family: bebas;
-      src: url(fonts/bebas.TTF);
-    }
-    .navbar-inverse{
-      background-color: white;
-      border-color: white;
-    }
-
-    .linkhover:hover{
-      background-color: whitesmoke;
-      color: #C8102E !important;
-    }
-    .navbar-inverse .navbar-nav>li>a{
-      color: #C8102E !important;
-    }
-    .navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:focus, .navbar-inverse .navbar-nav>.open>a:hover {
-      background-color: black;
-      color: white !important;
-    }
-    .nav{
-      font-family: 'Open Sans';
-    }
-    .navbar-brand:hover{
-      color: #7F7F7F !important;
-    }
-
-    .containTable{
-      text-align: center;
-    }
-    .table, .memberresult{
-      margin-top: 20px;
-    }
-    .table>thead>tr>th{
-      text-align: center;
-    }
-    .radio {
-      margin:auto;
-    }
-    .containerpackage{
-      margin: auto;
-      margin-top: 80px;
-      margin-left: 50px;
-      margin-right: 50px;
-    }
-    h1{
-      font-family: bebas;
-      text-align: left;
-    }
-    .result{
-      margin-top: 5px;
-    }
-    .nav-stacked a{
-      color: #C8102E !important;
-    }
-    .nav-stacked .active a,
-    .nav-stacked .active a:hover {
-      background-color: transparent !important;
-    }
-    .nav-pills > .active > a, .nav-pills > .active > a:hover {
-      background-color: transparent !important;
-      border: 2px solid #C8102E !important;
-    }
-    .profilePicture{
-      border-radius: 50%;
-      height: 150px;
-      width: 150px;
-    }
-    .socialLogo{
-      height: 40px;
-      width: 40px;
-      margin-right: 10px;
-      margin-top: 10px;
-      margin-bottom: 10px;
-    }
-    .myprofile-area{
-      text-align: center;
-    }
-    .modal-content{
-      text-align: left; !important;
-    }
-  </style>
-
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="dashboard.php">CPE Alumni Directory</a>
-      </div>
-      <ul class="nav navbar-nav navbar-right">
-        <li class="dropdown">
-         <a style="padding: 10px 15px;" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><img src="img/avatar.jpg" id="avatar" alt="">Warat Kaweepornpoj (CPE#28) <span class="caret"></span></a>
-         <ul class="dropdown-menu">
-           <li><a href="profile_modal.php">Edit Profile</a></li>
-           <li><a href="index.php">Logout</a></li>
-         </ul>
-       </li>
-      </ul>
-    </div>
-  </nav>
--->
-<style>
-	.img-circle {
-		opacity: 0.8;
-		cursor: pointer;
-		-webkit-transition: all ease-in-out 0.5s;
-	}
-
-	.img-circle:hover {
-		-webkit-transform: scale(1.06);
-		opacity: 1;
-		cursor: pointer;
-	}
-</style>
 
 <body>
 	<div class="container">
+		<div class="row">
 		<div class="col-md-4">
 			<h2>Search Student/Alumni</h2>
-			<hr>
-
-			<form>
+        <?php
+        $attr = array("class" => "form-horizontal");
+        echo form_open('directory', $attr);
+        ?>
 				<div class="form-group">
 					<label>Name</label>
-					<input type="text" class="form-control input-sm" placeholder="Name">
+					<input type="text" name="name" class="form-control input-sm" placeholder="Name" value="<?php echo $name_filter; ?>">
 				</div>
 				<div class="form-group">
 					<label>Generation</label>
-					<input type="number" class="form-control input-sm" value="30">
-					<!-- div class="input-group spinner">
-					<input type="text" class="form-control input-sm" value="1">
-					<div class="input-group-btn-vertical">
-					<button class="btn btn-default "  type="button"><i class="fa fa-caret-up"></i></button>
-					<button class="btn btn-default"  type="button"><i class="fa fa-caret-down"></i></button>
-				</div>
-			</div -->
+					<input type="number" name="generation" class="form-control input-sm" value="<?php echo $generation_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
 			<label>Interests</label>
-			<input id = "automplete-1" class="form-control input-sm" placeholder="Find by interests">
+			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests" value="<?php echo $interests_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
 			<label>Career</label>
-			<input id = "automplete-2" class="form-control input-sm" placeholder="Find by career">
+			<input id = "automplete-2" name="career" class="form-control input-sm" placeholder="Find by career" value="<?php echo $career_filter; ?>">
 		</div>
 		<div class="form-group">
 			<label>Education in CPE</label>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" id="undergraduate_reg" value="">
-					Undergraduate (Regular)
+					<input type="checkbox" name="undergraduate" id="undergraduate_reg" <?php if($undergraduate_filter) echo "checked"; ?>>
+					Undergraduate Degree
 				</label>
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" id="undergraduate_int" value="">
-					Undergraduate (International)
-				</label>
-			</div>
-			<div class="checkbox">
-				<label>
-					<input type="checkbox" id="graduate" value="">
+					<input type="checkbox" name="graduate" id="graduate" <?php if($graduate_filter) echo "checked"; ?>>
 					Graduate Degree
 				</label>
 			</div>
+			<div class="checkbox">
+				<label>
+					<input type="checkbox" name="doctoral" id="Doctoral" <?php if($doctoral_filter) echo "checked"; ?>>
+					Doctoral Degree
+				</label>
+			</div>
 		</div>
 		<div class="form-group">
-			<label>Industry</label>
-			<select class="form-control input-sm">
-				<option value="Agriculture and Forestry/Wildlife">Agriculture and Forestry/Wildlife</option>
-				<option value="Business and Information">Business and Information</option>
-				<option value="Construction/Utilities/Contracting">Construction/Utilities/Contracting</option>
-				<option value="Education">Education</option>
-				<option value="Gaming">Gaming</option>
-				<option value="Finance Insurance">Finance Insurance</option>
-			</select>
-		</div>
-
-		<div class="form-group">
-			<label>Business Type</label>
-			<select class="form-control input-sm">
-				<option value="Accountant">Accountant</option>
-				<option value="Cash Advances">Cash Advances</option>
-				<option value="Insurance">Insurance</option>
-				<option value="Investor">Investor</option>
-			</select>
+			<input type="submit" class="btn btn-block btn-trans" value="Search">
 		</div>
 	</form>
 </div>
@@ -270,8 +92,8 @@
       </div>
       <div class="modal-body text-center">
 				<img src="http://placekitten.com/g/130/130" class="img-circle">
-				<h3>Piyaphon Trangjirasathian</h3>
-				<h4>Name (CPE#28)</h4>
+				<h3 id="name">Firstname Lastname</h3>
+				<h4><span id="nickname">Name</span> <span id="generation">(CPE#28)</span></h4>
       </div>
 			<div class="modal-body" id="user-content">
 				<div class="row">

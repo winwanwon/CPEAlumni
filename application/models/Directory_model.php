@@ -6,7 +6,19 @@ class Directory_model extends CI_Model {
           $this->load->database();
         }
 
-        public function getData($username = NULL){
+        public function getStudentList($filter = NULL){
+            $array = array();
+            foreach(array_keys ($filter) as $t) {
+              if($filter[$t] != '') {
+                $array[$t] = $filter[$t];
+              };
+            }
+
+            $query = $this->db->get_where('student', $array);
+            return $query->result_array();
+        }
+
+        public function getStudentData($username = NULL){
           $query = $this->db->get('student');
           if($username){
             $this->db->where('username', $username);

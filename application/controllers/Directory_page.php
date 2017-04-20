@@ -14,14 +14,67 @@ class Directory_page extends CI_Controller {
 
 	public function index()
 	{
-
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->library('session');
+		$this->load->helper('form');
 		$data["industry"] = $this->filter_model->loadIndustry();
 		$data["business"] = $this->filter_model->loadBusiness();
 		$data["name"] = $this->session->name;
 
-		$data["students"] = $this->directory_model->getData();
+		// SEARCH FILTER
+		$name = $this->input->post("name");
+		$generation = $this->input->post("generation");
+		$interests = $this->input->post("interests");
+		$career = $this->input->post("career");
+		$undergraduate = $this->input->post("undergraduate");
+		$graduate = $this->input->post("graduate");
+		$doctoral = $this->input->post("doctoral");
+
+		//Show Search Data in Form
+		$data["name_filter"] = $name;
+		$data["generation_filter"] = $generation;
+		$data["interests_filter"] = $interests;
+		$data["career_filter"] = $career;
+		$data["undergraduate_filter"] = $undergraduate;
+		$data["graduate_filter"] = $graduate;
+		$data["doctoral_filter"] = $doctoral;
+
+		$name_split = explode(" ",$name);
+		if(isset($name_split[0])){
+			$fname = $name_split[0];
+		}
+		if(isset($name_split[1])){
+			$lname = $name_split[1];
+		}
+
+		$filter = array();
+
+		if(isset($fname)){
+			$filter["fname"] = $fname;
+		} 
+		if(isset($lname)){
+			$filter["lname"] = $lname;
+		}
+		if(isset($generation)){
+			$filter["generation"] = $generation;
+		}
+		if(isset($interests)){
+			$filter["interests"] = $interests;
+		}
+		if(isset($career)){
+			$filter["career"] = $career;
+		}
+		if(isset($undergraduate)){
+			$filter["undergraduate"] = $undergraduate;
+		}
+		if(isset($graduate)){
+			$filter["graduate"] = $graduate;
+		}
+		if(isset($doctoral)){
+			$filter["doctoral"] = $doctoral;
+		}
+		
+		$data["students"] = $this->directory_model->getStudentList($filter);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
