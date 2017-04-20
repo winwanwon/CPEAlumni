@@ -52,6 +52,7 @@ $(document).ready(function(){
         $("#info_picture").attr('src', 'https://placekitten.com/130/130');
       }        
       
+
       jQuery.each(data, function(i, val) {
         if(!val){
           data[i] = "<i>ไม่มีข้อมูล</i>";
@@ -89,7 +90,10 @@ $(document).ready(function(){
         $("#education").append("<li>Doctoral Degree (" + data.doctoral + ")</li>")
       }
 
-      $("#interests").html("")
+      $("#interest_list").html("")
+      if(data.interests.length == 0){
+        $("#interests").html("<i>ไม่มีข้อมูล</i>")
+      }
       $.each(data.interests, function(key,value){
         $("#interests").append("<li>" + value + "</li>")
       })

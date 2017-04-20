@@ -7,6 +7,7 @@ class Directory_model extends CI_Model {
         }
 
         public function getStudentList($filter = NULL){
+          $array = array();
           if(isset($filter)){
             foreach(array_keys ($filter) as $t) {
               if($filter[$t] != '') {

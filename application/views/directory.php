@@ -158,7 +158,8 @@
 
 					</div>
 				</div>
-
+				
+				<span id="interest_list">
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Interested in</label>
@@ -169,6 +170,7 @@
 						</ul>
 					</div>
 				</div>
+				</span>
       </div>
     </div>
   </div>
