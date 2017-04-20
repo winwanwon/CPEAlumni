@@ -3,8 +3,8 @@
 <body>
 	<div class="container">
 		<div class="row">
-		<div class="col-md-4">
-			<h2>Search Student/Alumni</h2>
+		<div class="col-md-3">
+			<h2>Search by..</h2>
         <?php
         $attr = array();
         echo form_open('directory', $attr);
@@ -71,7 +71,7 @@
 				if($i == 0){
 					echo '<div class="row">';
 				}
-				echo '<div class="col-xs-4">';
+				echo '<div class="col-xs-3">';
 				echo '<div class="student text-center" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
 				echo "<img src='";
 				if($student["picture"]!=NULL){
@@ -95,7 +95,7 @@
 				echo "</h5>";
 				echo '</div>';
 				echo '</div>';
-				if ($i == 2) {
+				if ($i == 4) {
 					echo '</div>';
 					$i = -1;
 				}
