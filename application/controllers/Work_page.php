@@ -24,8 +24,9 @@ class Work_page extends CI_Controller {
 			// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
 			$this->form_validation->set_rules('position', 'Position', 'required');
 			$this->form_validation->set_rules('company', 'Company', 'required');
-			$this->form_validation->set_rules('industry', 'Industry', 'required');
-			$this->form_validation->set_rules('business_type', 'Bussiness Type', 'required');
+			//->form_validation->set_rules('industry', 'Industry', 'required');
+			//$this->form_validation->set_rules('business_type', 'Bussiness Type', 'required');
+			$this->form_validation->set_rules('career', 'Career', 'required');
 			if ($this->form_validation->run() === FALSE) {
 				$data["status"] = "กรุณากรอกข้อมูลให้ถูกต้องและครบถ้วน";
 			} else {
@@ -36,11 +37,13 @@ class Work_page extends CI_Controller {
 			$data["status"] = "";
 		}
 
-		// GET business_type
-		$data["business_type"] = $this->work_model->getBusinessType();
+		// GET career to show in dropdown
+		$data["career"] = $this->work_model->getBusinessType();
 
-		// GET career
-		$data["career_list"] = $this->work_model->getCareer($this->session->username);
+
+
+		// show career
+		$data["career_show"] = $this->work_model->getCareer($this->session->username);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);

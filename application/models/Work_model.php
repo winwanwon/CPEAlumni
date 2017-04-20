@@ -7,10 +7,11 @@ class Work_model extends CI_Model {
   }
 
   public function getBusinessType(){
-    $this->db->select()->from('business_type');
+    $this->db->select()->from('career_type');
     $query = $this->db->get();
     return $query->result_array();
   }
+  
 
 
   public function getCareer($username = NULL){
@@ -28,7 +29,7 @@ class Work_model extends CI_Model {
       }
       $data = array(
         'username' => $username,
-        'businessID' => $this->input->post('business_type'),
+        'careerID' => $this->input->post('career'),
         'position' => $this->input->post('position'),
         'company' => $this->input->post('company'),
         'present' => $present
