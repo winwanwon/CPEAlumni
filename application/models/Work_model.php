@@ -6,7 +6,7 @@ class Work_model extends CI_Model {
     $this->load->database();
   }
 
-  public function getBusinessType(){
+  public function getCareerType(){
     $this->db->select()->from('career_type');
     $query = $this->db->get();
     return $query->result_array();

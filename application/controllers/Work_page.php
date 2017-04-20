@@ -38,7 +38,7 @@ class Work_page extends CI_Controller {
 		}
 
 		// GET career to show in dropdown
-		$data["career"] = $this->work_model->getBusinessType();
+		$data["career"] = $this->work_model->getCareerType();
 
 
 

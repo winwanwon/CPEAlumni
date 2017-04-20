@@ -17,8 +17,8 @@ class Directory_page extends CI_Controller {
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->library('session');
 		$this->load->helper('form');
-		$data["industry"] = $this->filter_model->loadIndustry();
-		$data["business"] = $this->filter_model->loadBusiness();
+		//$data["industry"] = $this->filter_model->loadIndustry();
+		$data["business"] = $this->filter_model->loadCareerType();
 		$data["name"] = $this->session->name;
 
 		// SEARCH FILTER
@@ -96,11 +96,11 @@ class Directory_page extends CI_Controller {
 	{
 		$data["current_page"] = $this->uri->segment(1);
 
-		$data["test"] = $this->filter_model->loadBusiness();
+		$data["test"] = $this->filter_model->loadCareerType();
 		$data["test2"] = $this->filter_model->getStudent();
 
-		$data["industry"] = $this->filter_model->loadIndustry();
-		$data["business"] = $this->filter_model->loadBusiness();
+		//$data["industry"] = $this->filter_model->loadIndustry();
+		$data["business"] = $this->filter_model->loadCareerType();
 
 		$this->load->view('header');
 		$this->load->view('directory', $data);

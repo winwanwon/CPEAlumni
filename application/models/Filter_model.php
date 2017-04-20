@@ -5,12 +5,12 @@ class Filter_model extends CI_Model {
   {
     $this->load->database();
   }
-  public function loadIndustry(){
-    $query = $this->db->get('business_type');
-      return $query->result_array();
-  }
-  public function loadBusiness(){
-    $query = $this->db->get('business_type');
+  // public function loadIndustry(){
+  //   $query = $this->db->get('business_type');
+  //     return $query->result_array();
+  // }
+  public function loadCareerType(){
+    $query = $this->db->get('career_type');
       return $query->result_array();
   }
   public function loadCareer(){
