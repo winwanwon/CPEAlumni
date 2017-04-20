@@ -42,8 +42,30 @@ $(document).ready(function(){
 
 
 	$(".student").click( function(){
-		$.post("getuser/winwanwon", {username: $(this).attr('id')}, function(data){
-			$("#user-content").html(data);
+		$.post("getuser/" + $(this).attr('id'), function(data){
+			data = data[0];
+
+      $("#name").html(data.fname + " " + data.lname);
+      $("#nickname").html(data.nickname);
+      $("#generation").html(data.generation);
+      $("#email").html(data.email);
+      $("#mobile").html(data.phone);
+      $("#facebook").html(data.facebook);
+      $("#linkedin").html(data.linkedin);
+      $("#province").html(data.province);
+      $("#country").html(data.country);
+      $("#address").html(data.address);
+
+
+      if(data.generation != 0){
+        $("#education").append("<li>Undergraduate Degree</li>")
+      }
+      if(data.master != 0){
+        $("#education").append("<li>Master Degree (" + data.master + ")</li>")
+      }
+      if(data.doctoral != 0){
+        $("#education").append("<li>Doctoral Degree (" + data.doctoral + ")</li>")
+      }
       console.log(data)
 		})
 	})

@@ -6,7 +6,7 @@
 		<div class="col-md-4">
 			<h2>Search Student/Alumni</h2>
         <?php
-        $attr = array("class" => "form-horizontal");
+        $attr = array();
         echo form_open('directory', $attr);
         ?>
 				<div class="form-group">
@@ -35,7 +35,7 @@
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="graduate" id="graduate" <?php if($graduate_filter) echo "checked"; ?>>
+					<input type="checkbox" name="master" id="master" <?php if($master_filter) echo "checked"; ?>>
 					Graduate Degree
 				</label>
 			</div>
@@ -93,44 +93,55 @@
       <div class="modal-body text-center">
 				<img src="http://placekitten.com/g/130/130" class="img-circle">
 				<h3 id="name">Firstname Lastname</h3>
-				<h4><span id="nickname">Name</span> <span id="generation">(CPE#28)</span></h4>
+				<h4><span id="nickname">nickname</span> (CPE#<span id="generation">28</span>)</h4>
       </div>
 			<div class="modal-body" id="user-content">
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>E-mail</label>
 					</div>
-					<div class="col-xs-9">test123@gmail.com</div>
+					<div class="col-xs-9"><span id="email">email<span></div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Mobile Phone</label>
 					</div>
-					<div class="col-xs-9">085-361-7777</div>
+					<div class="col-xs-9"><span id="mobile">mobile<span></div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Facebook URL</label>
 					</div>
-					<div class="col-xs-9"><a href="https://www.facebook.com/nn.namelesz">https://www.facebook.com/nn.namelesz</a></div>
+					<div class="col-xs-9"><span id="facebook">facebook url<span></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<label>Linkedin URL</label>
+					</div>
+					<div class="col-xs-9"><span id="facebook">linkedin url<span></div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Education</label>
 					</div>
-					<div class="col-xs-9">Undergraduate (Regular Program)</div>
+					<div class="col-xs-9">
+						<ul  id="education">
+
+						</ul>
+
+					</div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Lives in</label>
 					</div>
-					<div class="col-xs-9">Bangkok, Thailand</div>
+					<div class="col-xs-9"><span id="province">province</span>, <span id="country">country</span></div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Street Address</label>
 					</div>
-					<div class="col-xs-9">111/53 Soi Phokeaw Nawamin Rd. Klongkum Bungkum</div>
+					<div class="col-xs-9"><span id="address"></div>
 				</div>
 
 				<div class="row">
@@ -139,20 +150,8 @@
 					</div>
 					<div class="col-xs-9">
 						<ul>
-							<li>Film</li>
-							<li>Video Games</li>
-							<li>Music</li>
-							<li>Internet of Things</li>
-							<li>Android OS</li>
+						
 						</ul>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Preferred contact method</label>
-					</div>
-					<div class="col-xs-9">
-						Line ID: nn.namelesz / E-mail
 					</div>
 				</div>
       </div>

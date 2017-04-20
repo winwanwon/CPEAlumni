@@ -27,7 +27,7 @@ class Directory_page extends CI_Controller {
 		$interests = $this->input->post("interests");
 		$career = $this->input->post("career");
 		$undergraduate = $this->input->post("undergraduate");
-		$graduate = $this->input->post("graduate");
+		$master = $this->input->post("master");
 		$doctoral = $this->input->post("doctoral");
 
 		//Show Search Data in Form
@@ -36,7 +36,7 @@ class Directory_page extends CI_Controller {
 		$data["interests_filter"] = $interests;
 		$data["career_filter"] = $career;
 		$data["undergraduate_filter"] = $undergraduate;
-		$data["graduate_filter"] = $graduate;
+		$data["master_filter"] = $master;
 		$data["doctoral_filter"] = $doctoral;
 
 		$name_split = explode(" ",$name);
@@ -67,8 +67,8 @@ class Directory_page extends CI_Controller {
 		if(isset($undergraduate)){
 			$filter["undergraduate"] = $undergraduate;
 		}
-		if(isset($graduate)){
-			$filter["graduate"] = $graduate;
+		if(isset($master)){
+			$filter["master"] = $master;
 		}
 		if(isset($doctoral)){
 			$filter["doctoral"] = $doctoral;
@@ -86,9 +86,10 @@ class Directory_page extends CI_Controller {
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->library('session');
 		$data["name"] = $this->session->name;
-		$data["students"] = $this->directory_model->getData($username);
+		$data["students"] = $this->directory_model->getStudentData($username);
 
-		return var_dump($data["students"]);
+		header('Content-Type: application/json');
+		echo json_encode( $data["students"] );
 	}
 
 	public function filter_bus()
