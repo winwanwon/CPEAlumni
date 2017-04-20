@@ -12,8 +12,6 @@ class Work_model extends CI_Model {
     return $query->result_array();
   }
 
-
-
   public function getCareer($username = NULL){
     $this->db->select("c.*,c_t.*");
     $this->db->from("career c");

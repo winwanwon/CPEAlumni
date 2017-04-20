@@ -40,8 +40,6 @@ class Work_page extends CI_Controller {
 		// GET career to show in dropdown
 		$data["career"] = $this->work_model->getCareerType();
 
-
-
 		// show career
 		$data["career_show"] = $this->work_model->getCareer($this->session->username);
 
@@ -50,5 +48,14 @@ class Work_page extends CI_Controller {
 		$this->load->view('work_form', $data);
 		$this->load->view('footer');
 	}
+
+	// public function toggleCurrent($slug = ''){
+	// 	$this->load->library('session');
+	// 	$this->load->helper('form');
+	// 	$data["name"] = $this->session->name;
+	// 	$data["current_page"] = $this->uri->segment(1);
+
+
+	// }
 
 }

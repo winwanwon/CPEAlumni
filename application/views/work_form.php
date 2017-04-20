@@ -21,13 +21,22 @@
       foreach($career_show as $row){
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
-                  <div class='panel-heading'>".$count;
-                  if($row["present"]==1){
-                      echo "<span class='pull-right'>Currently work</span>   </div>";
-                     }
-                     else{
-                       echo "</div>";
-                     }
+                  <div class='panel-heading'>".$count.
+                  "<span class='pull-right'><button type='button' class='btn btn-danger'>del</button></span>";
+                    if($row["present"]==1){
+                        echo "<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn btn-primary'
+                        onclick='<?php echo base_url()?>Work_page/toggleCurrent'>Currently work</button></span>
+
+                            </div>";
+                    }
+                    elseif($row["present"]==0){
+                        echo "<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn'>Currently work</button></span>
+
+                            </div>";
+                    }
+                    else{
+                        echo "</div>";
+                    }
                   echo "<div class='panel-body'>
                     <b>Position:</b> ".$row["position"]."<br>
                     <b>Company:</b> ".$row["company"]."<br>
