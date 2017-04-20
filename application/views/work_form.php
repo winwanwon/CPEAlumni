@@ -62,7 +62,7 @@
             <div class="ui-widget" id="interest">
               <select class="form-control" name="career">
                 <?php
-                  foreach($career as $row){ //จริงมันชื่อ career
+                  foreach($career as $row){
                     echo "<option value='".$row["careerID"]."'>".$row["careerType"]."</option>";
                   }
                 ?>

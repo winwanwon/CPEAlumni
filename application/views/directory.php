@@ -21,10 +21,22 @@
 			<label>Interests</label>
 			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests" value="<?php echo $interests_filter; ?>">
 		</div>
+
+
 		<div class="form-group ui-widget">
 			<label>Career</label>
-			<input id = "automplete-2" name="career" class="form-control input-sm" placeholder="Find by career" value="<?php echo $career_filter; ?>">
+			<select class="form-control" name="career">
+				<?php
+				  echo "<option value=''>Select Career</option>";
+					foreach($career as $row){
+						echo "<option  value='".$row["careerID"]."'>".$row["careerType"]."</option>";
+					}
+				?>
+			</select>
+			<!-- <input id = "automplete-2" name="career" class="form-control input-sm" placeholder="Find by career" value="<?php //echo $career_filter; ?>"> -->
 		</div>
+
+
 		<div class="form-group">
 			<label>Education in CPE</label>
 			<div class="checkbox">
@@ -54,7 +66,7 @@
 <!-- Display part-->
 <div class="col-md-8 display">
 	<bR>
-		<?php 
+		<?php
 			foreach ($students as $student){
 				echo '<div class="col-xs-6 col-sm-4">';
 				echo '<div class="student text-center" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
@@ -67,7 +79,7 @@
 				echo "<h4>".$student["fname"]." ".$student["lname"]."</h4>";
 				echo "<h5>";
 				if($student["generation"]!=0){
-					echo "CPE#".$student["generation"];	
+					echo "CPE#".$student["generation"];
 				} else if($student["doctoral"]!=0){
 					echo "Doctoral Degree";
 				} else if($student["master"]!=0){
@@ -150,7 +162,7 @@
 					</div>
 					<div class="col-xs-9">
 						<ul>
-						
+
 						</ul>
 					</div>
 				</div>

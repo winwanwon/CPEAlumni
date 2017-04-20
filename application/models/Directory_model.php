@@ -31,4 +31,10 @@ class Directory_model extends CI_Model {
 	        $query = $this->db->get('interest');
 	        return $query->result_array();
 				}
+        //show career dropdown list
+        public function getCareerType(){
+          $this->db->select()->from('career_type');
+          $query = $this->db->get();
+          return $query->result_array();
+        }
 }

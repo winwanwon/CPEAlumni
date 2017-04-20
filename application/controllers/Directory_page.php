@@ -20,6 +20,8 @@ class Directory_page extends CI_Controller {
 		//$data["industry"] = $this->filter_model->loadIndustry();
 		$data["business"] = $this->filter_model->loadCareerType();
 		$data["name"] = $this->session->name;
+		// GET career to show in dropdown
+		$data["career"] = $this->directory_model->getCareerType();
 
 		// SEARCH FILTER
 		$name = $this->input->post("name");
@@ -51,7 +53,7 @@ class Directory_page extends CI_Controller {
 
 		if(isset($fname)){
 			$filter["fname"] = $fname;
-		} 
+		}
 		if(isset($lname)){
 			$filter["lname"] = $lname;
 		}
@@ -73,7 +75,7 @@ class Directory_page extends CI_Controller {
 		if(isset($doctoral)){
 			$filter["doctoral"] = $doctoral;
 		}
-		
+
 		$data["students"] = $this->directory_model->getStudentList($filter);
 
 		$this->load->view('header');
