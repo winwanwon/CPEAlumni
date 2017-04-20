@@ -12,12 +12,13 @@
         </div>
       </div>
 
-      
+
  <div class="row">
-    
+
     <?php
+
       $count=1;
-      foreach($career_list as $row){
+      foreach($career_show as $row){
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count;
@@ -30,11 +31,13 @@
                   echo "<div class='panel-body'>
                     <b>Position:</b> ".$row["position"]."<br>
                     <b>Company:</b> ".$row["company"]."<br></div></div></div>";
-                                    
+                    
+                    //<b>Career:</b> ".$row["career"]."<br>
+
         $count++;
       }
     ?>
-  
+
   </div>
 
       <div class="row">
@@ -55,24 +58,16 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Industry</label>
+          <label class="col-sm-3 control-label">Career</label>
           <div class="col-sm-9">
             <div class="ui-widget" id="interest">
-              <select class="form-control" name="industry">
+              <select class="form-control" name="career">
                 <?php
-                  foreach($business_type as $row){
-                    echo "<option value='".$row["businessID"]."'>".$row["businessType"]."</option>";
+                  foreach($career as $row){ //จริงมันชื่อ career
+                    echo "<option value='".$row["careerID"]."'>".$row["careerType"]."</option>";
                   }
                 ?>
               </select>
-            </div>
-          </div>
-        </div>
-        <div class="form-group">
-          <label class="col-sm-3 control-label">Business Type</label>
-          <div class="col-sm-9">
-            <div class = "ui-widget" id="interest">
-              <input id="automplete-1" class="form-control" placeholder="Business Type" name="business_type">
             </div>
           </div>
         </div>
@@ -90,6 +85,3 @@
     </div>
   </form>
 </div>
-
-
- 
