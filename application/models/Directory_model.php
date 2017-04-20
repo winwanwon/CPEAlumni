@@ -14,7 +14,7 @@ class Directory_model extends CI_Model {
               if($filter[$t] != '') {
                 if($t == "fname" || $t == "lname"){
                   $array_like[$t] = $filter[$t];
-                } else if($t == "career"){ 
+                } else if($t == "career"){
                   $career = $filter[$t];
                 } else if($t == "interests"){
                   $interests = $filter[$t];
@@ -61,6 +61,7 @@ class Directory_model extends CI_Model {
 
         // เปลี่ยนชื่อ fn มาจาก getData นะ
 				public function getInterest(){
+          $this->db->select('interest');
 	        $query = $this->db->get('interest');
 	        return $query->result_array();
 				}

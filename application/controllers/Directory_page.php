@@ -142,4 +142,12 @@ class Directory_page extends CI_Controller {
 		$this->load->view('directory', $data);
 		$this->load->view('footer');
 	}
+	public function interestList()
+	{
+
+		$data["current_page"] = $this->uri->segment(1);
+		$data["interest"] = $this->directory_model->getInterest();
+		header('Content-Type: application/json');
+		echo json_encode( $data["interest"] );
+	}
 }

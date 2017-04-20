@@ -196,3 +196,22 @@ body {
 .panel-default>.panel-heading {
   border-color: rgba(0,0,0,0.4) !important; 
 }
+
+.btn-current{
+  background: rgba(11,214,189,0.8);
+  border-color: rgba(255,255,255,0.4);
+}
+
+.btn-del {
+padding-top:10px;
+background:transparent;
+border:none;
+float:right;
+color:white;
+}
+
+.btn-work{
+  position: relative;
+  top:-6px;
+  right: -10px;
+}

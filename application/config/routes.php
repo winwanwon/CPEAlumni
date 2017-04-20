@@ -59,6 +59,7 @@ $route['setting'] = 'setting_page';
 
 $route['directory'] = 'directory_page';
 $route['getuser/(:any)'] = 'directory_page/getuser/$1';
+$route['interest_list'] = 'directory_page/interestList';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 $route['dashboard'] = 'directory_page/filter_bus';
