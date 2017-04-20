@@ -78,6 +78,9 @@ class Directory_page extends CI_Controller {
 		}
 
 		$data["students"] = $this->directory_model->getStudentList($filter);
+		} else {
+		$data["students"] = $this->directory_model->getStudentList();
+		}
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
@@ -120,7 +123,4 @@ class Directory_page extends CI_Controller {
 		$this->load->view('directory', $data);
 		$this->load->view('footer');
 	}
-
-
-
 }
