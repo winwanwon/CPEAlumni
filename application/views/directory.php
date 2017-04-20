@@ -62,8 +62,12 @@
 <div class="col-md-8 display">
 	<bR>
 		<?php
+			$i = 0;
 			foreach ($students as $student){
-				echo '<div class="col-xs-6 col-sm-4">';
+				if($i == 0){
+					echo '<div class="row">';
+				}
+				echo '<div class="col-xs-4">';
 				echo '<div class="student text-center" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
 				//echo '<div class="panel-heading"><h3 class="panel-title text-center">';
 				//echo $student["fname"]." ".$student["lname"];
@@ -90,6 +94,10 @@
 				echo "</h5>";
 				echo '</div>';
 				echo '</div>';
+				if ($i == 2) {
+					echo '</div>';
+					$i = 0;
+				}
 				}
 		?>
 </div>
