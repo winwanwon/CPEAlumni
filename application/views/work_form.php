@@ -24,13 +24,13 @@
                   <div class='panel-heading'>".$count.
                    "<span class='pull-right'><form action='work' method='POST'>
                       <input type='hidden' name='delbtn' value='".$row["id"]."'>
-                       <button type='submit' class='btn btn-danger'>X</button>
+                       <button type='submit' class='btn-work btn btn-danger btn-del'><span class='glyphicon glyphicon-remove'></span></button>
                    </form></span>";
                     if($row["present"]==1){
                         echo "<span class='pull-right'><form action='work' method='POST'>
                           <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
-                          <button type='submit' class='btn btn-primary'>Currently work</button>
+                          <button type='submit' class='btn-work btn btn-current'>Currently work</button>
                         </form></span>
                         </div>";
                     }
@@ -38,7 +38,7 @@
                         echo "<span class='pull-right'><form action='work' method='POST'>
                           <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
-                          <button type='submit' class='btn'>Currently work</button>
+                          <button type='submit' class='btn-work btn'>Currently work</button>
                         </form></span>
                         </div>";
                     }
