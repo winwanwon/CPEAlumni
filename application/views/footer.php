@@ -59,7 +59,7 @@ $(document).ready(function(){
       }        
 
       if(data.generation != 0){
-        $("#generation").html("CPE#"+ data.generation + " ");
+        $("#generation").html(" CPE#"+ data.generation);
       } else {
         $("#generation").html("");
       }
@@ -70,15 +70,16 @@ $(document).ready(function(){
         }
       });
 
+        $("#contact_info").show();
       if(data.privacy == "PH"){
-        $("#contact_info").html("");
+        $("#contact_info").hide();
       }
 
       $("#name").html(data.fname + " " + data.lname);
       $("#email").html(data.email);
       $("#mobile").html(data.phone);
-      $("#facebook").html(data.facebook);
-      $("#linkedin").html(data.linkedin);
+      $("#facebook").html("<a href='" + data.facebook + "' target='_blank'>" + data.facebook + "</a>");
+      $("#linkedin").html("<a href='" + data.linkedin + "' target='_blank'>" + data.linkedin + "</a>");
       $("#province").html(data.province);
       $("#country").html(data.country);
       $("#address").html(data.address);
@@ -98,10 +99,10 @@ $(document).ready(function(){
       if(data.doctoral != 0){
         $("#education").append("<li>Doctoral Degree (" + data.doctoral + ")</li>")
       }
-
-      $("#interest_list").html("")
+        $("#interest_list").show();
+        $("#interests").html("")
       if(data.interests.length == 0){
-        $("#interests").html("<i>ไม่มีข้อมูล</i>")
+        $("#interest_list").hide();
       }
       $.each(data.interests, function(key,value){
         $("#interests").append("<li>" + value + "</li>")

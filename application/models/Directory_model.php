@@ -8,13 +8,34 @@ class Directory_model extends CI_Model {
 
         public function getStudentList($filter = NULL){
           $array = array();
+          $array_like = array();
           if(isset($filter)){
             foreach(array_keys ($filter) as $t) {
               if($filter[$t] != '') {
-                $array[$t] = $filter[$t];
+                if($t == "fname" || $t == "lname"){
+                  $array_like[$t] = $filter[$t];
+                } else if($t == "career"){ 
+                  $career = $filter[$t];
+                } else if($t == "interests"){
+                  $interests = $filter[$t];
+                } else {
+                  $array[$t] = $filter[$t];
+                }
               };
             }
-            $query = $this->db->get_where('student', $array);
+            $this->db->select("*");
+            $this->db->from('student');
+            $this->db->where($array);
+            $this->db->like($array_like);
+            if(isset($career)){
+              $this->db->join('career', 'student.username = career.username');
+              $this->db->where('careerID', $career);
+            }
+            if(isset($interests)){
+              $this->db->join('interest', 'student.username = career.username');
+              $this->db->like('interest', $interests);
+            }
+            $query = $this->db->get();
           } else {
             $query = $this->db->get('student');
           }
@@ -37,6 +58,7 @@ class Directory_model extends CI_Model {
 	        $query = $this->db->get('interest');
 	        return $query->result_array();
 				}
+
         //show career dropdown list
         public function getCareerType(){
           $this->db->select()->from('career_type');

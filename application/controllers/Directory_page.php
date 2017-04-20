@@ -23,6 +23,7 @@ class Directory_page extends CI_Controller {
 		// GET career to show in dropdown
 		$data["career"] = $this->directory_model->getCareerType();
 
+			$filter = array();
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			// SEARCH FILTER
 			$name = $this->input->post("name");
@@ -50,7 +51,6 @@ class Directory_page extends CI_Controller {
 				$lname = $name_split[1];
 			}
 
-			$filter = array();
 
 		if(isset($fname)){
 			$filter["fname"] = $fname;
@@ -87,11 +87,13 @@ class Directory_page extends CI_Controller {
 			$filter["doctoral >="] = $doctoral;
 			}
 		}
+		$filter["privacy !="] = "UL";
 		var_dump($filter);
 
 		$data["students"] = $this->directory_model->getStudentList($filter);
 		} else {
-		$data["students"] = $this->directory_model->getStudentList();
+		$filter["privacy !="] = "UL";
+		$data["students"] = $this->directory_model->getStudentList($filter);
 		}
 
 		$this->load->view('header');

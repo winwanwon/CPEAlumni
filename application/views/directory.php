@@ -27,7 +27,11 @@
 				<?php
 				  echo "<option value=''>Select Career</option>";
 					foreach($career as $row){
-						echo "<option  value='".$row["careerID"]."'>".$row["careerType"]."</option>";
+						echo "<option  value='".$row["careerID"];
+						if(isset($career_filter) && $career_filter == $row["careerID"]){
+							echo "' selected='selected'";
+						}
+						echo "'>".$row["careerType"]."</option>";
 					}
 				?>
 			</select>
@@ -115,7 +119,7 @@
       <div class="modal-body text-center">
 				<img src="http://placekitten.com/g/130/130" height="130" width="130" id="info_picture" class="img-circle">
 				<h3 id="name">Firstname Lastname</h3>
-				<h4>( <span id="nickname">nickname</span> <span id="generation"></span>)</h4>
+				<h4><span id="nickname">nickname</span> <span id="generation"></span></h4>
       </div>
 			<div class="modal-body" id="user-content">
 				<span id="contact_info">
