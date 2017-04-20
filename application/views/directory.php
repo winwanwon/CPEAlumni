@@ -19,7 +19,7 @@
 		</div>
 		<div class="form-group ui-widget">
 			<label>Interests</label>
-			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests" value="<?php echo $interests_filter; ?>">
+			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests e.g. Big Data, Football, etc." value="<?php echo $interests_filter; ?>">
 		</div>
 
 
