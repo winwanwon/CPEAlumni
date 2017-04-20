@@ -78,7 +78,7 @@
 					echo base_url();
 					echo "/uploads/".$student["picture"];
 				} else {
-					echo "https://placekitten.com/130/130";
+					echo "http://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg";
 				}
 				echo "'class='dir-avatar img-circle'>";
 				echo "<h4>".$student["fname"]." ".$student["lname"]."</h4>";
@@ -114,7 +114,7 @@
         <h4 class="modal-title" id="myModalLabel">Information</h4>
       </div>
       <div class="modal-body text-center">
-				<img src="http://placekitten.com/g/130/130" height="130" width="130" id="info_picture" class="img-circle">
+				<img src="http://blog.ramboll.com/fehmarnbelt/wp-content/themes/ramboll2/images/profile-img.jpg" height="130" width="130" id="info_picture" class="img-circle">
 				<h3 id="name">Firstname Lastname</h3>
 				<h4><span id="nickname">nickname</span> <span id="generation"></span></h4>
       </div>
