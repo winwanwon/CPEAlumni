@@ -11,37 +11,37 @@
         ?>
 				<div class="form-group">
 					<label>Name</label>
-					<input type="text" name="name" class="form-control input-sm" placeholder="Name" value="<?php echo $name_filter; ?>">
+					<input type="text" name="name" class="form-control input-sm" placeholder="Name" value="<?php if(isset($name_filter)) echo $name_filter; ?>">
 				</div>
 				<div class="form-group">
 					<label>Generation</label>
-					<input type="number" name="generation" class="form-control input-sm" value="<?php echo $generation_filter; ?>">
+					<input type="number" name="generation" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
 			<label>Interests</label>
-			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests" value="<?php echo $interests_filter; ?>">
+			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests" value="<?php if(isset($interests_filter)) echo $interests_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
 			<label>Career</label>
-			<input id = "automplete-2" name="career" class="form-control input-sm" placeholder="Find by career" value="<?php echo $career_filter; ?>">
+			<input id = "automplete-2" name="career" class="form-control input-sm" placeholder="Find by career" value="<?php if(isset($career_filter)) echo $career_filter; ?>">
 		</div>
 		<div class="form-group">
 			<label>Education in CPE</label>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="undergraduate" id="undergraduate_reg" <?php if($undergraduate_filter) echo "checked"; ?>>
+					<input type="checkbox" name="undergraduate" id="undergraduate_reg" <?php if(isset($undergraduate_filter) && $undergraduate_filter!=0) echo "checked"; ?>>
 					Undergraduate Degree
 				</label>
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="master" id="master" <?php if($master_filter) echo "checked"; ?>>
+					<input type="checkbox" name="master" id="master" <?php if(isset($master_filter) && $master_filter!=0) echo "checked"; ?>>
 					Graduate Degree
 				</label>
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="doctoral" id="Doctoral" <?php if($doctoral_filter) echo "checked"; ?>>
+					<input type="checkbox" name="doctoral" id="Doctoral" <?php if(isset($doctoral_filter) && $doctoral_filter!=0) echo "checked"; ?>>
 					Doctoral Degree
 				</label>
 			</div>
@@ -96,6 +96,7 @@
 				<h4><span id="nickname">nickname</span> (CPE#<span id="generation">28</span>)</h4>
       </div>
 			<div class="modal-body" id="user-content">
+				<span id="contact_info">
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>E-mail</label>
@@ -118,7 +119,20 @@
 					<div class="col-xs-3 text-right">
 						<label>Linkedin URL</label>
 					</div>
-					<div class="col-xs-9"><span id="facebook">linkedin url<span></div>
+					<div class="col-xs-9"><span id="linkedin">linkedin url<span></div>
+				</div>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<label>Address</label>
+					</div>
+					<div class="col-xs-9"><span id="address"></div>
+				</div>
+				</span>
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<label>Lives in</label>
+					</div>
+					<div class="col-xs-9"><span id="province">province</span>, <span id="country">country</span></div>
 				</div>
 				<div class="row">
 					<div class="col-xs-3 text-right">
@@ -131,26 +145,14 @@
 
 					</div>
 				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Lives in</label>
-					</div>
-					<div class="col-xs-9"><span id="province">province</span>, <span id="country">country</span></div>
-				</div>
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Street Address</label>
-					</div>
-					<div class="col-xs-9"><span id="address"></div>
-				</div>
 
 				<div class="row">
 					<div class="col-xs-3 text-right">
 						<label>Interested in</label>
 					</div>
 					<div class="col-xs-9">
-						<ul>
-						
+						<ul id="interests">
+
 						</ul>
 					</div>
 				</div>

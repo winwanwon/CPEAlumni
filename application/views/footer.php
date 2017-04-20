@@ -42,8 +42,19 @@ $(document).ready(function(){
 
 
 	$(".student").click( function(){
-		$.post("getuser/" + $(this).attr('id'), function(data){
+    var id = $(this).attr("id");
+		$.post("getuser/" + id , function(data){
 			data = data[0];
+
+      jQuery.each(data, function(i, val) {
+        if(!val){
+          data[i] = "<i>ไม่มีข้อมูล</i>";
+        }
+      });
+
+      if(data.privacy == "PH"){
+        $("#contact_info").html("");
+      }
 
       $("#info_picture").attr('src', 'uploads/'+data.picture);
       $("#name").html(data.fname + " " + data.lname);
@@ -59,7 +70,12 @@ $(document).ready(function(){
 
       $("#education").html("");
       if(data.generation != 0){
-        $("#education").append("<li>Undergraduate Degree</li>")
+        if(data.programme == "REG"){
+          program = "Regular Program"
+        } else {
+          program = "International Program"
+        }
+        $("#education").append("<li>Undergraduate Degree (" + program + ", " + (parseInt(data.generation) + 2529) + ")</li>")
       }
       if(data.master != 0){
         $("#education").append("<li>Master Degree (" + data.master + ")</li>")
@@ -67,6 +83,12 @@ $(document).ready(function(){
       if(data.doctoral != 0){
         $("#education").append("<li>Doctoral Degree (" + data.doctoral + ")</li>")
       }
+
+      $("#interests").html("")
+      $.each(data.interests, function(key,value){
+        $("#interests").append("<li>" + value + "</li>")
+      })
+
       console.log(data)
 		})
 	})
@@ -84,14 +106,6 @@ $(document).ready(function(){
 });
 citynames.initialize();*/
 
-$('#interests').tagsinput({
-  /*typeaheadjs: {
-    name: 'citynames',
-    displayKey: 'name',
-    valueKey: 'name',
-    source: citynames.ttAdapter()
-  }*/
-});
 </script>
 
 

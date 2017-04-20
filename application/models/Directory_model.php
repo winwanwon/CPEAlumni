@@ -7,22 +7,27 @@ class Directory_model extends CI_Model {
         }
 
         public function getStudentList($filter = NULL){
-            $array = array();
+          if(isset($filter)){
             foreach(array_keys ($filter) as $t) {
               if($filter[$t] != '') {
                 $array[$t] = $filter[$t];
               };
             }
-
             $query = $this->db->get_where('student', $array);
-            return $query->result_array();
+          } else {
+            $query = $this->db->get('student');
+          }
+          return $query->result_array();
         }
 
-        public function getStudentData($username = NULL){
-          $query = $this->db->get('student');
-          if($username){
-            $this->db->where('username', $username);
-          }
+        public function getStudentData($username){
+          $query = $this->db->get_where('student', array('username' => $username));
+	        return $query->result_array();
+        }
+
+        public function getStudentInterests($username){
+          $this->db->select('interest');
+          $query = $this->db->get_where('interest', array('username' => $username));
 	        return $query->result_array();
         }
 

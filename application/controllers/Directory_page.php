@@ -21,60 +21,64 @@ class Directory_page extends CI_Controller {
 		$data["business"] = $this->filter_model->loadCareerType();
 		$data["name"] = $this->session->name;
 
-		// SEARCH FILTER
-		$name = $this->input->post("name");
-		$generation = $this->input->post("generation");
-		$interests = $this->input->post("interests");
-		$career = $this->input->post("career");
-		$undergraduate = $this->input->post("undergraduate");
-		$master = $this->input->post("master");
-		$doctoral = $this->input->post("doctoral");
+		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+			// SEARCH FILTER
+			$name = $this->input->post("name");
+			$generation = $this->input->post("generation");
+			$interests = $this->input->post("interests");
+			$career = $this->input->post("career");
+			$undergraduate = $this->input->post("undergraduate");
+			$master = $this->input->post("master");
+			$doctoral = $this->input->post("doctoral");
 
-		//Show Search Data in Form
-		$data["name_filter"] = $name;
-		$data["generation_filter"] = $generation;
-		$data["interests_filter"] = $interests;
-		$data["career_filter"] = $career;
-		$data["undergraduate_filter"] = $undergraduate;
-		$data["master_filter"] = $master;
-		$data["doctoral_filter"] = $doctoral;
+			//Show Search Data in Form
+			$data["name_filter"] = $name;
+			$data["generation_filter"] = $generation;
+			$data["interests_filter"] = $interests;
+			$data["career_filter"] = $career;
+			$data["undergraduate_filter"] = $undergraduate;
+			$data["master_filter"] = $master;
+			$data["doctoral_filter"] = $doctoral;
 
-		$name_split = explode(" ",$name);
-		if(isset($name_split[0])){
-			$fname = $name_split[0];
-		}
-		if(isset($name_split[1])){
-			$lname = $name_split[1];
-		}
+			$name_split = explode(" ",$name);
+			if(isset($name_split[0])){
+				$fname = $name_split[0];
+			}
+			if(isset($name_split[1])){
+				$lname = $name_split[1];
+			}
 
-		$filter = array();
+			$filter = array();
 
-		if(isset($fname)){
-			$filter["fname"] = $fname;
-		} 
-		if(isset($lname)){
-			$filter["lname"] = $lname;
-		}
-		if(isset($generation)){
-			$filter["generation"] = $generation;
-		}
-		if(isset($interests)){
-			$filter["interests"] = $interests;
-		}
-		if(isset($career)){
-			$filter["career"] = $career;
-		}
-		if(isset($undergraduate)){
-			$filter["undergraduate"] = $undergraduate;
-		}
-		if(isset($master)){
-			$filter["master"] = $master;
-		}
-		if(isset($doctoral)){
-			$filter["doctoral"] = $doctoral;
+			if(isset($fname)){
+				$filter["fname"] = $fname;
+			} 
+			if(isset($lname)){
+				$filter["lname"] = $lname;
+			}
+			if(isset($generation)){
+				$filter["generation"] = $generation;
+			}
+			if(isset($interests)){
+				$filter["interests"] = $interests;
+			}
+			if(isset($career)){
+				$filter["career"] = $career;
+			}
+			if(isset($undergraduate)){
+				$filter["undergraduate"] = $undergraduate;
+			}
+			if(isset($master)){
+				$filter["master"] = $master;
+			}
+			if(isset($doctoral)){
+				$filter["doctoral"] = $doctoral;
+			}
+			$data["students"] = $this->directory_model->getStudentList($filter);
+		} else {
+			$data["students"] = $this->directory_model->getStudentList();
 		}
 		
-		$data["students"] = $this->directory_model->getStudentList($filter);
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
@@ -86,7 +90,18 @@ class Directory_page extends CI_Controller {
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->library('session');
 		$data["name"] = $this->session->name;
-		$data["students"] = $this->directory_model->getStudentData($username);
+
+		$result = $this->directory_model->getStudentData($username);
+
+		$interests = $this->directory_model->getStudentInterests($username);
+		$int_arr = array();
+		foreach($interests as $interest){
+			array_push($int_arr, $interest["interest"]);
+		}
+
+		$result[0]["interests"] = $int_arr;
+
+		$data["students"] = $result;
 
 		header('Content-Type: application/json');
 		echo json_encode( $data["students"] );
