@@ -40,6 +40,20 @@ $(document).ready(function(){
   checkboxCheck();
 })
 
+$("#generation").keyup( function(){
+  if($("#generation").val()){
+    $("#undergraduate").prop("checked", true)
+  } else {
+    $("#undergraduate").prop("checked", false)
+  }
+})
+
+
+$("#undergraduate").click( function(){
+  if($("#undergraduate").prop("checked")==false){
+    $("#generation").val("")
+  }
+})
 
 	$(".student").click( function(){
     var id = $(this).attr("id");

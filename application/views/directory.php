@@ -15,7 +15,7 @@
 				</div>
 				<div class="form-group">
 					<label>Generation</label>
-					<input type="number" name="generation" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
+					<input type="number" name="generation" id="generation" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
 			<label>Interests</label>
@@ -40,7 +40,7 @@
 			<label>Education in CPE</label>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="undergraduate" id="undergraduate_reg" <?php if(isset($undergraduate_filter) && $undergraduate_filter=="on") echo "checked"; ?>>
+					<input type="checkbox" name="undergraduate" id="undergraduate" <?php if(isset($undergraduate_filter) && $undergraduate_filter=="on") echo "checked"; ?>>
 					Undergraduate Degree
 				</label>
 			</div>
@@ -73,9 +73,6 @@
 				}
 				echo '<div class="col-xs-4">';
 				echo '<div class="student text-center" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
-				//echo '<div class="panel-heading"><h3 class="panel-title text-center">';
-				//echo $student["fname"]." ".$student["lname"];
-				//echo '</h3></div>';
 				echo "<img src='";
 				if($student["picture"]!=NULL){
 					echo base_url();
