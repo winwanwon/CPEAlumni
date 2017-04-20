@@ -68,14 +68,26 @@ class Directory_page extends CI_Controller {
 			$filter["career"] = $career;
 		}
 		if(isset($undergraduate)){
-			$filter["undergraduate"] = $undergraduate;
+			if($undergraduate=="on"){
+				$undergraduate = 1;
+				$filter["generation >="] = $undergraduate;
+			}
 		}
 		if(isset($master)){
-			$filter["master"] = $master;
+			if($master=="on")
+			{
+			$master = 1;
+			$filter["master >="] = $master;
+			}
 		}
 		if(isset($doctoral)){
-			$filter["doctoral"] = $doctoral;
+			if($doctoral=="on")
+			{
+			$doctoral = 1;
+			$filter["doctoral >="] = $doctoral;
+			}
 		}
+		var_dump($filter);
 
 		$data["students"] = $this->directory_model->getStudentList($filter);
 		} else {
@@ -114,7 +126,6 @@ class Directory_page extends CI_Controller {
 		$data["current_page"] = $this->uri->segment(1);
 
 		$data["test"] = $this->filter_model->loadCareerType();
-		$data["test2"] = $this->filter_model->getStudent();
 
 		//$data["industry"] = $this->filter_model->loadIndustry();
 		$data["business"] = $this->filter_model->loadCareerType();
