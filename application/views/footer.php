@@ -64,13 +64,13 @@ $("#undergraduate").click( function(){
         $("#info_picture").attr('src', 'uploads/'+data.picture);
       } else {
         $("#info_picture").attr('src', 'https://placekitten.com/130/130');
-      }        
-      
+      }
+
       if(data.nickname != ""){
         $("#nickname").html(data.nickname);
       } else {
         $("#nickname").html("");
-      }        
+      }
 
       if(data.generation != 0){
         $("#generation").html(" CPE#"+ data.generation);
@@ -139,6 +139,28 @@ $("#undergraduate").click( function(){
 		})
 	})
 
+</script>
+
+//Auto complete part
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+$( function() {
+
+  var availableTags = [];
+
+    $.post("interest_list", function(data){
+    $.each(data, function(key,value){
+        availableTags.push(value["interest"])
+    })
+  })
+
+  console.log(availableTags)
+
+  $( "#automplete-1" ).autocomplete({
+    source: availableTags
+  });
+} );
 </script>
 
 
