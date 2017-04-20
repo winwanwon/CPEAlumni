@@ -16,8 +16,7 @@ class Index_page extends CI_Controller {
 	{
 		$this->load->library('session');
 		$username = $this->session->username;
-		$name = $this->session->name;
-		if($name){
+		if($username){
 			redirect('directory');
 		}
 		$data["error"] = "";
@@ -107,8 +106,7 @@ class Index_page extends CI_Controller {
 		} else {
 			$userdata = array(
 				"username" => $this->input->post("username"),
-				"firstname" => $this->input->post("firstname"),
-				"lastname" => $this->input->post("lastname")
+				"name" => $this->input->post("firstname")." ".$this->input->post("lastname")
 			);
 			$this->session->set_userdata($userdata);
 			$this->profile_model->createUser();

@@ -69,8 +69,13 @@
 				//echo $student["fname"]." ".$student["lname"];
 				//echo '</h3></div>';
 				echo "<img src='";
-				echo base_url();
-				echo "/uploads/".$student["picture"]."'class='dir-avatar img-circle'>";
+				if($student["picture"]!=NULL){
+					echo base_url();
+					echo "/uploads/".$student["picture"];
+				} else {
+					echo "https://placekitten.com/130/130";
+				}
+				echo "'class='dir-avatar img-circle'>";
 				echo "<h4>".$student["fname"]." ".$student["lname"]."</h4>";
 				echo "<h5>";
 				if($student["generation"]!=0){
@@ -83,6 +88,7 @@
 					echo "Faculty Staff";
 				}
 				echo "</h5>";
+				echo '</div>';
 				echo '</div>';
 				}
 		?>

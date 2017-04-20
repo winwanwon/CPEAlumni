@@ -46,6 +46,12 @@ $(document).ready(function(){
 		$.post("getuser/" + id , function(data){
 			data = data[0];
 
+      if(data.picture != ""){
+        $("#info_picture").attr('src', 'uploads/'+data.picture);
+      } else {
+        $("#info_picture").attr('src', 'https://placekitten.com/130/130');
+      }        
+      
       jQuery.each(data, function(i, val) {
         if(!val){
           data[i] = "<i>ไม่มีข้อมูล</i>";
@@ -56,7 +62,6 @@ $(document).ready(function(){
         $("#contact_info").html("");
       }
 
-      $("#info_picture").attr('src', 'uploads/'+data.picture);
       $("#name").html(data.fname + " " + data.lname);
       $("#nickname").html(data.nickname);
       $("#generation").html(data.generation);

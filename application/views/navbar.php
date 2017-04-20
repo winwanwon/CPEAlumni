@@ -31,8 +31,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php elseif($current_page == "login"): ?>
 				<?php else: ?>
 				<?php 
-					$name = $this->session->name;
-					if($name == ""){
+					$username = $this->session->username;
+					if(!$username){
 						redirect('/');
 					}
 				?>
