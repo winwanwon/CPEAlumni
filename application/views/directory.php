@@ -43,7 +43,7 @@
 			<div class="checkbox">
 				<label>
 					<input type="checkbox" name="master" id="master" <?php if(isset($master_filter) && $master_filter=="on") echo "checked"; ?>>
-					Graduate Degree
+					Master Degree
 				</label>
 			</div>
 			<div class="checkbox">
