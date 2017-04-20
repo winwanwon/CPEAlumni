@@ -36,7 +36,7 @@
 			<label>Education in CPE</label>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="undergraduate" id="undergraduate_reg" <?php if(isset($undergraduate_filter) && $undergraduate_filter!=0) echo "checked"; ?>>
+					<input type="checkbox" name="undergraduate" id="undergraduate_reg" <?php if(isset($undergraduate_filter) && $undergraduate_filter=="on") echo "checked"; ?>>
 					Undergraduate Degree
 				</label>
 			</div>
@@ -96,8 +96,9 @@
 				echo '</div>';
 				if ($i == 2) {
 					echo '</div>';
-					$i = 0;
+					$i = -1;
 				}
+				$i = $i+1;
 				}
 		?>
 </div>
