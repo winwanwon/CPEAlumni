@@ -52,6 +52,17 @@ $(document).ready(function(){
         $("#info_picture").attr('src', 'https://placekitten.com/130/130');
       }        
       
+      if(data.nickname != ""){
+        $("#nickname").html(data.nickname);
+      } else {
+        $("#nickname").html("");
+      }        
+
+      if(data.generation != 0){
+        $("#generation").html("CPE#"+ data.generation + " ");
+      } else {
+        $("#generation").html("");
+      }
 
       jQuery.each(data, function(i, val) {
         if(!val){
@@ -64,8 +75,6 @@ $(document).ready(function(){
       }
 
       $("#name").html(data.fname + " " + data.lname);
-      $("#nickname").html(data.nickname);
-      $("#generation").html(data.generation);
       $("#email").html(data.email);
       $("#mobile").html(data.phone);
       $("#facebook").html(data.facebook);
