@@ -15,17 +15,17 @@
 				</div>
 				<div class="form-group">
 					<label>Generation</label>
-					<input type="number" name="generation" id="generation" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
+					<input type="number" name="generation" id="generation_input" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
 			<label>Interests</label>
 			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests e.g. Big Data, Football, etc." value="<?php if(isset($interests_filter))  echo $interests_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
-			<label>Career</label>
+			<label>Career Type</label>
 			<select class="form-control" name="career">
 				<?php
-				  echo "<option value=''>Select Career</option>";
+				  echo "<option value=''>Select Career Type</option>";
 					foreach($career as $row){
 						echo "<option  value='".$row["careerID"];
 						if(isset($career_filter) && $career_filter == $row["careerID"]){

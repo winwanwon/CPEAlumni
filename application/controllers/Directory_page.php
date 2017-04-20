@@ -88,7 +88,7 @@ class Directory_page extends CI_Controller {
 			}
 		}
 		$filter["privacy !="] = "UL";
-		var_dump($filter);
+		//var_dump($filter);
 
 		$data["students"] = $this->directory_model->getStudentList($filter);
 		} else {

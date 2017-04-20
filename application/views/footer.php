@@ -40,8 +40,8 @@ $(document).ready(function(){
   checkboxCheck();
 })
 
-$("#generation").keyup( function(){
-  if($("#generation").val()){
+$("#generation_input").keyup( function(){
+  if($("#generation_input").val()){
     $("#undergraduate").prop("checked", true)
   } else {
     $("#undergraduate").prop("checked", false)
@@ -51,7 +51,7 @@ $("#generation").keyup( function(){
 
 $("#undergraduate").click( function(){
   if($("#undergraduate").prop("checked")==false){
-    $("#generation").val("")
+    $("#generation_input").val("")
   }
 })
 
