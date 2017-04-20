@@ -20,6 +20,11 @@ class Work_page extends CI_Controller {
 		$data["current_page"] = $this->uri->segment(1);
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
+
+			// delete career
+			$id=$this->input->post('delbtn');
+			$data["id"] = $this->work_model->deleteCareer($this->session->username,$id);
+
 			//	Format คือ
 			// 	set_rules('name ของ input', 'ชื่อฟีลด์ไว้แจ้งตอนเออเร่อ', 'required');
 			$this->form_validation->set_rules('position', 'Position', 'required');
@@ -42,6 +47,8 @@ class Work_page extends CI_Controller {
 
 		// show career
 		$data["career_show"] = $this->work_model->getCareer($this->session->username);
+
+		
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);

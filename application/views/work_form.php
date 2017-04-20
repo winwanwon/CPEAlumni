@@ -19,10 +19,16 @@
 
       $count=1;
       foreach($career_show as $row){
+        $id = $row["id"];
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count.
-                  "<span class='pull-right'><button type='button' class='btn btn-danger'>del</button></span>";
+                    /*"<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn btn-danger'
+                         onclick='<?php echo base_url()?>Work_page/delCareer'>del</button></span>";*/
+                   "<span class='pull-right'><form action='Work_page/index' method='POST'>
+                      <input type='hidden' name='delbtn' value='".$row["id"]."'>
+                       <button type='submit' id='".$row['id']."'class='btn btn-danger'>del</button>
+                   </form></span>";
                     if($row["present"]==1){
                         echo "<span class='pull-right'><button type='button' id='".$row["id"]."'class='btn btn-primary'
                         onclick='<?php echo base_url()?>Work_page/toggleCurrent'>Currently work</button></span>
