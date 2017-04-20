@@ -42,13 +42,13 @@
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="master" id="master" <?php if(isset($master_filter) && $master_filter!=0) echo "checked"; ?>>
+					<input type="checkbox" name="master" id="master" <?php if(isset($master_filter) && $master_filter=="on") echo "checked"; ?>>
 					Graduate Degree
 				</label>
 			</div>
 			<div class="checkbox">
 				<label>
-					<input type="checkbox" name="doctoral" id="Doctoral" <?php if(isset($doctoral_filter) && $doctoral_filter!=0) echo "checked"; ?>>
+					<input type="checkbox" name="doctoral" id="Doctoral" <?php if(isset($doctoral_filter) && $doctoral_filter=="on") echo "checked"; ?>>
 					Doctoral Degree
 				</label>
 			</div>
