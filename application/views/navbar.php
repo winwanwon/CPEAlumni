@@ -31,9 +31,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php elseif($current_page == "login"): ?>
 				<?php else: ?>
 				<?php 
-					if(!$name){
+					$name = $this->session->name;
+					if($name == ""){
 						redirect('/');
-					} 
+					}
 				?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">

@@ -16,7 +16,7 @@ class Profile_model extends CI_Model {
     if($this->input->post('doctoral') == NULL){
       $doctoral = 0;
     } else {
-      $dcotoral = $this->input->post('yoe_doctoral');
+      $doctoral = $this->input->post('yoe_doctoral');
     }
 
     if($this->input->post('undergraduate') == NULL){

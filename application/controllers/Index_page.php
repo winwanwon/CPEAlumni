@@ -16,7 +16,8 @@ class Index_page extends CI_Controller {
 	{
 		$this->load->library('session');
 		$username = $this->session->username;
-		if($username){
+		$name = $this->session->name;
+		if($name){
 			redirect('directory');
 		}
 		$data["error"] = "";
