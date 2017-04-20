@@ -21,8 +21,6 @@
 			<label>Interests</label>
 			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests e.g. Big Data, Football, etc." value="<?php echo $interests_filter; ?>">
 		</div>
-
-
 		<div class="form-group ui-widget">
 			<label>Career</label>
 			<select class="form-control" name="career">
@@ -33,10 +31,7 @@
 					}
 				?>
 			</select>
-			<!-- <input id = "automplete-2" name="career" class="form-control input-sm" placeholder="Find by career" value="<?php //echo $career_filter; ?>"> -->
 		</div>
-
-
 		<div class="form-group">
 			<label>Education in CPE</label>
 			<div class="checkbox">
