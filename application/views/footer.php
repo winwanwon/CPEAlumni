@@ -119,25 +119,12 @@ $("#undergraduate").click( function(){
         $("#interest_list").hide();
       }
       $.each(data.interests, function(key,value){
-        $("#interests").append("<li>" + value + "</li>")
+        $("#interests").append("<li class='interest-li'>" + value + "</li>")
       })
 
       console.log(data)
 		})
 	})
-
-/*var citynames = new Bloodhound({
-  datumTokenizer: Bloodhound.tokenizers.obj.whitespace('name'),
-  queryTokenizer: Bloodhound.tokenizers.whitespace,
-  prefetch: {
-    url: 'assets/citynames.json',
-    filter: function(list) {
-      return $.map(list, function(cityname) {
-        return { name: cityname }; });
-    }
-  }
-});
-citynames.initialize();*/
 
 </script>
 

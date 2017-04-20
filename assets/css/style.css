@@ -85,7 +85,7 @@ body {
 
 .form-control {
   border: 0;
-  background: rgba(0,0,0,0.4);
+  background: rgba(0,0,0,0.5);
   color: #FFF;
 }
 
@@ -99,7 +99,7 @@ body {
 }
 
 .alert-trans {
-  background: rgba(0,0,0,0.4) !important;
+  background: rgba(0,0,0,0.5) !important;
   margin: 15px 0;
   line-height: 8px;
   font-size: 10pt;
@@ -152,6 +152,20 @@ body {
 
 .student {
   cursor: pointer !important;
+}
+
+#interests {
+  padding-left: 0 !important;
+}
+
+.interest-li {
+  list-style: none;
+  display: inline-block;
+  padding: 5px 10px;
+  background: #fff;
+  color: #000;
+  margin: auto 3px;
+  font-size: 9pt;
 }
 
 .modal-content {
