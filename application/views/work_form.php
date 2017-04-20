@@ -22,12 +22,12 @@
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count.
-                   "<span class='pull-right'><form action='Work_page/index' method='POST'>
+                   "<span class='pull-right'><form action='work' method='POST'>
                       <input type='hidden' name='delbtn' value='".$row["id"]."'>
                        <button type='submit' class='btn btn-danger'>X</button>
                    </form></span>";
                     if($row["present"]==1){
-                        echo "<span class='pull-right'><form action='Work_page/index' method='POST'>
+                        echo "<span class='pull-right'><form action='work' method='POST'>
                           <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
                           <button type='submit' class='btn btn-primary'>Currently work</button>
@@ -35,7 +35,7 @@
                         </div>";
                     }
                     elseif($row["present"]==0){
-                        echo "<span class='pull-right'><form action='Work_page/index' method='POST'>
+                        echo "<span class='pull-right'><form action='work' method='POST'>
                           <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
                           <button type='submit' class='btn'>Currently work</button>

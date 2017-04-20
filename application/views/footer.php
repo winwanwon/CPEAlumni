@@ -121,6 +121,9 @@ $("#undergraduate").click( function(){
       $.each(data.interests, function(key,value){
         $("#interests").append("<li class='interest-li'>" + value + "</li>")
       })
+
+        $("#career_list").show();
+        $("#career").html("")
       if(data.career.length == 0){
         $("#career_list").hide();
       }

@@ -169,18 +169,6 @@
 					</div>
 				</div>
 				
-				<span id="interest_list">
-				<div class="row">
-					<div class="col-xs-3 text-right">
-						<label>Interested in</label>
-					</div>
-					<div class="col-xs-9">
-						<ul id="interests">
-
-						</ul>
-					</div>
-				</div>
-				</span>
 				<span id="career_list">
 				<div class="row">
 					<div class="col-xs-3 text-right">
@@ -188,6 +176,19 @@
 					</div>
 					<div class="col-xs-9">
 						<ul id="career">
+
+						</ul>
+					</div>
+				</div>
+				</span>
+				
+				<span id="interest_list">
+				<div class="row">
+					<div class="col-xs-3 text-right">
+						<label>Interested in</label>
+					</div>
+					<div class="col-xs-9">
+						<ul id="interests">
 
 						</ul>
 					</div>
