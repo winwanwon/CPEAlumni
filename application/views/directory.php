@@ -91,7 +91,7 @@
         <h4 class="modal-title" id="myModalLabel">Information</h4>
       </div>
       <div class="modal-body text-center">
-				<img src="http://placekitten.com/g/130/130" class="img-circle">
+				<img src="http://placekitten.com/g/130/130" height="130" width="130" id="info_picture" class="img-circle">
 				<h3 id="name">Firstname Lastname</h3>
 				<h4><span id="nickname">nickname</span> (CPE#<span id="generation">28</span>)</h4>
       </div>

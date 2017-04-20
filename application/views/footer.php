@@ -45,6 +45,7 @@ $(document).ready(function(){
 		$.post("getuser/" + $(this).attr('id'), function(data){
 			data = data[0];
 
+      $("#info_picture").attr('src', 'uploads/'+data.picture);
       $("#name").html(data.fname + " " + data.lname);
       $("#nickname").html(data.nickname);
       $("#generation").html(data.generation);
@@ -56,7 +57,7 @@ $(document).ready(function(){
       $("#country").html(data.country);
       $("#address").html(data.address);
 
-
+      $("#education").html("");
       if(data.generation != 0){
         $("#education").append("<li>Undergraduate Degree</li>")
       }
