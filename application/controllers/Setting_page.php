@@ -44,7 +44,7 @@ class Setting_page extends CI_Controller {
 				$data["status"] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 			}
 
-			//Privacy update อันนี้ถ้าไม่เปลี่ยนพาส
+			//Privacy update อันนี้ถ้าไม่ได้กรอกเปลี่ยนพาส
 			else if($old_password==""&&$new_password==""&&$new_password_conf==""){
 			$success = $this->setting_model->privacyUpdate();
 			if($success){
