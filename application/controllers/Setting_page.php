@@ -30,7 +30,9 @@ class Setting_page extends CI_Controller {
 	      $validated = $this->setting_model->passwordCheck();
 				if($validated){
 					$success = $this->setting_model->passwordUpdate();
+					//ถ้าเปลี่ยนพาสบังคับเปลี่ยน privacy ด้วย
 					if($success){
+						$success = $this->setting_model->privacyUpdate();
 						$data["status"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
 					} else {
 						$data["status"] = "รหัสผ่านใหม่ไม่ตรงกัน";
@@ -42,11 +44,13 @@ class Setting_page extends CI_Controller {
 				$data["status"] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 			}
 
-			//Privacy update
+			//Privacy update อันนี้ถ้าไม่เปลี่ยนพาส
+			else if($old_password==""&&$new_password==""&&$new_password_conf==""){
 			$success = $this->setting_model->privacyUpdate();
 			if($success){
 				$data["status"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
 			}
+		}
 		}
 
 		$data["content"] = $this->profile_model->showContent($this->session->username);
