@@ -40,7 +40,7 @@ class Setting_page extends CI_Controller {
 				} else {
 					$data["status"] = "รหัสผ่านเก่าไม่ถูกต้อง";
 				}
-	    } else if ($old_password || $new_password || $new_password_conf){
+	    } else if (($old_password && $new_password && $new_password_conf ) ==  NULL){
 				$data["status"] = "กรุณากรอกข้อมูลให้ครบถ้วน";
 			}
 
