@@ -25,19 +25,22 @@
         <div class="form-group">
           <label class="col-sm-3 control-label">Old Password</label>
           <div class="col-sm-9">
-            <input type="password" class="form-control" name="old_password">
+            <input type="password" minlength="8" maxlength="32" class="form-control" name="old_password">
+            <h5>
+              <span class="text-red">*</span> จำเป็นต้องกรอกรหัสผ่านเก่าให้ถูกต้องเพื่อทำการเปลี่ยนแปลงข้อมูลอื่นๆ
+            </h5>
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">New Password</label>
           <div class="col-sm-9">
-            <input type="password" class="form-control" name="new_password">
+            <input type="password" minlength="8" maxlength="32" class="form-control" name="new_password">
           </div>
         </div>
         <div class="form-group">
           <label class="col-sm-3 control-label">Confirm New Password</label>
           <div class="col-sm-9">
-            <input type="password" class="form-control" name="new_password_conf">
+            <input type="password" minlength="8" maxlength="32" class="form-control" name="new_password_conf">
           </div>
         </div>
         <hr>
