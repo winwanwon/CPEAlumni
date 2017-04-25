@@ -32,7 +32,7 @@ class Directory_model extends CI_Model {
               $this->db->where('careerID', $career);
             }
             if(isset($interests)){
-              $this->db->join('interest', 'student.username = career.username');
+              $this->db->join('interest', 'student.username = interest.username');
               $this->db->like('interest', $interests);
             }
             $query = $this->db->get();
