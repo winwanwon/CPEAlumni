@@ -48,7 +48,7 @@ class Setting_page extends CI_Controller {
 					}
 			}
 
-			//Privacy update 
+			//Privacy update
 			if($old_password){
 				$success = $this->setting_model->privacyUpdate();
 				if($success){

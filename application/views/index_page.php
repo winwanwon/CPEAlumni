@@ -26,21 +26,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             <option value="Ms">Ms.</option>
             <option value="Mrs">Mrs.</option>
           </select>
-          <input type="text" name="firstname" class="form-control" placeholder="First Name">
-          <input type="text" name="lastname" class="form-control" placeholder="Last Name">
+          <input type="text" name="firstname" class="form-control" placeholder="First Name" value="">
+          <input type="text" name="lastname" class="form-control" placeholder="Last Name"value="">
         </div>
       </div>
       <div class="form-group">
-        <input type="text" name="username" class="form-control" placeholder="Username">
+        <input type="text" name="username" class="form-control" placeholder="Username" value="">
       </div>
       <div class="form-group">
-        <input type="password" minlength="8" maxlength="32" name="password" class="form-control" placeholder="Password">
+        <input type="password" minlength="8" maxlength="32" name="password" class="form-control" placeholder="Password" value="">
       </div>
       <div class="form-group">
-        <input type="password" minlength="8" maxlength="32" name="password_confirm" class="form-control" placeholder="Confirm Password">
+        <input type="password" minlength="8" maxlength="32" name="password_confirm" class="form-control" placeholder="Confirm Password" value="">
       </div>
       <div class="form-group">
-        <input type="email" name="email" class="form-control" placeholder="Email">
+        <input type="email" name="email" class="form-control" placeholder="Email" value="">
       </div>
       <div class="form-group">
         I currently enrolled / I have following degree from CPE KMUTT
@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div id="undergraduate_form" style="display:none;">
         <div class="form-group" style="margin: 5px auto;">
             <div class="form-inline">
-            <input name="generation" type="number" class="form-control" placeholder="Generation" min="1" max ="30">
+            <input name="generation" type="number" class="form-control" placeholder="Generation" min="1" max ="30" value="">
             <select name="program" class="form-control">
               <option value="REG">Regular Program</option>
               <option value="INT">International Program</option>
@@ -78,7 +78,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group" style="margin: 5px auto;">
           <div class="form-inline">
             <label>Master degree's year of enrollment</label>
-            <input name="yoe_master" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4">
+            <input name="yoe_master" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4" value="">
           </div>
         </div>
       </div>
@@ -87,7 +87,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group" style="margin: 5px auto;">
           <div class="form-inline">
             <label>Doctoral degree's year of enrollment</label>
-            <input name="yoe_doctoral" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4">
+            <input name="yoe_doctoral" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4" value="">
           </div>
         </div>
       </div>

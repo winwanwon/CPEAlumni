@@ -83,6 +83,12 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('password_confirm', 'Comfirm Password', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 
+		$data['username'] = $this->input->post('username');
+		$data['firstname'] = $this->input->post('firstname');
+		$data['lastname'] = $this->input->post('lastname');
+		$data['username'] = $this->input->post('username');
+		$data['email'] = $this->input->post('email');
+
 		if($this->input->post('undergraduate')){
 			$this->form_validation->set_rules('generation', 'Generation', 'required');
 		}
