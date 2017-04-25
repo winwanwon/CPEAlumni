@@ -48,7 +48,7 @@ class Index_page extends CI_Controller {
 		else
 		{
 			$login_success = $this->index_model->login();
-			
+
 			if($login_success == TRUE){
 				$userdata = array(
 					"username" => $this->input->post("username"),
@@ -106,7 +106,10 @@ class Index_page extends CI_Controller {
 		else if(!$this->input->post('undergraduate') && !$this->input->post('master') && !$this->input->post('doctoral'))
 		{
 			$data["error"] = "กรุณากรอกข้อมูลระดับการศึกษา";
-		} else {
+		}
+		else if ($this->profile_model->showContent($this->input->post('username'))!=NULL) {
+			$data["error"] = "username นี้ถูกใช้แล้ว";
+		}else {
 			$userdata = array(
 				"username" => $this->input->post("username"),
 				"name" => $this->input->post("firstname")." ".$this->input->post("lastname")
