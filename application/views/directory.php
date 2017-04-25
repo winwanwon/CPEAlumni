@@ -78,7 +78,7 @@
 					echo base_url();
 					echo "/uploads/".$student["picture"];
 				} else {
-					echo "https://placekitten.com/130/130";
+					echo "assets/default_profile.png";
 				}
 				echo "'class='dir-avatar img-circle' style='object-fit: cover;'>";
 				echo "<h4>".$student["fname"]." ".$student["lname"]."</h4>";

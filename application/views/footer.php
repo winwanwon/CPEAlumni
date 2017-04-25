@@ -70,7 +70,7 @@ $("#undergraduate").click( function(){
         $("#info_picture").css('object-fit', 'cover');
         $("#info_picture").attr('src', 'uploads/'+data.picture);
       } else {
-        $("#info_picture").attr('src', 'https://placekitten.com/130/130');
+        $("#info_picture").attr('src', 'assets/default_profile.png');
       }
 
       if(data.nickname != ""){
