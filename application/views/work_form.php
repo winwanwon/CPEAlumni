@@ -22,25 +22,26 @@
         echo "<div class='col-md-6 '>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count.
-                   "<span class='pull-right'><form action='work' method='POST'>
-                      <input type='hidden' name='delbtn' value='".$row["id"]."'>
-                       <button type='submit' class='btn-work btn btn-danger btn-del'><span class='glyphicon glyphicon-remove'></span></button>
-                   </form></span>";
+                   "<span class='pull-right'>";
+        echo form_open('work');
+        echo "<input type='hidden' name='delbtn' value='".$row["id"]."'><button type='submit' class='btn-work btn btn-danger btn-del'><span class='glyphicon glyphicon-remove'></span></button>";
+        echo form_close();
+        echo "</span><span class='pull-right'>";
+        echo form_open('work');
                     if($row["present"]==1){
-                        echo "<span class='pull-right'><form action='work' method='POST'>
-                          <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
+                        
+                        echo "<input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
-                          <button type='submit' class='btn-work btn btn-primary btn-current'>Currently work</button>
-                        </form></span>
-                        </div>";
+                          <button type='submit' class='btn-work btn btn-primary btn-current'>Currently work</button>";
+                        echo form_close();
+                        echo "</span></div>";
                     }
                     elseif($row["present"]==0){
-                        echo "<span class='pull-right'><form action='work' method='POST'>
-                          <input type='hidden' name='togglebtnId' value='".$row["id"]."'>
+                        echo "<input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
-                          <button type='submit' class='btn-work btn'>Previous job</button>
-                        </form></span>
-                        </div>";
+                          <button type='submit' class='btn-work btn'>Previous job</button>";
+                        echo form_close();
+                        echo "</span></div>";
                     }
                     else{
                         echo "</div>";
@@ -74,7 +75,7 @@
           </div>
         </div>
         <div class="form-group">
-          <label class="col-sm-3 control-label">Career</label>
+          <label class="col-sm-3 control-label">Career Type</label>
           <div class="col-sm-9">
             <div class="ui-widget" id="interest">
               <select class="form-control" name="career">

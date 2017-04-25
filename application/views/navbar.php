@@ -1,6 +1,5 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
-
 ?>
 <body>
 
@@ -10,15 +9,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="<?php echo base_url(); ?>"><span class="navbar-brand-bold">CPE</span> <span class="navbar-brand-light">Alumni</span></a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<form class="navbar-form navbar-left">
-
-				</form>
+				
 				<ul class="nav navbar-nav navbar-right">
 					<?php if ($current_page == "" || $current_page == "register"):?>
 						<!-- Index_page -->
 						<?php
-						$attr = array("class" => "");
-						echo form_open('login', $attr);
+						$attr = array("class" => "", "method" =>"POST");
+						echo form_open("login", $attr);
 						?>
 						<div class="form-group">
 							<div class="form-inline form-login">
@@ -27,7 +24,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 								<input type="submit" class="btn btn-trans" value="Login">
 							</div>
 						</div>
-					</form>
+					<?php echo form_close();?>
 				<?php elseif($current_page == "login"): ?>
 				<?php else: ?>
 				<?php 

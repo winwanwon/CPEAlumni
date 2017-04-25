@@ -1,6 +1,6 @@
 <?php
 $attr = array("class" => "");
-echo form_open('login', $attr);
+echo form_open(base_url('login'), $attr);
 ?>
 <div class="container" >
   <div class="row">
@@ -29,7 +29,7 @@ echo form_open('login', $attr);
       <div class="form-group">
         <a href="<?php echo base_url(); ?>register">สมัครใช้งาน CPE Alumni</a>
       </div>
-    </form>
+    <?php echo form_close();?>
   </div>
 </div>
 </div>
