@@ -80,7 +80,7 @@
 				} else {
 					echo "https://placekitten.com/130/130";
 				}
-				echo "'class='dir-avatar img-circle'>";
+				echo "'class='dir-avatar img-circle' style='object-fit: cover;'>";
 				echo "<h4>".$student["fname"]." ".$student["lname"]."</h4>";
 				echo "<h5>";
 				if($student["generation"]!=0){
@@ -110,7 +110,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close" style="color: white;"><span aria-hidden="true">&times;</span></button>
         <h4 class="modal-title" id="myModalLabel">Information</h4>
       </div>
       <div class="modal-body text-center">

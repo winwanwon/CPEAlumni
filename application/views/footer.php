@@ -59,12 +59,15 @@ $("#undergraduate").click( function(){
   }
 })
 
+
+
 	$(".student").click( function(){
     var id = $(this).attr("id");
 		$.post("getuser/" + id, { 'tokenname': csrf_value,  } , function(data){
 			data = data[0];
 
       if(data.picture != ""){
+        $("#info_picture").css('object-fit', 'cover');
         $("#info_picture").attr('src', 'uploads/'+data.picture);
       } else {
         $("#info_picture").attr('src', 'https://placekitten.com/130/130');
