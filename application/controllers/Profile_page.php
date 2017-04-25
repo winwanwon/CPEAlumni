@@ -59,7 +59,6 @@ class Profile_page extends CI_Controller {
 					// with upload
 					$file_data = $this->upload->data();
 					$this->profile_model->moreContent($username, $file_data["file_name"]);
-
 				}
 
 				$data['status'] = "อัพเดตข้อมูลเรียบร้อยแล้ว";
@@ -70,8 +69,6 @@ class Profile_page extends CI_Controller {
 		} else {
 			$data['status'] = "";
 		}
-
-
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			//get interest (to check diff)
@@ -92,7 +89,7 @@ class Profile_page extends CI_Controller {
 			}
 		}
 
-		//get interest agian (may have changes)
+		//get interest again (may have changes)
 		$arr = $this->profile_model->getInterest($this->session->username);
 		$interests_result = array();
 		foreach($arr as $row){

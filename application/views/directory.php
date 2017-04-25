@@ -60,7 +60,7 @@
 		<div class="form-group">
 			<input type="submit" class="btn btn-block btn-trans" value="Search">
 		</div>
-	</form>
+	<?php echo form_close();?>
 </div>
 <!-- Display part-->
 <div class="col-md-8 display">

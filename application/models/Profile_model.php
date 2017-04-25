@@ -29,16 +29,16 @@ class Profile_model extends CI_Model {
 
 
     $data = array(
-      'nameTitle' => $this->input->post('prefix'),
-      'fName' => $this->input->post('firstname'),
-      'lName' => $this->input->post('lastname'),
-      'username' => $this->input->post('username'),
+      'nameTitle' => html_escape($this->input->post('prefix')),
+      'fName' => html_escape($this->input->post('firstname')),
+      'lName' => html_escape($this->input->post('lastname')),
+      'username' => html_escape($this->input->post('username')),
       'password' => sha1($this->input->post('password')),
-      'email' => $this->input->post('email'),
-      'generation' => $generation,
-      'programme' => $programme,
-      'master' => $master,
-      'doctoral' => $doctoral
+      'email' => html_escape($this->input->post('email')),
+      'generation' => html_escape($generation),
+      'programme' => html_escape($programme),
+      'master' => html_escape($master),
+      'doctoral' => html_escape($doctoral)
     );
 
     return $this->db->insert('student', $data);
@@ -76,38 +76,38 @@ class Profile_model extends CI_Model {
 
     if($picture==""){
       $data = array(
-        'fName' => $this->input->post('firstname'),
-        'lName' => $this->input->post('lastname'),
-        'nickname' => $this->input->post('nickname'),
-        'email' => $this->input->post('email'),
-        'address' => $this->input->post('address'),
-        'province' => $this->input->post('province'),
-        'country' => $this->input->post('country'),
-        'facebook' => $this->input->post('facebook'),
-        'linkedin' => $this->input->post('linkedin') ,
-        'phone' => $this->input->post('phone') ,
-        'generation' => $generation,
-        'programme' => $programme,
-        'master' => $master,
-        'doctoral' => $doctoral
+        'fName' => html_escape($this->input->post('firstname')),
+        'lName' => html_escape($this->input->post('lastname')),
+        'nickname' => html_escape($this->input->post('nickname')),
+        'email' => html_escape($this->input->post('email')),
+        'address' => html_escape($this->input->post('address')),
+        'province' => html_escape($this->input->post('province')),
+        'country' => html_escape($this->input->post('country')),
+        'facebook' => html_escape($this->input->post('facebook')),
+        'linkedin' => html_escape($this->input->post('linkedin')),
+        'phone' => html_escape($this->input->post('phone')),
+        'generation' => html_escape($generation),
+        'programme' => html_escape($programme),
+        'master' => html_escape($master),
+        'doctoral' => html_escape($doctoral)
       );
     } else {
       $data = array(
-        'fName' => $this->input->post('firstname'),
-        'lName' => $this->input->post('lastname'),
-        'nickname' => $this->input->post('nickname'),
-        'email' => $this->input->post('email'),
-        'address' => $this->input->post('address'),
-        'province' => $this->input->post('province'),
-        'country' => $this->input->post('country'),
-        'facebook' => $this->input->post('facebook'),
-        'linkedin' => $this->input->post('linkedin') ,
-        'picture' => $picture,
-        'phone' => $this->input->post('phone') ,
-        'generation' => $generation,
-        'programme' => $programme,
-        'master' => $master,
-        'doctoral' => $doctoral
+        'fName' => html_escape($this->input->post('firstname')),
+        'lName' => html_escape($this->input->post('lastname')),
+        'nickname' => html_escape($this->input->post('nickname')),
+        'email' => html_escape($this->input->post('email')),
+        'address' => html_escape($this->input->post('address')),
+        'province' => html_escape($this->input->post('province')),
+        'country' => html_escape($this->input->post('country')),
+        'facebook' => html_escape($this->input->post('facebook')),
+        'linkedin' => html_escape($this->input->post('linkedin') ),
+        'picture' => html_escape($picture),
+        'phone' => html_escape($this->input->post('phone') ),
+        'generation' => html_escape($generation),
+        'programme' => html_escape($programme),
+        'master' => html_escape($master),
+        'doctoral' => html_escape($doctoral)
       );
     }
 

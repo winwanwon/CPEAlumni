@@ -98,7 +98,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         </button>
       </div>
 
-    </form>
+    <?php echo form_close();?>
 </div>
 </div>
 </div>
