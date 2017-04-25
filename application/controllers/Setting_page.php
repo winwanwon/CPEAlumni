@@ -26,13 +26,13 @@ class Setting_page extends CI_Controller {
 	    $new_password = $this->input->post('new_password');
 	    $new_password_conf = $this->input->post('new_password_conf');
 
+		  if($this->input->post('check_pass')){//checking password button
 			//Password Update
-	    if($old_password && $new_password && $new_password_conf){
-
-			if (strlen($this->input->post('new_password'))<8 || strlen($this->input->post('new_password'))>32){
-			$data["status"] = "รหัสผ่านต้องมีความยาวระหว่าง 8-32 ตัวอักษร";
-			}
-			$validated = $this->setting_model->passwordCheck();
+	    	if($old_password && $new_password && $new_password_conf){
+				if (strlen($this->input->post('new_password'))<8 || strlen($this->input->post('new_password'))>32){
+					$data["status"] = "รหัสผ่านต้องมีความยาวระหว่าง 8-32 ตัวอักษร";
+				}
+				$validated = $this->setting_model->passwordCheck();
 					if($validated){
 						$success = $this->setting_model->passwordUpdate();
 						//ถ้าเปลี่ยนพาสบังคับเปลี่ยน privacy ด้วย
@@ -47,9 +47,12 @@ class Setting_page extends CI_Controller {
 						$data["status"] = "รหัสผ่านเก่าไม่ถูกต้อง";
 					}
 			}
-
+			else 
+				$data["status"] = "กรุณากรอกข้อมูลให้ครบถ้วน";
+		  }
+		  else if ($this->input->post('check_privacy')){ //checking privacy button
 			//Privacy update
-			if($old_password){
+			if(($old_password && $new_password && $new_password_conf)==NULL ){
 				$success = $this->setting_model->privacyUpdate();
 				if($success){
 					$data["status"] = "บันทึกข้อมูลความเป็นส่วนตัวเรียบร้อยแล้ว";
@@ -58,6 +61,7 @@ class Setting_page extends CI_Controller {
 					}
 				}
 			}
+		  }
 		}
 
 		$data["content"] = $this->profile_model->showContent($this->session->username);
