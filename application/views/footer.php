@@ -152,7 +152,7 @@ $( function() {
 
   var availableTags = [];
 
-    $.post("interest_list", function(data){
+    $.post("interest_list",{ 'tokenname': csrf_value,  } , function(data){
     $.each(data, function(key,value){
         availableTags.push(value["interest"])
     })

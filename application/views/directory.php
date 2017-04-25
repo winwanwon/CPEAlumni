@@ -168,7 +168,7 @@
 
 					</div>
 				</div>
-				
+
 				<span id="career_list">
 				<div class="row">
 					<div class="col-xs-3 text-right">
@@ -181,7 +181,7 @@
 					</div>
 				</div>
 				</span>
-				
+
 				<span id="interest_list">
 				<div class="row">
 					<div class="col-xs-3 text-right">
