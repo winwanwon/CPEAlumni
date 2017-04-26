@@ -2,9 +2,9 @@
 .size{
   font-size:large;
 }
-/*.verticalLine {
+.verticalLine {
   border-left: thin solid #ffffff;
-  height :340px;*/
+  height :340px;
 }
 </style>
 <div class="container">
