@@ -47,7 +47,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <div class="checkbox">
             <label>
               <input type="checkbox" name="undergraduate" id="undergraduate" value="1" <?php echo set_checkbox('undergraduate', '1'); ?>  />
-              Undergraduate Degree
+              Bachelor Degree
             </label>
           </div>
           <div class="checkbox">
