@@ -9,7 +9,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<a href="<?php echo base_url(); ?>"><span class="navbar-brand-bold">CPE</span> <span class="navbar-brand-light">Alumni</span></a>
 			</div>
 			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				
+
 				<ul class="nav navbar-nav navbar-right">
 					<?php if ($current_page == "" || $current_page == "register"):?>
 						<!-- Index_page -->
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<?php echo form_close();?>
 				<?php elseif($current_page == "login"): ?>
 				<?php else: ?>
-				<?php 
+				<?php
 					$username = $this->session->username;
 					if(!$username){
 						redirect('/');
@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 						</a>
 						<ul class="dropdown-menu">
 							<li><a href="<?php echo base_url();?>profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit Profile</a></li>
-							<li><a href="<?php echo base_url();?>work"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Edit Works Info</a></li>
+							<li><a href="<?php echo base_url();?>work"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Edit Work Info</a></li>
 							<li><a href="<?php echo base_url();?>setting"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Account Setting</a></li>
 							<li role="separator" class="divider"></li>
 							<li><a href="<?php echo base_url();?>logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a></li>

@@ -8,7 +8,7 @@
           </div>
         <?php endif; ?>
         <div class="col-xs-12">
-          <h2>Works Information</h2>
+          <h2>Work Information</h2>
         </div>
       </div>
 
@@ -29,7 +29,7 @@
         echo "</span><span class='pull-right'>";
         echo form_open('work');
                     if($row["present"]==1){
-                        
+
                         echo "<input type='hidden' name='togglebtnId' value='".$row["id"]."'>
                           <input type='hidden' name='togglebtnPresent' value='".$row["present"]."'>
                           <button type='submit' class='btn-work btn btn-primary btn-current'>Currently work</button>";
