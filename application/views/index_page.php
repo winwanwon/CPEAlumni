@@ -66,7 +66,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div id="undergraduate_form" style="display:none;">
         <div class="form-group" style="margin: 5px auto;">
             <div class="form-inline">
-            <input name="generation" type="number" class="form-control" placeholder="Generation" min="1" max ="30" value="<?= set_value('generation')?>">
+            <input name="generation" type="number" class="form-control" placeholder="Cohort" min="1" max ="30" value="<?= set_value('generation')?>">
             <select name="program" class="form-control">
               <option value="REG">Regular Program</option>
               <option value="INT">International Program</option>

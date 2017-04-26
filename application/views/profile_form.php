@@ -114,7 +114,7 @@
 
           <div id="undergraduate_form" style="display:none;">
             <div class="form-group">
-              <label class="col-sm-3 control-label">Generation</label>
+              <label class="col-sm-3 control-label">Cohort</label>
               <div class="col-sm-9">
                 <input name="generation" type="number" class="form-control" value="<?php if($content[0]['generation']!=0) echo $content[0]['generation']; ?>">
               </div>
@@ -160,6 +160,7 @@
               <?php if($content[0]['country']): ?>
                 <option value="<?php echo $content[0]['country']; ?>" selected><?php echo $content[0]['country']; ?></option>
               <?php endif; ?>
+              <option value="Thailand">Thailand</option>
               <option value="Afganistan">Afghanistan</option>
               <option value="Albania">Albania</option>
               <option value="Algeria">Algeria</option>
@@ -378,7 +379,6 @@
               <option value="Taiwan">Taiwan</option>
               <option value="Tajikistan">Tajikistan</option>
               <option value="Tanzania">Tanzania</option>
-              <option value="Thailand">Thailand</option>
               <option value="Togo">Togo</option>
               <option value="Tokelau">Tokelau</option>
               <option value="Tonga">Tonga</option>
