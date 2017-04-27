@@ -47,7 +47,7 @@
             <?php if($content[0]["picture"]): ?>
               <img height="100" style="margin: 0 auto 15px auto;" src="<?php echo base_url()."/uploads/".$content[0]["picture"]; ?>" class="img-rounded">
             <?php endif; ?>
-            <input name="profile_image" type="file" class="form-control">
+            <input name="profile_image" type="file" accept="image/*" class="form-control">
           </div>
         </div>
         <div class="form-group">
