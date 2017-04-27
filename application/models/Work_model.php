@@ -30,9 +30,9 @@ class Work_model extends CI_Model {
       }
       $data = array(
         'username' => $username,
-        'careerID' => $this->input->post('career'),
-        'position' => $this->input->post('position'),
-        'company' => $this->input->post('company'),
+        'careerID' => html_escape($this->input->post('career')),
+        'position' => html_escape($this->input->post('position')),
+        'company' => html_escape($this->input->post('company')),
         'present' => $present
       );
       $this->db->insert('career', $data);

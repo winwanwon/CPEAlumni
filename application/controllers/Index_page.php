@@ -48,7 +48,7 @@ class Index_page extends CI_Controller {
 		else
 		{
 			$login_success = $this->index_model->login();
-			
+
 			if($login_success == TRUE){
 				$userdata = array(
 					"username" => $this->input->post("username"),
@@ -83,13 +83,19 @@ class Index_page extends CI_Controller {
 		$this->form_validation->set_rules('password_confirm', 'Comfirm Password', 'required');
 		$this->form_validation->set_rules('email', 'Email', 'required');
 
-		if($this->input->post('undergraduate') == "true"){
+		//$data['username'] = $this->input->post('username');
+		//$data['firstname'] = $this->input->post('firstname');
+		//$data['lastname'] = $this->input->post('lastname');
+		//$data['username'] = $this->input->post('username');
+		//$data['email'] = $this->input->post('email');
+
+		if($this->input->post('undergraduate')){
 			$this->form_validation->set_rules('generation', 'Generation', 'required');
 		}
-		if($this->input->post('master') == "true"){
+		if($this->input->post('master')){
 			$this->form_validation->set_rules('yoe_master', 'Year of Enrollment (Master\'s)', 'required');
 		}
-		if($this->input->post('doctoral') == "true"){
+		if($this->input->post('doctoral')){
 			$this->form_validation->set_rules('yoe_doctoral', 'Year of Enrollment (Doctoral\'s)', 'required');
 		}
 
@@ -100,10 +106,16 @@ class Index_page extends CI_Controller {
 		else if ($this->input->post('password') != $this->input->post('password_confirm')){
 			$data["error"] = "รหัสผ่านไม่ตรงกัน";
 		}
+		else if (strlen($this->input->post('password'))<8 || strlen($this->input->post('password'))>32){
+			$data["error"] = "รหัสผ่านต้องมีความยาวระหว่าง 8-32 ตัวอักษร";
+		}
 		else if(!$this->input->post('undergraduate') && !$this->input->post('master') && !$this->input->post('doctoral'))
 		{
 			$data["error"] = "กรุณากรอกข้อมูลระดับการศึกษา";
-		} else {
+		}
+		else if ($this->profile_model->showContent($this->input->post('username'))!=NULL) {
+			$data["error"] = "username นี้ถูกใช้แล้ว";
+		}else {
 			$userdata = array(
 				"username" => $this->input->post("username"),
 				"name" => $this->input->post("firstname")." ".$this->input->post("lastname")

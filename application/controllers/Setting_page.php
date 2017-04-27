@@ -19,38 +19,49 @@ class Setting_page extends CI_Controller {
 		$data["current_page"] = $this->uri->segment(1);
 		$data["name"] = $this->session->name;
 		$data["status"] = "";
+		$changepass =0 ;
 
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			$old_password = $this->input->post('old_password');
 	    $new_password = $this->input->post('new_password');
 	    $new_password_conf = $this->input->post('new_password_conf');
 
+		  if($this->input->post('check_pass')){//checking password button
 			//Password Update
-	    if($old_password && $new_password && $new_password_conf){
-	      $validated = $this->setting_model->passwordCheck();
-				if($validated){
-					$success = $this->setting_model->passwordUpdate();
-					//ถ้าเปลี่ยนพาสบังคับเปลี่ยน privacy ด้วย
-					if($success){
-						$success = $this->setting_model->privacyUpdate();
-						$data["status"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
-					} else {
-						$data["status"] = "รหัสผ่านใหม่ไม่ตรงกัน";
-					}
-				} else {
-					$data["status"] = "รหัสผ่านเก่าไม่ถูกต้อง";
+	    	if($old_password && $new_password && $new_password_conf){
+				if (strlen($this->input->post('new_password'))<8 || strlen($this->input->post('new_password'))>32){
+					$data["status"] = "รหัสผ่านต้องมีความยาวระหว่าง 8-32 ตัวอักษร";
 				}
-	    } else if ($old_password || $new_password || $new_password_conf){
+				$validated = $this->setting_model->passwordCheck();
+					if($validated){
+						$success = $this->setting_model->passwordUpdate();
+						//ถ้าเปลี่ยนพาสบังคับเปลี่ยน privacy ด้วย
+						if($success){
+							$success = $this->setting_model->privacyUpdate();
+							$data["status"] = "บันทึกรหัสผ่านใหม่เรียบร้อยแล้ว";
+							$changepass = 1;
+						} else {
+							$data["status"] = "รหัสผ่านใหม่ไม่ตรงกัน";
+						}
+					} else {
+						$data["status"] = "รหัสผ่านเก่าไม่ถูกต้อง";
+					}
+			}
+			else 
 				$data["status"] = "กรุณากรอกข้อมูลให้ครบถ้วน";
+		  }
+		  else if ($this->input->post('check_privacy')){ //checking privacy button
+			//Privacy update
+			if(($old_password && $new_password && $new_password_conf)==NULL ){
+				$success = $this->setting_model->privacyUpdate();
+				if($success){
+					$data["status"] = "บันทึกข้อมูลความเป็นส่วนตัวเรียบร้อยแล้ว";
+					if($changepass == 1){
+						$data["status"] = "บันทึกรหัสผ่านและข้อมูลความเป็นส่วนตัวเรียบร้อยแล้ว";
+					}
+				}
 			}
-
-			//Privacy update อันนี้ถ้าไม่ได้กรอกเปลี่ยนพาส
-			else if($old_password==""&&$new_password==""&&$new_password_conf==""){
-			$success = $this->setting_model->privacyUpdate();
-			if($success){
-				$data["status"] = "บันทึกข้อมูลเรียบร้อยแล้ว";
-			}
-		}
+		  }
 		}
 
 		$data["content"] = $this->profile_model->showContent($this->session->username);

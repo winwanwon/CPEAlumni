@@ -1,3 +1,7 @@
+<script type="text/javascript">
+    var csrf_token_name = '<?php echo $this->security->get_csrf_token_name(); ?>';
+    var csrf_value = '<?php echo $this->security->get_csrf_hash(); ?>';
+</script>
 
 <script type="text/javascript">
 $(window).on('load', function() {
@@ -55,15 +59,18 @@ $("#undergraduate").click( function(){
   }
 })
 
+
+
 	$(".student").click( function(){
     var id = $(this).attr("id");
-		$.post("getuser/" + id , function(data){
+		$.post("getuser/" + id, { 'tokenname': csrf_value,  } , function(data){
 			data = data[0];
 
       if(data.picture != ""){
+        $("#info_picture").css('object-fit', 'cover');
         $("#info_picture").attr('src', 'uploads/'+data.picture);
       } else {
-        $("#info_picture").attr('src', 'https://placekitten.com/130/130');
+        $("#info_picture").attr('src', 'assets/default_profile.png');
       }
 
       if(data.nickname != ""){
@@ -148,7 +155,7 @@ $( function() {
 
   var availableTags = [];
 
-    $.post("interest_list", function(data){
+    $.post("interest_list",{ 'tokenname': csrf_value,  } , function(data){
     $.each(data, function(key,value){
         availableTags.push(value["interest"])
     })
