@@ -1,11 +1,19 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 ?>
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&version=v2.9&appId=215231288903283";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
 <div class="container">
   <div class="row">
     <div class="col-md-6">
-      <h1>Events</h1>
-      <img src="http://placehold.it/1600x900" class="img-responsive">
+      <h1>News & Information</h1>
+      <div class="fb-page" height="400" data-href="https://www.facebook.com/cpe.kmutt" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/cpe.kmutt" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cpe.kmutt">CPE &#064; KMUTT</a></blockquote></div>
     </div>
     <div class="col-md-6">
       <h1>Registration</h1>
