@@ -178,8 +178,10 @@ $("#undergraduate").click( function(){
 		})
 	})
 
-</script>
-<script>
+$("#notnow").click (function(){
+  $("#alert_data").slideUp();
+})
+
 $( function() {
 
   var availableTags = [];

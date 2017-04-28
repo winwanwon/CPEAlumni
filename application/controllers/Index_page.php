@@ -122,7 +122,7 @@ class Index_page extends CI_Controller {
 			);
 			$this->session->set_userdata($userdata);
 			$this->profile_model->createUser();
-			redirect('profile');
+			redirect('directory');
 		}
 
 		$this->load->view('header');

@@ -64,7 +64,24 @@
 </div>
 <!-- Display part-->
 <div class="col-md-9 display">
-	<bR>
+	<?php if($profile_alert == 0 || $work_alert == 0): ?>
+		<div class="alert alert-trans" id="alert_data" style="margin: 20px auto;">	
+				<h3 style="margin-top: 0;">Tell us about yourself</h3>
+				<h4 style="margin-bottom: 20px;">
+					กรอกข้อมูลส่วนตัวเพิ่มเติม เพื่อให้ผู้อื่นสามารถค้นหาคุณด้วยข้อมูลต่างๆได้
+				</h4>
+				<?php if($profile_alert == 0): ?>
+					<a href="profile" class="btn btn-trans btn-trans-primary">
+					<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> เพิ่มข้อมูลส่วนตัว</a>
+				<?php endif; ?>
+				<?php if($work_alert == 0): ?>
+					<a href="work" class="btn btn-trans btn-trans-primary">
+					<span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> เพิ่มข้อมูลการทำงาน</a>
+				<?php endif; ?>
+				<div class="btn btn-trans" id="notnow">ไม่ใช่ตอนนี้</div>
+				
+		</div>
+	<?php endif; ?>
 		<?php
 			$i = 0;
 			foreach ($students as $student){

@@ -108,16 +108,27 @@ body {
 .btn-trans, .btn-trans:focus, .btn-trans:active {
   background: rgba(0,0,0,0);
   color: #FFF;
-  border-radius: 15px;
+  border-radius: 12px;
   padding-left: 40px;
   padding-right: 40px;
   border: 1px solid #FFF;
   transition: 0.2s all ease-in-out;
 }
 
+.btn-trans-primary {
+  background: #FFF;
+  color: #000 !important;
+}
+
 .btn-trans:hover {
   color: #FFF;
   background: rgba(0,0,0,0.4);
+}
+
+.btn-trans-primary:hover {
+  background: #FFF;
+  color: #000 !important;
+  opacity: 0.8;
 }
 
 .nav > li > a {

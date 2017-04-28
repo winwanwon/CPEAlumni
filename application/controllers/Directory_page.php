@@ -8,6 +8,7 @@ class Directory_page extends CI_Controller {
 		parent::__construct();
 		$this->load->model('filter_model');
 		$this->load->model('directory_model');
+		$this->load->model('work_model');
 		$this->load->helper('url_helper');
 	}
 
@@ -26,6 +27,21 @@ class Directory_page extends CI_Controller {
 		// GET career to show in dropdown
 		$data["career"] = $this->directory_model->getCareerType();
 		$data["generation_filter"] = $user_generation;
+
+		$data["profile_alert"] = 0;
+		$data["work_alert"] = 0;
+
+		$user_data = $this->directory_model->getStudentData($username);
+		$user_data = $user_data[0];
+		// show career
+		$work_data = $this->work_model->getCareer($username);
+
+		if($user_data["picture"] && $user_data["phone"] && $user_data["address"] && $user_data["province"] && $user_data["country"]){
+			$data["profile_alert"] = 1;
+		}
+		if(sizeof($work_data)>0){
+			$data["work_alert"] = 1;
+		}
 
 		$filter = array();
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
