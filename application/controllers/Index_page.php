@@ -91,6 +91,7 @@ class Index_page extends CI_Controller {
 
 		if($this->input->post('undergraduate')){
 			$this->form_validation->set_rules('generation', 'Generation', 'required');
+			$this->form_validation->set_rules('yoe_under', 'Generation', 'required');
 		}
 		if($this->input->post('master')){
 			$this->form_validation->set_rules('yoe_master', 'Year of Enrollment (Master\'s)', 'required');

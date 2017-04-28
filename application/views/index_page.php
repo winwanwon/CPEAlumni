@@ -74,11 +74,18 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       <div id="undergraduate_form" style="display:none;">
         <div class="form-group" style="margin: 5px auto;">
             <div class="form-inline">
-            <input name="generation" type="number" class="form-control" placeholder="Cohort" min="1" max ="30" value="<?= set_value('generation')?>">
+              <label>Generation</label>
+            <input name="generation" id="gen_login" type="number" class="form-control" placeholder="Cohort" min="1" max ="30" value="<?= set_value('generation')?>">
             <select name="program" class="form-control">
               <option value="REG">Regular Program</option>
               <option value="INT">International Program</option>
             </select>
+          </div>
+        </div>
+        <div class="form-group" style="margin: 5px auto;">
+          <div class="form-inline">
+            <label>Bachelor degree's year of enrollment</label>
+            <input name="yoe_under" id="yoe_under" type="number" class="form-control" placeholder="B.E. Year (e.g. 2560)"  size="4" maxlength="4" value="<?= set_value('yoe_under')?>">
           </div>
         </div>
       </div>

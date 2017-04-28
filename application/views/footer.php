@@ -91,6 +91,36 @@ $("#undergraduate").click( function(){
   }
 })
 
+//Cal year from generation
+$("#gen_login").keyup( function(){
+  if($("#gen_login").val() < 1)
+    {
+      $("#gen_login").val(1)
+    }
+    else if($("#gen_login").val() > 99)
+    {
+      $("#gen_login").val(99)
+    }
+
+    var year = parseInt($("#gen_login").val())+parseInt(2529)
+    $("#yoe_under").val(year)
+
+})
+
+//Cal generation from year
+$("#yoe_under").keyup( function(){
+  if($("#yoe_under").val() < 2530 && length == 4)
+    {
+      $("#yoe_under").val(2530)
+    }
+    else if($("#yoe_under").val() > 2628)
+    {
+      $("#yoe_under").val(2628)
+    }
+    var gen = parseInt($("#yoe_under").val())-parseInt(2529)
+    $("#gen_login").val(gen)
+
+})
 
 
 	$(".student").click( function(){
