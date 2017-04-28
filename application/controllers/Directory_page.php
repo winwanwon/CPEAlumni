@@ -25,8 +25,9 @@ class Directory_page extends CI_Controller {
 		$user_generation = $result[0]["generation"];
 		// GET career to show in dropdown
 		$data["career"] = $this->directory_model->getCareerType();
+		$data["generation_filter"] = $user_generation;
 
-			$filter = array();
+		$filter = array();
 		if ($this->input->server('REQUEST_METHOD') == 'POST') {
 			// SEARCH FILTER
 			$name = $this->input->post("name");
@@ -36,6 +37,7 @@ class Directory_page extends CI_Controller {
 			$undergraduate = $this->input->post("undergraduate");
 			$master = $this->input->post("master");
 			$doctoral = $this->input->post("doctoral");
+			$generation = (int)$generation;
 
 			//Show Search Data in Form
 			$data["name_filter"] = $name;
@@ -47,55 +49,52 @@ class Directory_page extends CI_Controller {
 			$data["doctoral_filter"] = $doctoral;
 
 			$name_split = explode(" ",$name);
-			if(isset($name_split[0])){
+			if(isset($name_split[0]) && $name_split[0]!=NULL){
 				$fname = $name_split[0];
 			}
-			if(isset($name_split[1])){
+			if(isset($name_split[1]) && $name_split[1]!=NULL){
 				$lname = $name_split[1];
 			}
 
+			if(isset($fname) && $fname != NULL){
+				$filter["fname"] = $fname;
+			}
+			if(isset($lname) && $lname != NULL){
+				$filter["lname"] = $lname;
+			}
+			if(isset($generation) && $generation != NULL){
+				$filter["generation"] = $generation;
+			}
+			if(isset($interests) && $interests != NULL){
+				$filter["interests"] = $interests;
+			}
+			if(isset($career) && $career != NULL){
+				$filter["career"] = $career;
+			}
+			if(isset($undergraduate) && $undergraduate != NULL){
+				if($undergraduate=="on"){
+					$undergraduate = 1;
+					$filter["generation >="] = $undergraduate;
+				}
+			}
+			if(isset($master) && $master != NULL){
+				if($master=="on")
+				{
+				$master = 1;
+				$filter["master >="] = $master;
+				}
+			}
+			if(isset($doctoral) && $doctoral != NULL){
+				if($doctoral=="on")
+				{
+				$doctoral = 1;
+				$filter["doctoral >="] = $doctoral;
+				}
+			}
+			$filter["privacy !="] = "UL";
+			//var_dump($filter);
 
-		if(isset($fname)){
-			$filter["fname"] = $fname;
-		}
-		if(isset($lname)){
-			$filter["lname"] = $lname;
-		}
-		if(isset($generation) && $generation != NULL){
-			$filter["generation"] = $generation;
-		} else {
-			$filter["generation"] = $user_generation;
-		}
-		if(isset($interests)){
-			$filter["interests"] = $interests;
-		}
-		if(isset($career)){
-			$filter["career"] = $career;
-		}
-		if(isset($undergraduate)){
-			if($undergraduate=="on"){
-				$undergraduate = 1;
-				$filter["generation >="] = $undergraduate;
-			}
-		}
-		if(isset($master)){
-			if($master=="on")
-			{
-			$master = 1;
-			$filter["master >="] = $master;
-			}
-		}
-		if(isset($doctoral)){
-			if($doctoral=="on")
-			{
-			$doctoral = 1;
-			$filter["doctoral >="] = $doctoral;
-			}
-		}
-		$filter["privacy !="] = "UL";
-		//var_dump($filter);
-
-		$data["students"] = $this->directory_model->getStudentList($filter);
+			$data["students"] = $this->directory_model->getStudentList($filter);
 		} else {
 			$filter["generation"] = $user_generation;
 			$filter["privacy !="] = "UL";
