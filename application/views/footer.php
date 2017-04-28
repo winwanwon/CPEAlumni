@@ -1,9 +1,41 @@
+
+
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script type="text/javascript">
     var csrf_token_name = '<?php echo $this->security->get_csrf_token_name(); ?>';
     var csrf_value = '<?php echo $this->security->get_csrf_hash(); ?>';
 </script>
 
 <script type="text/javascript">
+
+var start = 12;
+var end = 8;
+var total = $(".student").length;
+$(document).ready( function(){
+  if($(".student").length > start){
+    $(".student").slice(0, start).fadeIn();
+    $("#loadmore").fadeIn();
+  } else {
+    $(".student").fadeIn();
+  }
+})
+
+$("#loadmore").click( function(){
+  $(".student").slice(start, start+end).fadeIn();
+
+	$('html, body').animate({
+		scrollTop: $(".student:eq(" + start + ")").offset().top
+	}, 2000);
+
+  start = start + end;
+
+  if(start > total){
+    $(this).hide();
+  }
+
+})
+
 $(window).on('load', function() {
   $("body").removeClass("preload");
 });
@@ -147,9 +179,6 @@ $("#undergraduate").click( function(){
 	})
 
 </script>
-
-<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
-<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script>
 $( function() {
 

@@ -152,6 +152,7 @@ body {
 
 .student {
   cursor: pointer !important;
+  margin: 10px auto;
 }
 
 #interests {

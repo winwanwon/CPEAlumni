@@ -63,7 +63,7 @@
 	<?php echo form_close();?>
 </div>
 <!-- Display part-->
-<div class="col-md-8 display">
+<div class="col-md-9 display">
 	<bR>
 		<?php
 			$i = 0;
@@ -72,7 +72,7 @@
 					echo '<div class="row">';
 				}
 				echo '<div class="col-xs-3">';
-				echo '<div class="student text-center" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
+				echo '<div class="student text-center" style="display:none;" id="'.$student["username"].'" data-toggle="modal" data-target="#studentData">';
 				echo "<img src='";
 				if($student["picture"]!=NULL){
 					echo base_url();
@@ -95,13 +95,18 @@
 				echo "</h5>";
 				echo '</div>';
 				echo '</div>';
-				if ($i == 4) {
+				if ($i == 3) {
 					echo '</div>';
 					$i = -1;
 				}
 				$i = $i+1;
 				}
 		?>
+		<div class="row">
+			<div class="col-md-8 col-md-offset-2">	
+				<div class="btn btn-trans btn-block" id="loadmore" style="display:none; margin: 15px auto;">Load more..</div>
+			</div>
+		</div>
 </div>
 </div>
 
