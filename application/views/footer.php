@@ -109,7 +109,7 @@ $("#gen_login").keyup( function(){
 
 //Cal generation from year
 $("#yoe_under").keyup( function(){
-  if($("#yoe_under").val() < 2530 && length == 4)
+  if(($("#yoe_under").val() < 2530) && ($("#yoe_under").length == 4))
     {
       $("#yoe_under").val(2530)
     }
