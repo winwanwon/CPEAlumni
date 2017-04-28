@@ -4,8 +4,9 @@
 }
 .verticalLine {
   border-left: thin solid #ffffff;
-  height :340px;
+  height :350px;
 }
+
 </style>
 <div class="container">
   <div class="row">
@@ -59,14 +60,14 @@
                     <input type="password" minlength="8" maxlength="32" class="form-control" name="new_password_conf">
                   </div>
               </div>
-              <hr>
+              <br>
               <div class="form-group">
                 <div class="col-sm-offset-3 col-sm-9">
                   <input type="submit" value="Save Changes"  name ="check_pass" class="btn btn-lg btn-trans">
                 </div>
               </div>
               </div>
-            </div>  
+            </div>
             <?php echo form_close();?>
             </div>
             </div>
@@ -81,7 +82,7 @@
                   <?php endif; ?>
                   <h2>Account Setting</h2>
                 </div>
-             </div>   
+             </div>
              <div class="row">
                 <div class="col-xs-12">
                       <?php
@@ -91,7 +92,7 @@
              <div class="form-group">
                <div class="col-sm-9 col-sm-offset-3">
                  <h4>Change Privacy</h4>
-              
+
                </div>
              </div>
              <div class="form-group">
@@ -105,17 +106,16 @@
                 <h5>
                      หมายเหตุ: คุณสามารถปกปิดข้อมูลบางส่วนแก่ผู้ใช้งานท่านอื่นได้ แต่ข้อมูลจะยังสามารถเข้าถึงได้โดยเจ้าหน้าที่ภาควิชาวิศวกรรมคอมพิวเตอร์
                 </h5>
-                <hr>
             </div>
            </div>
               <div class="form-group">
-                <div class="col-sm-offset-3 col-sm-9">
+                <div class="col-sm-offset-3 col-sm-9" style = "padding-top:100px">
                   <input type="submit" value="Save Changes"  name ="check_privacy" class="btn btn-lg btn-trans">
                 </div>
-              </div> 
-            </div> 
+              </div>
+            </div>
             <?php echo form_close();?>
-           </div> 
+           </div>
         </div>
     </div>
   </div>
