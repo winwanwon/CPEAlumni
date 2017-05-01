@@ -5,10 +5,45 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 	<div class="container">
 		<nav class="navbar navbar-trans">
-			<div class="navbar-header">
+			<div class="hidden-xs navbar-header">
 				<a href="<?php echo base_url(); ?>"><span class="navbar-brand-bold">CPE</span> <span class="navbar-brand-light">Alumni</span></a>
 			</div>
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+			<div class="visible-xs text-center navbar-header">
+				<a href="<?php echo base_url(); ?>"><span class="navbar-brand-bold">CPE</span> <span class="navbar-brand-light">Alumni</span></a>
+			</div>
+			
+			<div class="visible-xs text-center">	
+				<?php if ($current_page == "" || $current_page == "register"):?>
+					
+				<?php elseif($current_page == "login"): ?>
+				<?php else: ?>
+				<?php
+					$username = $this->session->username;
+					if(!$username){
+						redirect('/');
+					}
+				?>
+				<ul class="nav navbar-nav" id="mobile-menu">
+					<div class="col-xs-2 col-xs-offset-1">
+						<a href="<?php echo base_url();?>directory"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+					</div>
+					<div class="col-xs-2">
+						<a href="<?php echo base_url();?>profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>
+					</div>
+					<div class="col-xs-2">
+						<a href="<?php echo base_url();?>work"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span></a>
+					</div>
+					<div class="col-xs-2">
+						<a href="<?php echo base_url();?>setting"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span></a>
+					</div>
+					<div class="col-xs-2">
+						<a href="<?php echo base_url();?>logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span></a>
+					</div>
+				</ul>
+				<?php endif; ?>
+
+			</div>
+			<div class="collapse navbar-collapse">
 
 				<ul class="nav navbar-nav navbar-right">
 					<?php if ($current_page == "" || $current_page == "register"):?>

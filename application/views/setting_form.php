@@ -10,13 +10,18 @@
 </style>
 <div class="container">
   <div class="row">
-    <div class="tabbable tabs-left ">
-      <div class="col-md-3 ">
+    <div class="tabbable tabs-left">
+      <div class="col-md-3 hidden-xs">
             <br>
             <ul class="nav nav-pills nav-stacked" >
                 <li class="active size"><a href="#a" data-toggle="tab">Password</span></a></li>
                 <li class="size"><a href="#b" data-toggle="tab">Privacy</a></li>
             </ul>
+      </div>
+      <div class="col-md-3 text-center visible-xs">
+            <br>
+            <a href="#a" class="btn btn-trans btn-sm" data-toggle="tab">Password</span></a>
+            <a href="#b" class="btn btn-trans btn-sm" data-toggle="tab">Privacy</a>
       </div>
       <div class="tab-content col-md-9  verticalLine">
           <div class="tab-pane active " id="a"> <!-- First Tab for password setting-->

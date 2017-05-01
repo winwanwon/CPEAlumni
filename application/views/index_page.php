@@ -11,11 +11,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 }(document, 'script', 'facebook-jssdk'));</script>
 <div class="container">
   <div class="row">
-    <div class="col-md-6">
+    <div class="col-md-6 hidden-xs">
       <h1>News & Information</h1>
       <div class="fb-page" height="400" data-href="https://www.facebook.com/cpe.kmutt" data-tabs="timeline" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="false"><blockquote cite="https://www.facebook.com/cpe.kmutt" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/cpe.kmutt">CPE &#064; KMUTT</a></blockquote></div>
     </div>
-    <div class="col-md-6">
+    <div class="col-md-6" id="registration_index">
       <h1>Registration</h1>
       <?php
       $attr = array("id" => "registerForm");
@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       //<form action="register" class="form-inline">
 
       ?>
-      <div class="form-group">
+      <div class="form-group hidden-xs">
         <div class="form-inline">
           <select name="prefix" class="form-control">
             <option value="Mr">Mr.</option>
@@ -38,6 +38,22 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <input type="text" name="lastname" class="form-control" placeholder="Last Name"value="<?= set_value('lastname')?>">
         </div>
       </div>
+      <div class="form-group visible-xs"> 
+        <select name="prefix" class="form-control">
+            <option value="Mr">Mr.</option>
+            <option value="Ms">Ms.</option>
+            <option value="Mrs">Mrs.</option>
+          </select>
+      </div>
+
+      <div class="form-group visible-xs"> 
+        <input type="text" name="firstname" class="form-control" placeholder="First Name" value="<?= set_value('firstname')?>">
+      </div>
+
+      <div class="form-group visible-xs"> 
+          <input type="text" name="lastname" class="form-control" placeholder="Last Name"value="<?= set_value('lastname')?>">
+      </div>
+
       <div class="form-group">
         <input type="text" name="username" class="form-control" placeholder="Username" value="<?= set_value('username')?>">
       </div>

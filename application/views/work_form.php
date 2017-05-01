@@ -19,7 +19,7 @@
 
       $count=1;
       foreach($career_show as $row){
-        echo "<div class='col-md-6 '>
+        echo "<div class='col-md-6'>
                 <div class='panel panel-default'>
                   <div class='panel-heading'>".$count.
                    "<span class='pull-right'>";
@@ -58,7 +58,8 @@
   </div>
 
       <div class="row">
-        <?php
+        <div class="col-xs-12">
+          <?php
         $attr = array("class" => "form-horizontal");
         echo form_open('work', $attr);
         ?>
@@ -98,7 +99,7 @@
             <input type="submit" class="btn btn-lg btn-trans" value="Add Workplace">
           </div>
         </div>
+
+        <?php echo form_close(); ?>
       </div>
-    </div>
-  </form>
 </div>

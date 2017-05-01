@@ -10,6 +10,7 @@ class Directory_page extends CI_Controller {
 		$this->load->model('directory_model');
 		$this->load->model('work_model');
 		$this->load->helper('url_helper');
+		$this->load->library('user_agent');
 	}
 
 
@@ -119,7 +120,11 @@ class Directory_page extends CI_Controller {
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
-		$this->load->view('directory', $data);
+		if($this->agent->is_mobile()){
+			$this->load->view('directory_mobile', $data);
+		} else {
+			$this->load->view('directory', $data);
+		}
 		$this->load->view('footer');
 	}
 

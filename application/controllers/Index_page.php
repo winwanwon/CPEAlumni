@@ -10,6 +10,7 @@ class Index_page extends CI_Controller {
 		$this->load->model('index_model');
 		$this->load->helper('url_helper');
 		$this->load->helper('html');
+		$this->load->library('user_agent');
 	}
 
 	public function index()
@@ -19,10 +20,15 @@ class Index_page extends CI_Controller {
 		if($username){
 			redirect('directory');
 		}
+		
 		$data["error"] = "";
 		$data["current_page"] = $this->uri->segment(1);
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+
+		if($this->agent->is_mobile()){
+			redirect('login');
+		}
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
