@@ -27,7 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       //<form action="register" class="form-inline">
 
       ?>
-      <div class="form-group hidden-xs">
+      <div class="form-group">
         <div class="form-inline">
           <select name="prefix" class="form-control">
             <option value="Mr">Mr.</option>
@@ -37,21 +37,6 @@ defined('BASEPATH') OR exit('No direct script access allowed');
           <input type="text" name="firstname" class="form-control" placeholder="First Name" value="<?= set_value('firstname')?>">
           <input type="text" name="lastname" class="form-control" placeholder="Last Name"value="<?= set_value('lastname')?>">
         </div>
-      </div>
-      <div class="form-group visible-xs"> 
-        <select name="prefix" class="form-control">
-            <option value="Mr">Mr.</option>
-            <option value="Ms">Ms.</option>
-            <option value="Mrs">Mrs.</option>
-          </select>
-      </div>
-
-      <div class="form-group visible-xs"> 
-        <input type="text" name="firstname" class="form-control" placeholder="First Name" value="<?= set_value('firstname')?>">
-      </div>
-
-      <div class="form-group visible-xs"> 
-          <input type="text" name="lastname" class="form-control" placeholder="Last Name"value="<?= set_value('lastname')?>">
       </div>
 
       <div class="form-group">
