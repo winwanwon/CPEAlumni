@@ -40,7 +40,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
       </div>
 
       <div class="form-group">
-        <input type="text" name="username" class="form-control" placeholder="Username" value="<?= set_value('username')?>">
+        <input type="text" name="username" id="username" class="form-control" placeholder="Username" value="<?= set_value('username')?>">
       </div>
       <div class="form-group">
         <input type="password" minlength="8" maxlength="32" name="password" class="form-control" placeholder="Password" value="">
