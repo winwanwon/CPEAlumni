@@ -184,16 +184,6 @@ body {
   background: rgba(0,0,0,0.9);
 }
 
-@media screen and (max-width:768px){
-  .navbar-trans {
-    padding: 15px 0 8px 0;
-  }
-
-  .dir-avatar {
-     width: 20vw; 
-     height: 20vw;
-  } 
-}
 
 .panel-default{
  background: rgba(0,0,0,0.4) !important; 
@@ -226,4 +216,30 @@ color:white;
   position: relative;
   top:-6px;
   right: -10px;
+}
+
+.size{
+  font-size:large;
+}
+
+.verticalLine {
+  border-left: thin solid #ffffff;
+  height :350px;
+}
+
+
+@media screen and (max-width:768px){
+  .navbar-trans {
+    padding: 15px 0 8px 0;
+  }
+
+  .dir-avatar {
+     width: 20vw; 
+     height: 20vw;
+  } 
+
+  .verticalLine {
+    border-left: none !important;
+    height: 0;
+  }
 }
