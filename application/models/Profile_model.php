@@ -74,6 +74,24 @@ class Profile_model extends CI_Model {
       $programme = $this->input->post('program');
     }
 
+    if($this->input->post('highschool') == NULL){
+      $highschool = "";
+    } else {
+      $highschool = $this->input->post('highschool');
+    }
+
+    if($this->input->post('highschool_gpax') == NULL){
+      $highschool_gpax = "";
+    } else {
+      $highschool_gpax = $this->input->post('highschool_gpax');
+    }
+
+    if($this->input->post('admission_program') == NULL){
+      $admission_program = "";
+    } else {
+      $admission_program = $this->input->post('admission_program');
+    }
+
     if($picture==""){
       $data = array(
         'fName' => html_escape($this->input->post('firstname')),
@@ -89,7 +107,10 @@ class Profile_model extends CI_Model {
         'generation' => html_escape($generation),
         'programme' => html_escape($programme),
         'master' => html_escape($master),
-        'doctoral' => html_escape($doctoral)
+        'doctoral' => html_escape($doctoral),
+        'highSchool' => html_escape($highschool),
+        'highSchoolGPAX' => html_escape($highschool_gpax),
+        'admissionProgram' => html_escape($admission_program)
       );
     } else {
       $data = array(
@@ -107,7 +128,10 @@ class Profile_model extends CI_Model {
         'generation' => html_escape($generation),
         'programme' => html_escape($programme),
         'master' => html_escape($master),
-        'doctoral' => html_escape($doctoral)
+        'doctoral' => html_escape($doctoral),
+        'highSchool' => html_escape($highschool),
+        'highSchoolGPAX' => html_escape($highschool_gpax),
+        'admissionProgram' => html_escape($admission_program)
       );
     }
 

@@ -146,6 +146,25 @@
               </div>
             </div>
           </div>
+
+          <div class="form-group">
+            <label class="col-sm-3 control-label">High School</label>
+            <div class="col-sm-9">
+              <input name="highschool" type="text" class="form-control" value="<?php echo $content[0]['highSchool']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">High School GPAX</label>
+            <div class="col-sm-9">
+              <input name="highschool_gpax" type="text" class="form-control" value="<?php if($content[0]['highSchoolGPAX']!=0)  echo $content[0]['highSchoolGPAX']; ?>">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="col-sm-3 control-label">Admission Program</label>
+            <div class="col-sm-9">
+              <input name="admission_program" type="text" class="form-control" value="<?php echo $content[0]['admissionProgram']; ?>">
+            </div>
+          </div>
         <?php endif; ?>
         <hr>
         <div class="form-group">
