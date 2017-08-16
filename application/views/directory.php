@@ -14,7 +14,7 @@
 					<input type="text" name="name" class="form-control input-sm" placeholder="Name" value="<?php if(isset($name_filter)) echo $name_filter; ?>">
 				</div>
 				<div class="form-group">
-					<label>Generation</label>
+					<label>Cohort</label>
 					<input type="number" name="generation" id="generation_input" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
 		</div>
 		<div class="form-group ui-widget">
