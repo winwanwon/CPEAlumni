@@ -56,9 +56,6 @@ class Index_page extends CI_Controller {
 			$login_success = $this->index_model->login();
 
 			if($login_success == TRUE){
-				if($login_success=="admin"){
-					redirect('admin');
-				}
 				$userdata = array(
 					"username" => $this->input->post("username"),
 					"name" => $login_success

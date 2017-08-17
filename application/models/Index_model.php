@@ -18,11 +18,7 @@ class Index_model extends CI_Model {
           }
 
           if (sha1($this->input->post('password')) == $password){
-            if($row["permission"]=="admin"){
-              return "admin";
-            } else {
-              return $name;
-            }
+            return $name;
           }
           else {
             return FALSE;
