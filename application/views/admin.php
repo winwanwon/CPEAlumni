@@ -2,7 +2,6 @@
 
 <body>
 	<div class="container">
-		<div class="row">
 		<div class="col-md-3">
 			<h2>Search by..</h2>
         <?php
@@ -16,7 +15,7 @@
 				<div class="form-group">
 					<label>Cohort</label>
 					<input type="number" name="generation" id="generation_input" class="form-control input-sm" value="<?php if(isset($generation_filter)) echo $generation_filter; ?>">
-		</div>
+				</div>
 		<div class="form-group ui-widget">
 			<label>Interests</label>
 			<input id = "automplete-1" name="interests" class="form-control input-sm" placeholder="Find by interests e.g. Big Data, Football, etc." value="<?php if(isset($interests_filter))  echo $interests_filter; ?>">
@@ -60,13 +59,56 @@
 		<div class="form-group">
 			<input type="submit" class="btn btn-block btn-trans" value="Search">
 		</div>
+		</div>
 	<?php echo form_close();?>
+	<!-- display student list -->
+	<div class = "col-md-9">
+	<br>
+		<table class = "table">
+		<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Course</th> 
+			<th>Program</th>
+			<th>Cohort</th>
+			
+			<th> </th>
+		</tr>
+		<?php
+			foreach ($students as $student){
+				echo '<tr>';
+					echo '<td>'.$student["fname"].'</td>'.'<td>'.$student["lname"].'</td>';
+					echo '<td>';
+					if($student["doctoral"]!=0){
+						echo "Doctoral Degree";
+					} else if($student["master"]!=0){
+						echo "Master Degree";
+					} else{
+						echo "Bachelor Degree";
+					}
+					echo '</td>';
+					//echo '<td>'.$student["programme"].'</td>';
+					echo '<td>';
+					if($student["programme"]=='REG'){
+						echo "Regular";
+					}
+					else if($student["programme"]=='INT'){
+						echo "International";
+					}
+					echo '</td>';
+					echo '<td>';
+					if($student["generation"]!=0){
+						echo "CPE#".$student["generation"];
+					}
+					echo '</td>';
+				echo '</tr>';
+			}
+		?>
+		</table>
+	</div>
 </div>
 
 
 </body>
-
-
-
 
 </html>
