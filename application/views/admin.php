@@ -71,6 +71,7 @@
 			<th>Course</th> 
 			<th>Program</th>
 			<th>Cohort</th>
+			<th class = "text-center">Edit/Delete</th>
 			
 			<th> </th>
 		</tr>
@@ -87,7 +88,6 @@
 						echo "Bachelor Degree";
 					}
 					echo '</td>';
-					//echo '<td>'.$student["programme"].'</td>';
 					echo '<td>';
 					if($student["programme"]=='REG'){
 						echo "Regular";
@@ -101,6 +101,10 @@
 						echo "CPE#".$student["generation"];
 					}
 					echo '</td>';
+					
+					echo '<td>';
+						echo '<a class="btn btn-primary btn-xs" href="<?php echo base_url();?>profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit</a>';
+					echo '<td>';
 				echo '</tr>';
 			}
 		?>
