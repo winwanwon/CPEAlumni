@@ -102,9 +102,10 @@
 					}
 					echo '</td>';
 					
-					echo '<td>';
-						echo '<a class="btn btn-primary btn-xs" href="<?php echo base_url();?>profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit</a>';
-					echo '<td>';
+					echo '<td class = "text-center">';
+						echo '<a class="btn btn-primary btn-xs" href="<?php echo base_url();?>profile"> Edit</a> ';
+						echo '<a class="btn btn-danger btn-xs" href="<?php echo base_url();?>profile"> Delete</a>';
+					echo '</td>';
 				echo '</tr>';
 			}
 		?>
