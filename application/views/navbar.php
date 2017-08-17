@@ -22,6 +22,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if(!$username){
 						redirect('/');
 					}
+
 				?>
 				<ul class="nav navbar-nav" id="mobile-menu">
 					<div class="col-xs-2 col-xs-offset-1">
@@ -73,10 +74,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 							<?php echo $name; ?> <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
+
+						<?php if($name!="admin"): ?>
 							<li><a href="<?php echo base_url();?>profile"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Edit Profile</a></li>
 							<li><a href="<?php echo base_url();?>work"><span class="glyphicon glyphicon-briefcase" aria-hidden="true"></span> Edit Work Info</a></li>
 							<li><a href="<?php echo base_url();?>setting"><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Account Setting</a></li>
 							<li role="separator" class="divider"></li>
+						<?php endif; ?>
 							<li><a href="<?php echo base_url();?>logout"><span class="glyphicon glyphicon-log-out" aria-hidden="true"></span> Log out</a></li>
 						</ul>
 					</li>
