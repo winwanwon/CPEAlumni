@@ -16,6 +16,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php if ($current_page == "" || $current_page == "register"):?>
 					
 				<?php elseif($current_page == "login"): ?>
+				<?php elseif($current_page == "admin"): ?>
+				<?php
+					$username = $this->session->username;
+					if($name!="admin"){
+						redirect('/');
+					}
+				?>
 				<?php else: ?>
 				<?php
 					$username = $this->session->username;

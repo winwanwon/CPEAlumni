@@ -282,7 +282,7 @@ class Directory_page extends CI_Controller {
 
 		$this->load->view('header');
 		$this->load->view('navbar', $data);
-		$this->load->view('directory', $data);
+		$this->load->view('admin', $data);
 		$this->load->view('footer');
 	}
 }
