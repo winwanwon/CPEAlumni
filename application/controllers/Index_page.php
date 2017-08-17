@@ -61,6 +61,9 @@ class Index_page extends CI_Controller {
 					"name" => $login_success
 				);
 				$this->session->set_userdata($userdata);
+				if($login_success == "admin"){
+					redirect('admin');
+				}
 				redirect('directory');
 			} else {
 				$data["error"] = "ชื่อผู้ใช้งาน และ/หรือ รหัสผ่าน ไม่ถูกต้อง";
