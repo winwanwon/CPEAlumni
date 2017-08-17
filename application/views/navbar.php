@@ -29,6 +29,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					if(!$username){
 						redirect('/');
 					}
+					if($name=="admin"){
+						redirect('admin');
+					}
 
 				?>
 				<ul class="nav navbar-nav" id="mobile-menu">
@@ -78,7 +81,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				?>
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-							<?php echo $name; ?> <span class="caret"></span>
+						<?php if($name!="admin"): echo $name; else:?> 
+							<span class="label label-warning">Logged in as admin</span>
+						<?php endif;?> <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">
 
