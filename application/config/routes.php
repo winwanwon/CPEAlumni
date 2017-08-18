@@ -56,9 +56,11 @@ $route['logout'] = 'index_page/logout';
 $route['profile'] = 'profile_page';
 $route['work'] = 'work_page';
 $route['setting'] = 'setting_page';
+
 $route['admin'] = 'directory_page/admin';
 $route['admin/delete/(:any)'] = 'profile_page/deleteUser/$1';
-$route['admin/edit/(:any)'] = 'profile_page/edit/$1';
+$route['admin/profile/(:any)'] = 'profile_page/edit/$1';
+$route['admin/work/(:any)'] = 'work_page/edit/$1';
 
 $route['directory'] = 'directory_page';
 $route['getuser/(:any)'] = 'directory_page/getuser/$1';

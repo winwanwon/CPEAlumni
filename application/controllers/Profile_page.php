@@ -119,6 +119,9 @@ class Profile_page extends CI_Controller {
 		$name = $this->session->name;
 		if($name=="admin"){
 			$this->profile_model->delete($slug);
+			redirect('admin');
+		} else {
+			redirect('/');
 		}
 	}
 

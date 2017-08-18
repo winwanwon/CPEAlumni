@@ -20,7 +20,7 @@
       <!--- ใส่ Form ใต้บรรทัดนี้ -->
       <?php
       $attr = array("class" => "form-horizontal");
-      echo form_open_multipart('admin/edit/'.$username , $attr);
+      echo form_open_multipart('admin/profile/'.$username , $attr);
       ?>
       <div class="form-horizontal">
         <div class="form-group">

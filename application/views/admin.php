@@ -71,7 +71,7 @@
 			<th>Course</th> 
 			<th>Program</th>
 			<th>Cohort</th>
-			<th class = "text-center">Edit/Delete</th>
+			<th class = "text-center">View/Edit/Delete</th>
 			
 			<th> </th>
 		</tr>
@@ -103,8 +103,9 @@
 					echo '</td>';
 					
 					echo '<td class = "text-center">';
-						echo '<a class="btn btn-primary btn-xs" href="'.base_url().'admin/edit/'.$student["username"].'"> Edit</a> ';
-						echo '<a class="btn btn-danger btn-xs" href="'.base_url().'profile/delete"> Delete</a>';
+						echo '<a class="btn btn-primary btn-xs" href="'.base_url().'admin/profile/'.$student["username"].'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Profile</a> ';
+						echo '<a class="btn btn-info btn-xs" href="'.base_url().'admin/work/'.$student["username"].'"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span> Work</a> ';
+						echo '<a class="btn btn-danger btn-xs" href="'.base_url().'admin/delete/'.$student["username"].'" onclick="return confirm(\'Delete '.$student["fname"].' '.$student["lname"].' (user: '.$student["username"].') ?\')"><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></a>';
 					echo '</td>';
 				echo '</tr>';
 			}
