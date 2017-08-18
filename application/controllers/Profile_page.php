@@ -6,6 +6,7 @@ class Profile_page extends CI_Controller {
 	public function __construct()
 	{
 		parent::__construct();
+		$this->load->model('directory_model');
 		$this->load->model('profile_model');
 		$this->load->model('index_model');
 		$this->load->helper('url_helper');
@@ -118,7 +119,7 @@ class Profile_page extends CI_Controller {
 		$this->load->library('session');
 		$name = $this->session->name;
 		if($name=="admin"){
-			$this->profile_model->delete($slug);
+			$this->directory_model->deletestudent($slug);
 			redirect('admin');
 		} else {
 			redirect('/');
