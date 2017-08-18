@@ -72,4 +72,10 @@ class Directory_model extends CI_Model {
           $query = $this->db->get();
           return $query->result_array();
         }
+
+         //ลบนักเรียน 
+         public function deletestudent($username){ 
+          $this->db->where('username', $username); 
+          $this->db->delete('student'); 
+        } 
 }
