@@ -19,6 +19,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php elseif($current_page == "admin"): ?>
 				<?php
 					$username = $this->session->username;
+					$name = $this->session->name;
 					if($name!="admin"){
 						redirect('/');
 					}
@@ -26,6 +27,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php else: ?>
 				<?php
 					$username = $this->session->username;
+					$name = $this->session->name;
 					if(!$username){
 						redirect('/');
 					}
@@ -82,7 +84,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
 						<?php if($name!="admin"): echo $name; else:?> 
-							<span class="label label-warning">Logged in as admin</span>
+							<span class="label label-warning" style="font-size: 11.8px;">Logged in as admin</span>
 						<?php endif;?> <span class="caret"></span>
 						</a>
 						<ul class="dropdown-menu">

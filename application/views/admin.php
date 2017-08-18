@@ -103,8 +103,8 @@
 					echo '</td>';
 					
 					echo '<td class = "text-center">';
-						echo '<a class="btn btn-primary btn-xs" href="<?php echo base_url();?>profile"> Edit</a> ';
-						echo '<a class="btn btn-danger btn-xs" href="<?php echo base_url();?>profile"> Delete</a>';
+						echo '<a class="btn btn-primary btn-xs" href="'.base_url().'admin/edit/'.$student["username"].'"> Edit</a> ';
+						echo '<a class="btn btn-danger btn-xs" href="'.base_url().'profile/delete"> Delete</a>';
 					echo '</td>';
 				echo '</tr>';
 			}
