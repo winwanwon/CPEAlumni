@@ -95,7 +95,7 @@ $("#undergraduate").click( function(){
 $("#gen_login").keyup( function(){
   if($("#gen_login").val() < 1)
     {
-      $("#gen_login").val(1)
+      $("#gen_login").val("")
     }
     else if($("#gen_login").val() > 99)
     {
@@ -111,7 +111,7 @@ $("#gen_login").keyup( function(){
 $("#yoe_under").keyup( function(){
   if(($("#yoe_under").val() < 2530) && ($("#yoe_under").length == 4))
     {
-      $("#yoe_under").val(2530)
+      $("#yoe_under").val("")
     }
     else if($("#yoe_under").val() > 2628)
     {

@@ -27,7 +27,7 @@ a:hover {
 }
 
 body {
-  background: url('http://www.winwanwon.in.th/BGwOverlay.jpg') center center;
+  background: url('http://localhost/CPEAlumni/assets/css/img/bg.jpg') center center;
   background-attachment: fixed;
   background-size: cover;
 }
