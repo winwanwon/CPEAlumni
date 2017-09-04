@@ -156,7 +156,7 @@
           <div class="form-group">
             <label class="col-sm-3 control-label">High School GPAX</label>
             <div class="col-sm-9">
-              <input name="highschool_gpax" type="text" class="form-control" value="<?php if($content[0]['highSchoolGPAX']!=0)  echo $content[0]['highSchoolGPAX']; ?>">
+              <input name="highschool_gpax" type="number" step = 0.01 min = "0.00" max = "4.00" class="form-control"  value="<?php if($content[0]['highSchoolGPAX']!=0)  echo $content[0]['highSchoolGPAX']; ?>">
             </div>
           </div>
           <div class="form-group">

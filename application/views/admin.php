@@ -6,7 +6,7 @@
 			<h2>Search by..</h2>
         <?php
         $attr = array();
-        echo form_open('directory', $attr);
+        echo form_open('admin', $attr);
         ?>
 				<div class="form-group">
 					<label>Name</label>
