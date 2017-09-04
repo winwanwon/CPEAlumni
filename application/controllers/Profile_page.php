@@ -31,9 +31,9 @@ class Profile_page extends CI_Controller {
 
 		$config['upload_path']          = '././uploads/';
 		$config['allowed_types']        = 'gif|jpg|png';
-		$config['max_size']             = 3000;
-		$config['max_width']            = 3000;
-		$config['max_height']           = 3000;
+		$config['max_size']             = 10000;
+		$config['max_width']            = 5000;
+		$config['max_height']           = 5000;
 		$this->load->library('upload', $config);
 		$this->upload->initialize($config);
 
