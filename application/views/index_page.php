@@ -76,7 +76,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group" style="margin: 5px auto;">
             <div class="form-inline">
               <label>Cohort</label>
-            <input name="generation" id="gen_login" type="text" class="form-control" placeholder="Cohort (e.g. 28)" min="1" max ="99" value="<?= set_value('generation')?>">
+            <input name="generation" id="gen_login" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="Cohort (e.g. 28)" min="1" value="<?= set_value('generation')?>">
             <select name="program" class="form-control">
               <option value="REG">Regular Program</option>
               <option value="INT">International Program</option>
@@ -86,7 +86,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <div class="form-group" style="margin: 5px auto;">
           <div class="form-inline">
             <label>Bachelor degree's year of enrollment</label>
-            <input name="yoe_under" id="yoe_under" type="text" class="form-control" placeholder="B.E. Year (e.g. 2560)"   maxlength="4" min="2530" value="<?= set_value('yoe_under')?>">
+            <input name="yoe_under" id="yoe_under" type="text" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" placeholder="B.E. Year (e.g. 2560)"   maxlength="4" min="2530" value="<?= set_value('yoe_under')?>">
           </div>
         </div>
       </div>

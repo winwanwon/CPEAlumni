@@ -93,32 +93,38 @@ $("#undergraduate").click( function(){
 
 //Cal year from generation
 $("#gen_login").keyup( function(){
-  if($("#gen_login").val() < 1)
+    if($("#gen_login").val() == "")
     {
-      $("#gen_login").val("")
+      $("#yoe_under").val("")
     }
     else if($("#gen_login").val() > 99)
     {
       $("#gen_login").val(99)
     }
-
+    else
+    {
     var year = parseInt($("#gen_login").val())+parseInt(2529)
     $("#yoe_under").val(year)
+    }
 
 })
 
 //Cal generation from year
 $("#yoe_under").keyup( function(){
-  if(($("#yoe_under").val() < 2530) && ($("#yoe_under").length == 4))
+    if ($("#yoe_under").val() < 2530)
     {
-      $("#yoe_under").val("")
+      $("#gen_login").val("")
     }
     else if($("#yoe_under").val() > 2628)
     {
       $("#yoe_under").val(2628)
     }
-    var gen = parseInt($("#yoe_under").val())-parseInt(2529)
-    $("#gen_login").val(gen)
+    else
+    {
+      var gen = parseInt($("#yoe_under").val())-parseInt(2529)
+      $("#gen_login").val(gen)
+    }
+  
 
 })
 
