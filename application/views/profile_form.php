@@ -455,6 +455,7 @@
         <label class="col-sm-3 control-label">Interests</label>
         <div class="col-sm-9">
           <input type="text" id="interests" name="interests" class="form-control" data-role="tagsinput" value="<?php echo $interests; ?>">
+          <p>Use "Enter" or "," to separate each interest</p>
         </div>
       </div>
       <!-- div class="form-group">
