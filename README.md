@@ -2,7 +2,7 @@
 CPE Alumni is an web application which is developed for storing data of student at computer engineering department, King Mongkut's University of Technology Thonburi.
 
 ## Tools and Technologies
- - Laravel 5
+ - CodeIgnitor
  - MySQL
  - jQuery
 
